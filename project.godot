@@ -19,12 +19,15 @@ config/icon="res://assets/icon.svg"
 
 window/size/viewport_width=1000
 window/size/viewport_height=600
+mouse_cursor/custom_image="res://assets/wand_cursor.png"
 
 [file_customization]
 
 folder_colors={
 "res://assets/": "red",
 "res://models/": "orange",
+"res://rooms/": "purple",
 "res://rune_crafter/": "purple",
-"res://runes/": "yellow"
+"res://runes/": "yellow",
+"res://scroll/": "purple"
 }
