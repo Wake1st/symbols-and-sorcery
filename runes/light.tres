@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="RuneData" load_steps=3 format=3 uid="uid://w6vsskx2r1hr"]
+
+[ext_resource type="Script" path="res://models/rune_data.gd" id="1_wptx8"]
+[ext_resource type="Texture2D" uid="uid://rmxrrotwi1p5" path="res://assets/light.svg" id="2_s4xnr"]
+
+[resource]
+script = ExtResource("1_wptx8")
+name = "light"
+texture = ExtResource("2_s4xnr")
+properties = Array[String](["light"])

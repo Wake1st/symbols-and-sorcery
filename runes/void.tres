@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="RuneData" load_steps=3 format=3 uid="uid://dyfxg17om5wcb"]
+
+[ext_resource type="Script" path="res://models/rune_data.gd" id="1_u3yvb"]
+[ext_resource type="Texture2D" uid="uid://syriwqpd45bx" path="res://assets/void.svg" id="2_pjjyy"]
+
+[resource]
+script = ExtResource("1_u3yvb")
+name = "void"
+texture = ExtResource("2_pjjyy")
+properties = Array[String](["empty", "darkness", "remove"])

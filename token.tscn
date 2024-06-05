@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dv5ml44dog2gv"]
+
+[ext_resource type="Texture2D" uid="uid://cflq4dyr210fm" path="res://assets/token.png" id="1_kk0ar"]
+
+[node name="token" type="Sprite2D"]
+texture_filter = 1
+texture = ExtResource("1_kk0ar")

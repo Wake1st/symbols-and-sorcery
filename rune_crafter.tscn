@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://5lk33t613o43"]
+
+[ext_resource type="PackedScene" uid="uid://dv5ml44dog2gv" path="res://token.tscn" id="1_o51h0"]
+[ext_resource type="Script" path="res://rune_crafter.gd" id="1_qj48y"]
+[ext_resource type="PackedScene" uid="uid://dpalgdpx6u5cr" path="res://rune_holder.tscn" id="2_vkt07"]
+[ext_resource type="Resource" uid="uid://w6vsskx2r1hr" path="res://runes/light.tres" id="4_aedkf"]
+[ext_resource type="Resource" uid="uid://dyfxg17om5wcb" path="res://runes/void.tres" id="5_yl3re"]
+
+[node name="rune-crafter" type="Node"]
+script = ExtResource("1_qj48y")
+
+[node name="UIRoot" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="UIRoot"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.164706, 0.298039, 1)
+
+[node name="RuneHolder" parent="UIRoot" instance=ExtResource("2_vkt07")]
+unique_name_in_owner = true
+layout_mode = 1
+runes = Array[Resource("res://models/rune_data.gd")]([ExtResource("4_aedkf"), ExtResource("5_yl3re")])
+
+[node name="2DRoot" type="Node2D" parent="."]
+
+[node name="token" parent="2DRoot" instance=ExtResource("1_o51h0")]
+position = Vector2(500, 300)
+scale = Vector2(3, 3)
