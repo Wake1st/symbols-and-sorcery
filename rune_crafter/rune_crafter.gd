@@ -25,3 +25,6 @@ func _input(event):
 			engraving.name = "Engraving -%s-" % selectedData.name
 			engraving.texture = selectedData.engraving_texture
 			engraving.global_position = selectedRune.global_position
+		elif mouse_event.button_index == MOUSE_BUTTON_RIGHT && selectedData != null:
+			selectedData = null
+			selectedRune.texture = null
