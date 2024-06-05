@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://bd2osptl071da"]
+
+[ext_resource type="PackedScene" uid="uid://dqrhktxukv0aj" path="res://scroll/scroll.tscn" id="1_dr2h3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yn6li"]
+albedo_color = Color(0.0196078, 0.0313726, 0.0392157, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_utkk6"]
+material = SubResource("StandardMaterial3D_yn6li")
+size = Vector2(6, 6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uju3m"]
+albedo_color = Color(0.309804, 0.156863, 0.0352941, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2tmrb"]
+material = SubResource("StandardMaterial3D_uju3m")
+size = Vector3(2, 3, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6epur"]
+albedo_color = Color(0.168627, 0.352941, 0.545098, 1)
+roughness = 0.43
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_s22qy"]
+material = SubResource("StandardMaterial3D_6epur")
+height = 1.0
+
+[node name="LightRoom" type="Node3D"]
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_utkk6")
+
+[node name="Door" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.47254, -3)
+mesh = SubResource("BoxMesh_2tmrb")
+
+[node name="Pillar" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.485486, 0)
+mesh = SubResource("CylinderMesh_s22qy")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 2)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+light_color = Color(0.796078, 0.980392, 0.596078, 1)
+omni_attenuation = 0.138696
+
+[node name="Scroll" parent="." instance=ExtResource("1_dr2h3")]
+transform = Transform3D(0.2, 0, 0, 0, 0.0517638, 0.193185, 0, -0.193185, 0.0517638, 0, 1.17964, 0)
