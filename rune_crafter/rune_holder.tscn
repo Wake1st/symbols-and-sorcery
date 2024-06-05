@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dpalgdpx6u5cr"]
 
-[ext_resource type="Script" path="res://rune_holder.gd" id="1_mckt6"]
+[ext_resource type="Script" path="res://rune_crafter/rune_holder.gd" id="1_mckt6"]
 
 [node name="RuneHolder" type="ColorRect"]
 anchors_preset = 9

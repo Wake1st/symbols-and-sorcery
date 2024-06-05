@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://5lk33t613o43"]
+[gd_scene load_steps=7 format=3 uid="uid://5lk33t613o43"]
 
-[ext_resource type="PackedScene" uid="uid://dv5ml44dog2gv" path="res://token.tscn" id="1_o51h0"]
-[ext_resource type="Script" path="res://rune_crafter.gd" id="1_qj48y"]
-[ext_resource type="PackedScene" uid="uid://dpalgdpx6u5cr" path="res://rune_holder.tscn" id="2_vkt07"]
+[ext_resource type="PackedScene" uid="uid://dv5ml44dog2gv" path="res://rune_crafter/token.tscn" id="1_o51h0"]
+[ext_resource type="Script" path="res://rune_crafter/rune_crafter.gd" id="1_qj48y"]
+[ext_resource type="PackedScene" uid="uid://dpalgdpx6u5cr" path="res://rune_crafter/rune_holder.tscn" id="2_vkt07"]
 [ext_resource type="Resource" uid="uid://w6vsskx2r1hr" path="res://runes/light.tres" id="4_aedkf"]
 [ext_resource type="Resource" uid="uid://dyfxg17om5wcb" path="res://runes/void.tres" id="5_yl3re"]
+[ext_resource type="PackedScene" uid="uid://brmovr4dc8tb7" path="res://rune_crafter/selected_rune.tscn" id="6_tbkh7"]
 
 [node name="rune-crafter" type="Node"]
 script = ExtResource("1_qj48y")
@@ -33,6 +34,10 @@ runes = Array[Resource("res://models/rune_data.gd")]([ExtResource("4_aedkf"), Ex
 
 [node name="2DRoot" type="Node2D" parent="."]
 
-[node name="token" parent="2DRoot" instance=ExtResource("1_o51h0")]
+[node name="Token" parent="2DRoot" instance=ExtResource("1_o51h0")]
+unique_name_in_owner = true
 position = Vector2(500, 300)
 scale = Vector2(3, 3)
+
+[node name="SelectedRune" parent="2DRoot" instance=ExtResource("6_tbkh7")]
+unique_name_in_owner = true

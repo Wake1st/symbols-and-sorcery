@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rmxrrotwi1p5"
-path="res://.godot/imported/light.svg-96960376736bec1424c86d4fd25fb2f3.ctex"
+uid="uid://c4of6pd27swe7"
+path="res://.godot/imported/void_rune.svg-efaced4b25d92243bc69f5af30e6bc4a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/light.svg"
-dest_files=["res://.godot/imported/light.svg-96960376736bec1424c86d4fd25fb2f3.ctex"]
+source_file="res://assets/void_rune.svg"
+dest_files=["res://.godot/imported/void_rune.svg-efaced4b25d92243bc69f5af30e6bc4a.ctex"]
 
 [params]
 

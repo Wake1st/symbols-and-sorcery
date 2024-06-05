@@ -1,11 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://bwuh4vbouwffj"]
 
-[ext_resource type="Script" path="res://rune_option.gd" id="1_sgh3y"]
+[ext_resource type="Script" path="res://rune_crafter/rune_option.gd" id="1_8rsgr"]
 
 [node name="RuneOption" type="Button"]
 offset_right = 8.0
 offset_bottom = 8.0
-script = ExtResource("1_sgh3y")
+script = ExtResource("1_8rsgr")
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]
 [connection signal="button_up" from="." to="." method="_on_button_up"]

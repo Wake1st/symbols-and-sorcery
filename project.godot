@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="symbols-and-sorcery"
-run/main_scene="res://rune_crafter.tscn"
+run/main_scene="res://rune_crafter/rune_crafter.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://assets/icon.svg"
 
@@ -25,5 +25,6 @@ window/size/viewport_height=600
 folder_colors={
 "res://assets/": "red",
 "res://models/": "orange",
+"res://rune_crafter/": "purple",
 "res://runes/": "yellow"
 }

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://brmovr4dc8tb7"]
+
+[ext_resource type="Script" path="res://rune_crafter/selected_rune.gd" id="1_fhld2"]
+
+[node name="SelectedRune" type="Sprite2D"]
+texture_filter = 1
+scale = Vector2(3, 3)
+script = ExtResource("1_fhld2")

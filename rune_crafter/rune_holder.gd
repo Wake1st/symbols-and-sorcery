@@ -1,7 +1,7 @@
 extends ColorRect
 
 @onready var runeContainer = %RuneContainer
-@onready var optionScene:PackedScene = preload("res://rune_option.tscn")
+@onready var optionScene:PackedScene = preload("./rune_option.tscn")
 
 @export_category("Rune Holder")
 @export var runes:Array[RuneData]
@@ -18,7 +18,7 @@ func setup(selection_callable:Callable):
 		
 		option.name = "Rune Option -%s-" % rune.name
 		option.runeData = rune
-		option.icon = rune.texture
+		option.icon = rune.rune_texture
 		option.rune_selected.connect(rune_selection_callable)
 		option.rune_selected.connect(handle_option_selection)
 		runeContainer.add_child(option)
