@@ -19,7 +19,6 @@ config/icon="res://assets/icon.svg"
 
 window/size/viewport_width=1000
 window/size/viewport_height=600
-mouse_cursor/custom_image="res://assets/wand_cursor.png"
 
 [file_customization]
 
@@ -29,5 +28,14 @@ folder_colors={
 "res://rooms/": "purple",
 "res://rune_crafter/": "purple",
 "res://runes/": "yellow",
-"res://scroll/": "purple"
+"res://scroll/": "purple",
+"res://tilesets/": "teal"
+}
+
+[input]
+
+use_wand={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":2,"position":Vector2(105, 14),"global_position":Vector2(109, 55),"factor":1.0,"button_index":2,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
 }

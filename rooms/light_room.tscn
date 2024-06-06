@@ -1,20 +1,15 @@
 [gd_scene load_steps=8 format=3 uid="uid://bd2osptl071da"]
 
-[ext_resource type="PackedScene" uid="uid://dqrhktxukv0aj" path="res://scroll/scroll.tscn" id="1_dr2h3"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yn6li"]
-albedo_color = Color(0.0196078, 0.0313726, 0.0392157, 1)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_utkk6"]
-material = SubResource("StandardMaterial3D_yn6li")
-size = Vector2(6, 6)
+[ext_resource type="PackedScene" uid="uid://be8eeq80vf17t" path="res://scroll/scroll.tscn" id="1_dr2h3"]
+[ext_resource type="PackedScene" uid="uid://c078fj3h6hphd" path="res://cursor.tscn" id="1_lt0wb"]
+[ext_resource type="MeshLibrary" uid="uid://bwbsu80ly13cd" path="res://tilesets/dungeon_tileset.tres" id="2_7m75w"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uju3m"]
 albedo_color = Color(0.309804, 0.156863, 0.0352941, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_2tmrb"]
 material = SubResource("StandardMaterial3D_uju3m")
-size = Vector3(2, 3, 0.1)
+size = Vector3(1.37, 1.85, 0.1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6epur"]
 albedo_color = Color(0.168627, 0.352941, 0.545098, 1)
@@ -22,28 +17,36 @@ roughness = 0.43
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_s22qy"]
 material = SubResource("StandardMaterial3D_6epur")
-height = 1.0
+height = 0.62
 
 [node name="LightRoom" type="Node3D"]
 
-[node name="Floor" type="MeshInstance3D" parent="."]
-mesh = SubResource("PlaneMesh_utkk6")
+[node name="Cursor" parent="." instance=ExtResource("1_lt0wb")]
 
 [node name="Door" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.47254, -3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.926669, -3)
 mesh = SubResource("BoxMesh_2tmrb")
 
 [node name="Pillar" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.485486, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.299813, 0)
 mesh = SubResource("CylinderMesh_s22qy")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 2)
+current = true
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.83338, 0)
 light_color = Color(0.796078, 0.980392, 0.596078, 1)
 omni_attenuation = 0.138696
 
 [node name="Scroll" parent="." instance=ExtResource("1_dr2h3")]
-transform = Transform3D(0.2, 0, 0, 0, 0.0517638, 0.193185, 0, -0.193185, 0.0517638, 0, 1.17964, 0)
+transform = Transform3D(0.2, 0, 0, 0, 0.0517638, 0.193185, 0, -0.193185, 0.0517638, 0, 0.789445, 0)
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("2_7m75w")
+cell_size = Vector3(1, 1, 1)
+cell_center_y = false
+data = {
+"cells": PackedInt32Array(0, 0, 655361, 0, 65535, 655361, 65535, 65535, 655361, 65535, 0, 655361, 65534, 1, 655361, 65535, 1, 655361, 0, 1, 655361, 1, 1, 655361, 1, 0, 655361, 1, 65535, 655361, 65534, 65535, 655361, 65534, 0, 655361, 65535, 65534, 655361, 0, 65534, 655361, 1, 65534, 655361, 65534, 65534, 655361, 65534, 65533, 655361, 65535, 65533, 655361, 0, 65533, 655361, 1, 65533, 655361, 2, 65534, 655361, 2, 65535, 655361, 2, 0, 655361, 2, 1, 655361, 1, 2, 655361, 0, 2, 655361, 65535, 2, 655361, 65534, 2, 655361, 65533, 1, 655361, 65533, 0, 655361, 65533, 65535, 655361, 65533, 65534, 655361, 65533, 65533, 655361, 2, 65533, 655361, 2, 2, 655361, 65533, 2, 655361, 4, 0, 655364, 3, 2, 1048576, 3, 1, 1048576, 3, 0, 1048576, 3, 65535, 1048576, 3, 65534, 1048576, 3, 65533, 1048576, 2, 3, 0, 1, 3, 0, 0, 3, 0, 65535, 3, 0, 65534, 3, 0, 65533, 3, 0, 65532, 2, 1441792, 65532, 1, 1441792, 65532, 0, 1441792, 65532, 65535, 1441792, 65532, 65534, 1441792, 65532, 65533, 1441792, 65533, 65532, 655360, 65534, 65532, 655360, 65535, 65532, 655360, 0, 65532, 655360, 1, 65532, 655360, 2, 65532, 655360)
+}

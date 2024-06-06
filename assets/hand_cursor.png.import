@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dt1j0mjllrftr"
-path="res://.godot/imported/wand_cursor.svg-15e2386e59fd9152c9edda2e852105b2.ctex"
+uid="uid://omqti5am824o"
+path="res://.godot/imported/hand_cursor.png-f01cf6e84eea48dbad89f20897ada99f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/wand_cursor.svg"
-dest_files=["res://.godot/imported/wand_cursor.svg-15e2386e59fd9152c9edda2e852105b2.ctex"]
+source_file="res://assets/hand_cursor.png"
+dest_files=["res://.godot/imported/hand_cursor.png-f01cf6e84eea48dbad89f20897ada99f.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false
