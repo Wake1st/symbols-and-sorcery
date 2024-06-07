@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8xaptr321o6k"]
+
+[ext_resource type="Script" path="res://light/light.gd" id="1_4ff2q"]
+
+[sub_resource type="Curve3D" id="Curve3D_85ecw"]
+_data = {
+"points": PackedVector3Array(0, 0.00418621, 0.43442, 0, 0, -0.4, 0, 1, 1.8, 0, -0.25, 0.24, 0, 0.25, -0.24, 0, 1.4, 0.9, 0, 0.001, 0.4, 0, -0.000961065, -0.545312, 0, 1.8, 0),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ntq66"]
+transparency = 1
+albedo_color = Color(0.796078, 0.980392, 0.596078, 0.152941)
+emission_enabled = true
+emission = Color(0.796078, 0.980392, 0.596078, 1)
+emission_energy_multiplier = 12.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_ijgog"]
+material = SubResource("StandardMaterial3D_ntq66")
+radius = 0.04
+height = 0.08
+
+[node name="Light" type="Node3D"]
+script = ExtResource("1_4ff2q")
+
+[node name="Path" type="Path3D" parent="."]
+curve = SubResource("Curve3D_85ecw")
+
+[node name="Follower" type="PathFollow3D" parent="Path"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.999995, 0, 0, 0, 0.999995, 0, 1, 1.8)
+
+[node name="Light" type="OmniLight3D" parent="Path/Follower"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1.00001, 0, 0, 0, 1.00001, 0, 0, 0)
+light_color = Color(0.796078, 0.980392, 0.596078, 1)
+omni_attenuation = 0.138696
+
+[node name="LightOrb" type="MeshInstance3D" parent="Path/Follower"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1.00001, 0, 0, 0, 1.00001, 0, 0, 0)
+mesh = SubResource("SphereMesh_ijgog")
+skeleton = NodePath("../../..")
+
+[node name="TimerOn" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 1.8
+one_shot = true
+
+[node name="TimerOff" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.2
+one_shot = true
+
+[connection signal="timeout" from="TimerOn" to="." method="_on_timer_on_timeout"]
+[connection signal="timeout" from="TimerOff" to="." method="_on_timer_off_timeout"]
