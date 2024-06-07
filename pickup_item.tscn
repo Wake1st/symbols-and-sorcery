@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://ia75mudsvqo4"]
+
+[ext_resource type="Script" path="res://pickup_item.gd" id="1_1dx40"]
+
+[sub_resource type="Curve3D" id="Curve3D_dkka4"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0.8, -0.1, 0, 0.8, 0, 0, 0, -1, 0, 0, 0, 0, 0.8, 2.2),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[node name="PickupItem" type="Node3D"]
+script = ExtResource("1_1dx40")
+
+[node name="Path" type="Path3D" parent="."]
+curve = SubResource("Curve3D_dkka4")
+
+[node name="Follower" type="PathFollow3D" parent="Path"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.187112, -0.982338, 0, 0.982338, 0.187112, 0, 0.8, 0)
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
