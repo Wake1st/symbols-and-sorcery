@@ -4,10 +4,6 @@ const WAND_CURSOR = preload("res://assets/wand_cursor.png")
 const HAND_CURSOR = preload("res://assets/hand_cursor.png")
 
 
-func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-
-
 func _process(_delta):
 	global_position = get_global_mouse_position()
 	

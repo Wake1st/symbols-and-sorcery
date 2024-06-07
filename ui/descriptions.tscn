@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://bqyqmq468rc8f"]
+
+[node name="Descriptions" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 232.0
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+color = Color(0.117647, 0.188235, 0.25098, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="CodeEdit" type="TextEdit" parent="ColorRect/MarginContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+placeholder_text = "You wake in a dark room. You pick up a _WAND_ sitting in your lap.
+
+[Hold RIGHT MOUSE BUTTON to switch to the wand and select LEFT MOUSE BUTTON to use the wand]"
+editable = false
+context_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+wrap_mode = 1
+autowrap_mode = 2

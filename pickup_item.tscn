@@ -17,7 +17,7 @@ curve = SubResource("Curve3D_dkka4")
 
 [node name="Follower" type="PathFollow3D" parent="Path"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 0.187112, -0.982338, 0, 0.982338, 0.187112, 0, 0.8, 0)
+transform = Transform3D(1, 0, 0, 0, 0.124035, -0.992277, 0, 0.992277, 0.124035, 0, 0.8, 0)
 
 [node name="Timer" type="Timer" parent="."]
 unique_name_in_owner = true
