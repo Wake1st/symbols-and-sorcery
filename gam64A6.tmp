@@ -34,7 +34,6 @@ offset_left = 768.0
 offset_bottom = -88.0
 grow_horizontal = 2
 grow_vertical = 2
-stretch = true
 
 [node name="TextViewport" type="SubViewport" parent="TextViewportContainer"]
 handle_input_locally = false
@@ -53,7 +52,6 @@ anchor_bottom = 1.0
 offset_top = 512.0
 grow_horizontal = 2
 grow_vertical = 2
-stretch = true
 
 [node name="InvViewport" type="SubViewport" parent="InvViewportContainer"]
 handle_input_locally = false

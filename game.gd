@@ -7,6 +7,11 @@ extends Node
 
 func _ready() -> void:
 	light_room.item_pickup.connect(inventory.add_item)
+	inventory.setup(handle_item_selection)
+
+
+func handle_item_selection(item:Item):
+	print(item)
 
 
 func _on_game_viewport_container_mouse_entered():

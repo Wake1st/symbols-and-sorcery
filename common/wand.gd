@@ -10,7 +10,7 @@ func spell_finished() -> void:
 	is_casting = false
 
 
-func _process(_delta):
+func _physics_process(_delta):
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT
 	) && Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT
 	) && active_spell == Spells.TYPE.LIGHT && !is_casting:

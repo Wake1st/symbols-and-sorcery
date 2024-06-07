@@ -1,11 +1,11 @@
-[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://272c0o16osws"]
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://i0xl4f7ra83w"]
 
-[ext_resource type="Script" path="res://models/Item.gd" id="1_drj1f"]
-[ext_resource type="Texture2D" uid="uid://ck6kvcpumhe" path="res://assets/scroll.png" id="1_nyk34"]
-[ext_resource type="PackedScene" uid="uid://be8eeq80vf17t" path="res://scroll/scroll.tscn" id="2_davc6"]
+[ext_resource type="Texture2D" uid="uid://ck6kvcpumhe" path="res://assets/scroll.png" id="1_0tt61"]
+[ext_resource type="Script" path="res://models/Item.gd" id="1_82yoa"]
+[ext_resource type="PackedScene" uid="uid://be8eeq80vf17t" path="res://scroll/scroll.tscn" id="2_oqng8"]
 
 [resource]
-script = ExtResource("1_drj1f")
+script = ExtResource("1_82yoa")
 name = "scroll"
-scene = ExtResource("2_davc6")
-image = ExtResource("1_nyk34")
+scene = ExtResource("2_oqng8")
+image = ExtResource("1_0tt61")

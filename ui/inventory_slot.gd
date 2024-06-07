@@ -13,4 +13,7 @@ signal item_selected(item:Item)
 
 
 func _on_gui_input(event):
-	print(event)
+	if event is InputEventMouseButton && (
+		event.button_index == MOUSE_BUTTON_LEFT) && (
+		event.is_released()):
+		item_selected.emit(item)

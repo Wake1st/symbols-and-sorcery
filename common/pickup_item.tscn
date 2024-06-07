@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ia75mudsvqo4"]
 
-[ext_resource type="Script" path="res://pickup_item.gd" id="1_1dx40"]
+[ext_resource type="Script" path="res://common/pickup_item.gd" id="1_1dx40"]
 
 [sub_resource type="Curve3D" id="Curve3D_dkka4"]
 _data = {

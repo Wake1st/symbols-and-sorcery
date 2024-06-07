@@ -24,6 +24,7 @@ window/size/viewport_height=600
 
 folder_colors={
 "res://assets/": "red",
+"res://common/": "purple",
 "res://items/": "yellow",
 "res://light/": "purple",
 "res://models/": "orange",

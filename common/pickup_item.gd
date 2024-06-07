@@ -14,7 +14,7 @@ var picked_up:bool = false
 
 
 func pick_up() -> void:
-	if !picked_up:
+	if !picked_up && !picking_up:
 		picking_up = true
 		timer.start()
 
