@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="RuneData" load_steps=4 format=3 uid="uid://dyfxg17om5wcb"]
 
 [ext_resource type="Texture2D" uid="uid://db5yfspp1rwek" path="res://assets/void_engr.svg" id="1_deq7i"]
-[ext_resource type="Script" path="res://models/rune_data.gd" id="1_u3yvb"]
+[ext_resource type="Script" path="res://models/RuneData.gd" id="1_u3yvb"]
 [ext_resource type="Texture2D" uid="uid://c4of6pd27swe7" path="res://assets/void_rune.svg" id="2_l8o5p"]
 
 [resource]

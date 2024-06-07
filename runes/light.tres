@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="RuneData" load_steps=4 format=3 uid="uid://w6vsskx2r1hr"]
 
-[ext_resource type="Script" path="res://models/rune_data.gd" id="1_wptx8"]
+[ext_resource type="Script" path="res://models/RuneData.gd" id="1_wptx8"]
 [ext_resource type="Texture2D" uid="uid://cidha4f7dxnbp" path="res://assets/light_engr.svg" id="1_ya8yc"]
 [ext_resource type="Texture2D" uid="uid://dk3yu175g4crk" path="res://assets/light_rune.svg" id="2_6ijwp"]
 

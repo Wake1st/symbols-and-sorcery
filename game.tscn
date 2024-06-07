@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://by5yskdawpn07"]
+
+[ext_resource type="Script" path="res://game.gd" id="1_2jxoa"]
+[ext_resource type="PackedScene" uid="uid://bd2osptl071da" path="res://rooms/light_room.tscn" id="2_v5tb6"]
+[ext_resource type="PackedScene" uid="uid://bqyqmq468rc8f" path="res://ui/descriptions.tscn" id="3_h4kny"]
+[ext_resource type="PackedScene" uid="uid://bf3fo2nl0sr0k" path="res://ui/inventory.tscn" id="4_fqnfk"]
+
+[node name="Game" type="Node"]
+script = ExtResource("1_2jxoa")
+
+[node name="GameViewportContainer" type="SubViewportContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -232.0
+offset_bottom = -88.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="GameViewport" type="SubViewport" parent="GameViewportContainer"]
+handle_input_locally = false
+size = Vector2i(768, 512)
+render_target_update_mode = 4
+
+[node name="LightRoom" parent="GameViewportContainer/GameViewport" instance=ExtResource("2_v5tb6")]
+unique_name_in_owner = true
+
+[node name="TextViewportContainer" type="SubViewportContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 768.0
+offset_bottom = -88.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextViewport" type="SubViewport" parent="TextViewportContainer"]
+handle_input_locally = false
+size = Vector2i(232, 512)
+render_target_update_mode = 4
+
+[node name="Descriptions" parent="TextViewportContainer/TextViewport" instance=ExtResource("3_h4kny")]
+unique_name_in_owner = true
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+
+[node name="InvViewportContainer" type="SubViewportContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 512.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InvViewport" type="SubViewport" parent="InvViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1000, 88)
+render_target_update_mode = 4
+
+[node name="Inventory" parent="InvViewportContainer/InvViewport" instance=ExtResource("4_fqnfk")]
+unique_name_in_owner = true
+
+[connection signal="mouse_entered" from="GameViewportContainer" to="." method="_on_game_viewport_container_mouse_entered"]
+[connection signal="mouse_exited" from="GameViewportContainer" to="." method="_on_game_viewport_container_mouse_exited"]

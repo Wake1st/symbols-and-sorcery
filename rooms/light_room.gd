@@ -1,5 +1,7 @@
 extends Node3D
 
+signal item_pickup(item:Item)
+
 @onready var wand = %Wand
 @onready var light = %Light
 @onready var scrollPickup = %ScrollPickup
@@ -20,4 +22,4 @@ func handle_scroll_pickup() -> void:
 	scrollPickup.remove_child(scroll)
 	scroll.queue_free()
 	
-	#	TODO: give scroll to player
+	item_pickup.emit("res://items/Scroll.tres")
