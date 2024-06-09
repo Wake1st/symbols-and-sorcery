@@ -6,22 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://c0ycl65jph6ju" path="res://common/wand.tscn" id="1_pq1el"]
 [ext_resource type="MeshLibrary" uid="uid://bwbsu80ly13cd" path="res://tilesets/dungeon_tileset.tres" id="2_7m75w"]
 [ext_resource type="PackedScene" uid="uid://c8xaptr321o6k" path="res://light/light.tscn" id="2_sek2c"]
+[ext_resource type="PackedScene" uid="uid://b6rkj1tj515u8" path="res://common/door.tscn" id="5_ke3n1"]
 [ext_resource type="PackedScene" uid="uid://ia75mudsvqo4" path="res://common/pickup_item.tscn" id="5_n1bqh"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uju3m"]
-albedo_color = Color(0.309804, 0.156863, 0.0352941, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_2tmrb"]
-material = SubResource("StandardMaterial3D_uju3m")
-size = Vector3(1.37, 1.85, 0.1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6epur"]
-albedo_color = Color(0.168627, 0.352941, 0.545098, 1)
-roughness = 0.43
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_s22qy"]
-material = SubResource("StandardMaterial3D_6epur")
-height = 0.62
+[ext_resource type="PackedScene" uid="uid://dhfax6f0r5sbf" path="res://rooms/fire_room.tscn" id="6_0sog5"]
+[ext_resource type="PackedScene" uid="uid://b5wl1fbu8w4rm" path="res://common/pillar.tscn" id="7_i670n"]
+[ext_resource type="PackedScene" uid="uid://43nacr0s5b4" path="res://common/player_camera.tscn" id="7_q0ecv"]
 
 [sub_resource type="Environment" id="Environment_tr7fj"]
 ambient_light_source = 1
@@ -46,17 +35,15 @@ spellTime = 1.2
 
 [node name="Cursor" parent="." instance=ExtResource("1_lt0wb")]
 
-[node name="Door" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.926669, -3)
-mesh = SubResource("BoxMesh_2tmrb")
+[node name="NorthDoor" parent="." instance=ExtResource("5_ke3n1")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+connecting_room = ExtResource("6_0sog5")
 
-[node name="Pillar" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.299813, 0)
-mesh = SubResource("CylinderMesh_s22qy")
+[node name="Pillar" parent="." instance=ExtResource("7_i670n")]
 
-[node name="PlayerCamera" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 2.4)
-current = true
+[node name="PlayerCamera" parent="." instance=ExtResource("7_q0ecv")]
+unique_name_in_owner = true
 
 [node name="ScrollPickup" parent="." node_paths=PackedStringArray("item") instance=ExtResource("5_n1bqh")]
 unique_name_in_owner = true

@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://by5yskdawpn07"]
+[gd_scene load_steps=7 format=3 uid="uid://by5yskdawpn07"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_2jxoa"]
+[ext_resource type="PackedScene" uid="uid://43nacr0s5b4" path="res://common/player_camera.tscn" id="2_rda4s"]
 [ext_resource type="PackedScene" uid="uid://bd2osptl071da" path="res://rooms/light_room.tscn" id="2_v5tb6"]
 [ext_resource type="PackedScene" uid="uid://bqyqmq468rc8f" path="res://ui/descriptions.tscn" id="3_h4kny"]
+[ext_resource type="PackedScene" uid="uid://dhfax6f0r5sbf" path="res://rooms/fire_room.tscn" id="3_jb4ou"]
 [ext_resource type="PackedScene" uid="uid://bf3fo2nl0sr0k" path="res://ui/inventory.tscn" id="4_fqnfk"]
 
 [node name="Game" type="Node"]
@@ -23,8 +25,13 @@ handle_input_locally = false
 size = Vector2i(768, 512)
 render_target_update_mode = 4
 
-[node name="LightRoom" parent="GameViewportContainer/GameViewport" instance=ExtResource("2_v5tb6")]
+[node name="PlayerCamera" parent="GameViewportContainer/GameViewport" instance=ExtResource("2_rda4s")]
 unique_name_in_owner = true
+
+[node name="LightRoom" parent="GameViewportContainer/GameViewport" instance=ExtResource("2_v5tb6")]
+
+[node name="FireRoom" parent="GameViewportContainer/GameViewport" instance=ExtResource("3_jb4ou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
 
 [node name="TextViewportContainer" type="SubViewportContainer" parent="."]
 anchors_preset = 15
