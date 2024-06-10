@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bd2osptl071da"]
+[gd_scene load_steps=12 format=3 uid="uid://bd2osptl071da"]
 
 [ext_resource type="PackedScene" uid="uid://be8eeq80vf17t" path="res://scroll/scroll.tscn" id="1_dr2h3"]
 [ext_resource type="PackedScene" uid="uid://c078fj3h6hphd" path="res://common/cursor.tscn" id="1_lt0wb"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://c8xaptr321o6k" path="res://light/light.tscn" id="2_sek2c"]
 [ext_resource type="PackedScene" uid="uid://b6rkj1tj515u8" path="res://common/door.tscn" id="5_ke3n1"]
 [ext_resource type="PackedScene" uid="uid://ia75mudsvqo4" path="res://common/pickup_item.tscn" id="5_n1bqh"]
-[ext_resource type="PackedScene" uid="uid://dhfax6f0r5sbf" path="res://rooms/fire_room.tscn" id="6_0sog5"]
 [ext_resource type="PackedScene" uid="uid://b5wl1fbu8w4rm" path="res://common/pillar.tscn" id="7_i670n"]
 [ext_resource type="PackedScene" uid="uid://43nacr0s5b4" path="res://common/player_camera.tscn" id="7_q0ecv"]
 
@@ -38,7 +37,6 @@ spellTime = 1.2
 [node name="NorthDoor" parent="." instance=ExtResource("5_ke3n1")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
-connecting_room = ExtResource("6_0sog5")
 
 [node name="Pillar" parent="." instance=ExtResource("7_i670n")]
 

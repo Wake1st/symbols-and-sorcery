@@ -6,12 +6,13 @@ signal item_pickup(item:Item)
 const RAY_LENGTH = 1000
 const SCROLL = preload("res://items/scroll.tres")
 
+@export var navigationNodes:Dictionary
+
 @onready var wand = %Wand
 @onready var light = %Light
 @onready var scrollPickup = %ScrollPickup
 @onready var scroll = %Scroll
 @onready var northDoor:Door = %NorthDoor
-@onready var doors:Array[Door] = [northDoor]
 
 var playerCamera:PlayerCamera
 

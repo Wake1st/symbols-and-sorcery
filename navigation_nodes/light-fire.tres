@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="NavigationNode" load_steps=3 format=3 uid="uid://472qg5j8oeui"]
+
+[ext_resource type="Script" path="res://models/NavigationNode.gd" id="1_3f552"]
+[ext_resource type="PackedScene" uid="uid://dhfax6f0r5sbf" path="res://rooms/fire_room.tscn" id="1_c0bkc"]
+
+[resource]
+script = ExtResource("1_3f552")
+direction = 0
+connectingScene = ExtResource("1_c0bkc")

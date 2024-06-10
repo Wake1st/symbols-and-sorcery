@@ -24,17 +24,19 @@ func _ready() -> void:
 
 
 func setup_rooms(rooms:Dictionary) -> void:
-	for direction in rooms.keys():
-		room.global_position = roomNavigator.get_room()
+	for node:NavigationNode in rooms.values():
+		add_child(node.connectingRoom)
+		node.connectingRoom.global_position = currentRoom.global_position + node.door.position + node.connectionPoint
 
 
 func handle_room_change(door:Door) -> void:
-	var room:Node3D = roomNavigator.get_room(door.direction)
-	playerCamera.go_to(room.global_position)
-	
-	currentRoom = room
-	roomNavigator.assign_rooms(currentRoom.doors)
-	currentRoom.room_changed.connect(handle_room_change)
+	pass
+	#var room:Node3D = roomNavigator.get_room(door.direction)
+	#playerCamera.go_to(room.global_position)
+	#
+	#currentRoom = room
+	#roomNavigator.assign_rooms(currentRoom.doors)
+	#currentRoom.room_changed.connect(handle_room_change)
 
 
 func handle_entered_room() -> void:

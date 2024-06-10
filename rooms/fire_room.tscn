@@ -1,18 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dhfax6f0r5sbf"]
+[gd_scene load_steps=3 format=3 uid="uid://dhfax6f0r5sbf"]
 
 [ext_resource type="PackedScene" uid="uid://b5wl1fbu8w4rm" path="res://common/pillar.tscn" id="1_75le4"]
-[ext_resource type="PackedScene" uid="uid://b6rkj1tj515u8" path="res://common/door.tscn" id="1_mu8yc"]
 [ext_resource type="Script" path="res://rooms/fire_room.gd" id="1_sanm3"]
-[ext_resource type="PackedScene" uid="uid://bd2osptl071da" path="res://rooms/light_room.tscn" id="2_486ou"]
 
 [node name="FireRoom" type="Node3D"]
 script = ExtResource("1_sanm3")
-
-[node name="SouthDoor" parent="." instance=ExtResource("1_mu8yc")]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
-direction = 2
-connecting_room = ExtResource("2_486ou")
 
 [node name="LitPillar" parent="." instance=ExtResource("1_75le4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, 0.3, 0)
