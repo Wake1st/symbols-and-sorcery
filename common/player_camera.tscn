@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" path="res://common/player_camera.gd" id="1_v5pmm"]
 
-[node name="PlayerCamera" type="Camera3D"]
+[node name="PlayerCamera" type="Node3D"]
+script = ExtResource("1_v5pmm")
+
+[node name="Camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 2.4)
 current = true
-script = ExtResource("1_v5pmm")

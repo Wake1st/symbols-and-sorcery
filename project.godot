@@ -25,10 +25,10 @@ window/size/viewport_height=600
 folder_colors={
 "res://assets/": "red",
 "res://common/": "purple",
+"res://connection_nodes/": "yellow",
 "res://items/": "yellow",
 "res://light/": "purple",
 "res://models/": "orange",
-"res://navigation_nodes/": "yellow",
 "res://rooms/": "purple",
 "res://rune_crafter/": "purple",
 "res://runes/": "yellow",

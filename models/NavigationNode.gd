@@ -1,12 +1,15 @@
 class_name NavigationNode
-extends Resource
 
-enum DIRECTION { NORTH, EAST, SOUTH, WEST }
+var current:RoomBase
+var north:RoomBase
+var east:RoomBase
+var south:RoomBase
+var west:RoomBase
 
-@export_category("Navigation Node")
-@export var direction:DIRECTION
-@export var connectingScene:PackedScene
 
-var door:Door
-var connectingRoom:Node3D
-var connectionPoint:Vector3
+func _init(connection:ConnectionNode) -> void:
+	current = connection.current.instantiate()
+	north = connection.north.instantiate()
+	east = connection.east.instantiate()
+	south = connection.south.instantiate()
+	west = connection.west.instantiate()

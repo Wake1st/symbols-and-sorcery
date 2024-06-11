@@ -1,14 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://by5yskdawpn07"]
+[gd_scene load_steps=11 format=3 uid="uid://by5yskdawpn07"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_2jxoa"]
+[ext_resource type="PackedScene" uid="uid://ddf52c21k8uf" path="res://navigation.tscn" id="2_fnqxl"]
 [ext_resource type="PackedScene" uid="uid://43nacr0s5b4" path="res://common/player_camera.tscn" id="2_rda4s"]
 [ext_resource type="PackedScene" uid="uid://bd2osptl071da" path="res://rooms/light_room.tscn" id="2_v5tb6"]
+[ext_resource type="Resource" uid="uid://cmi7nk34coih3" path="res://connection_nodes/light.tres" id="3_3tav4"]
 [ext_resource type="PackedScene" uid="uid://bqyqmq468rc8f" path="res://ui/descriptions.tscn" id="3_h4kny"]
 [ext_resource type="PackedScene" uid="uid://dhfax6f0r5sbf" path="res://rooms/fire_room.tscn" id="3_jb4ou"]
 [ext_resource type="PackedScene" uid="uid://bf3fo2nl0sr0k" path="res://ui/inventory.tscn" id="4_fqnfk"]
+[ext_resource type="Resource" uid="uid://dl2cd6qk2flj5" path="res://connection_nodes/fire.tres" id="4_na2jj"]
+[ext_resource type="PackedScene" uid="uid://b6rkj1tj515u8" path="res://common/door.tscn" id="8_lssns"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_2jxoa")
+
+[node name="Navigation" parent="." node_paths=PackedStringArray("startingNode") instance=ExtResource("2_fnqxl")]
+unique_name_in_owner = true
+startingNode = NodePath("../GameViewportContainer/GameViewport/LightRoom")
+connectionNodes = Array[Resource("res://models/ConnectionNode.gd")]([ExtResource("3_3tav4"), ExtResource("4_na2jj")])
 
 [node name="GameViewportContainer" type="SubViewportContainer" parent="."]
 anchors_preset = 15
@@ -28,10 +37,18 @@ render_target_update_mode = 4
 [node name="PlayerCamera" parent="GameViewportContainer/GameViewport" instance=ExtResource("2_rda4s")]
 unique_name_in_owner = true
 
-[node name="LightRoom" parent="GameViewportContainer/GameViewport" instance=ExtResource("2_v5tb6")]
+[node name="LightRoom" parent="GameViewportContainer/GameViewport" node_paths=PackedStringArray("northDoor") instance=ExtResource("2_v5tb6")]
+northDoor = NodePath("../LightFireDoor")
 
-[node name="FireRoom" parent="GameViewportContainer/GameViewport" instance=ExtResource("3_jb4ou")]
+[node name="FireRoom" parent="GameViewportContainer/GameViewport" node_paths=PackedStringArray("southDoor") instance=ExtResource("3_jb4ou")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+southDoor = NodePath("../LightFireDoor")
+
+[node name="LightFireDoor" parent="GameViewportContainer/GameViewport" node_paths=PackedStringArray("room1", "room2") instance=ExtResource("8_lssns")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+room1 = NodePath("../LightRoom")
+room2 = NodePath("../FireRoom")
 
 [node name="TextViewportContainer" type="SubViewportContainer" parent="."]
 anchors_preset = 15

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsnieighlophi"]
+
+[ext_resource type="Script" path="res://rooms/RoomBase.gd" id="1_y8lwy"]
+
+[node name="RoomBase" type="Node3D"]
+script = ExtResource("1_y8lwy")

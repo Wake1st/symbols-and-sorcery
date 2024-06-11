@@ -1,20 +1,16 @@
-extends Node3D
+extends RoomBase
 
-signal room_changed(door:Door)
 signal item_pickup(item:Item)
 
 const RAY_LENGTH = 1000
 const SCROLL = preload("res://items/scroll.tres")
 
-@export var navigationNodes:Dictionary
-
 @onready var wand = %Wand
 @onready var light = %Light
 @onready var scrollPickup = %ScrollPickup
 @onready var scroll = %Scroll
-@onready var northDoor:Door = %NorthDoor
 
-var playerCamera:PlayerCamera
+var playerCamera:Camera3D
 
 
 func _ready():
@@ -41,7 +37,7 @@ func _physics_process(_delta):
 	var result = space_state.intersect_ray(query)
 	if !result.is_empty():
 		if result.collider_id == northDoor.get_instance_id():
-			room_changed.emit(northDoor)
+			room_changed.emit(northDoor, self)
 		if scroll != null && result.collider_id == scroll.get_instance_id():
 			scrollPickup.pick_up()
 
