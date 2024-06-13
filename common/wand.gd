@@ -21,7 +21,7 @@ func _physics_process(_delta):
 		_apply_spell()
 
 
-func _input(event):
+func _input(_event):
 	#	switch iteraction modes
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_WHEEL_UP) || (
 	Input.is_mouse_button_pressed(MOUSE_BUTTON_WHEEL_DOWN)):

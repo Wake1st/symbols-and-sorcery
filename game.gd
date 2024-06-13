@@ -39,7 +39,8 @@ func _ready() -> void:
 func handle_room_change(door:Door) -> void:
 	#	navigate to new room
 	var connectingRoom:RoomBase = door.get_connecting_room(currentRoom)
-	playerCamera.go_to(connectingRoom.global_position)
+	var point = navigation.get_navigation_point(door.global_position, connectingRoom.global_position)
+	playerCamera.go_to(point)
 	
 	#	deallocate current room data and connections
 	currentRoom.room_changed.disconnect(handle_room_change)
