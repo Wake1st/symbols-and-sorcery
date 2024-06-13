@@ -1,3 +1,4 @@
+class_name Wand
 extends Node
 
 signal cast_light

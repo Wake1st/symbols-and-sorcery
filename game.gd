@@ -2,23 +2,27 @@ extends Node
 
 @onready var navigation = %Navigation
 
-@onready var currentRoom = $GameViewportContainer/GameViewport/LightRoom
+@onready var currentRoom:RoomBase = $GameViewportContainer/GameViewport/LightRoom
 @onready var playerCamera = %PlayerCamera
 @onready var descriptions = %Descriptions
 @onready var inventory = %Inventory
+@onready var wand = %Wand
 
 
 func _ready() -> void:
-	#	setup navigation
 	#navigation.setup()
 	#setup_rooms(rooms)
 	
-	currentRoom.playerCamera = playerCamera.camera
+	#	setup current room
+	currentRoom.setup(wand)
 	currentRoom.room_changed.connect(handle_room_change)
+	currentRoom.item_pickup.connect(inventory.add_item)
+	
+	#	setup camera
 	playerCamera.entered_room.connect(handle_entered_room)
+	playerCamera.selected_attempted.connect(handle_world_selection)
 	
 	#	setup inventory
-	currentRoom.item_pickup.connect(inventory.add_item)
 	inventory.setup(handle_item_selection)
 
 
@@ -28,14 +32,22 @@ func _ready() -> void:
 		#node.connectingRoom.global_position = currentRoom.global_position + node.door.position + node.connectionPoint
 
 
-func handle_room_change(door:Door, room:RoomBase) -> void:
-	var connectingRoom:RoomBase = door.get_connecting_room(room)
+func handle_room_change(door:Door) -> void:
+	#	navigate to new room
+	var connectingRoom:RoomBase = door.get_connecting_room(currentRoom)
 	playerCamera.go_to(connectingRoom.global_position)
 	
+	#	deallocate current room data and connections
+	currentRoom.room_changed.disconnect(handle_room_change)
+	currentRoom.item_pickup.disconnect(inventory.add_item)
+	
+	#	connect new room connections
+	currentRoom = connectingRoom
+	currentRoom.setup(wand)
+	currentRoom.room_changed.connect(handle_room_change)
+	currentRoom.item_pickup.connect(inventory.add_item)
+
 	#var room:Node3D = roomNavigator.get_room(door.direction)
-	#playerCamera.go_to(room.global_position)
-	#
-	#currentRoom = room
 	#roomNavigator.assign_rooms(currentRoom.doors)
 	#currentRoom.room_changed.connect(handle_room_change)
 
@@ -44,7 +56,11 @@ func handle_entered_room() -> void:
 	print("entered room")
 
 
-func handle_item_selection(item:Item):
+func handle_world_selection(result:Dictionary) -> void:
+	currentRoom.check_selection(result)
+
+
+func handle_item_selection(item:Item) -> void:
 	print(item)
 
 

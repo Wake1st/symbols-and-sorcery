@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://models/ConnectionNode.gd" id="1_gt6it"]
 [ext_resource type="PackedScene" uid="uid://bd2osptl071da" path="res://rooms/light_room.tscn" id="1_q5bfw"]
-[ext_resource type="PackedScene" uid="uid://dhfax6f0r5sbf" path="res://rooms/fire_room.tscn" id="1_ulqj2"]
+[ext_resource type="PackedScene" uid="uid://dhfax6f0r5sbf" path="res://rooms/thermic_room.tscn" id="1_ulqj2"]
 
 [resource]
 script = ExtResource("1_gt6it")

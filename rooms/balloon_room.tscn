@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://di5i7x8c65801"]
+
+[ext_resource type="PackedScene" uid="uid://b5wl1fbu8w4rm" path="res://common/pillar.tscn" id="1_73twi"]
+[ext_resource type="Script" path="res://rooms/balloon_room.gd" id="1_wevqs"]
+
+[node name="BalloonRoom" type="Node3D"]
+script = ExtResource("1_wevqs")
+
+[node name="Pillar" parent="." instance=ExtResource("1_73twi")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://by5yskdawpn07"]
+[gd_scene load_steps=16 format=3 uid="uid://by5yskdawpn07"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_2jxoa"]
 [ext_resource type="PackedScene" uid="uid://ddf52c21k8uf" path="res://navigation.tscn" id="2_fnqxl"]
@@ -6,10 +6,15 @@
 [ext_resource type="PackedScene" uid="uid://bd2osptl071da" path="res://rooms/light_room.tscn" id="2_v5tb6"]
 [ext_resource type="Resource" uid="uid://cmi7nk34coih3" path="res://connection_nodes/light.tres" id="3_3tav4"]
 [ext_resource type="PackedScene" uid="uid://bqyqmq468rc8f" path="res://ui/descriptions.tscn" id="3_h4kny"]
-[ext_resource type="PackedScene" uid="uid://dhfax6f0r5sbf" path="res://rooms/fire_room.tscn" id="3_jb4ou"]
+[ext_resource type="PackedScene" uid="uid://dhfax6f0r5sbf" path="res://rooms/thermic_room.tscn" id="3_jb4ou"]
 [ext_resource type="PackedScene" uid="uid://bf3fo2nl0sr0k" path="res://ui/inventory.tscn" id="4_fqnfk"]
 [ext_resource type="Resource" uid="uid://dl2cd6qk2flj5" path="res://connection_nodes/fire.tres" id="4_na2jj"]
+[ext_resource type="PackedScene" uid="uid://c0ycl65jph6ju" path="res://common/wand.tscn" id="5_ve7nf"]
+[ext_resource type="PackedScene" uid="uid://b0kb3yo5gmhb" path="res://rooms/boiler_room.tscn" id="8_fi4pw"]
 [ext_resource type="PackedScene" uid="uid://b6rkj1tj515u8" path="res://common/door.tscn" id="8_lssns"]
+[ext_resource type="PackedScene" uid="uid://di5i7x8c65801" path="res://rooms/balloon_room.tscn" id="9_eudpg"]
+[ext_resource type="Environment" uid="uid://dftjun6ak5xh5" path="res://environment.tres" id="11_00gap"]
+[ext_resource type="PackedScene" uid="uid://c078fj3h6hphd" path="res://common/cursor.tscn" id="13_us8qn"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_2jxoa")
@@ -18,6 +23,9 @@ script = ExtResource("1_2jxoa")
 unique_name_in_owner = true
 startingNode = NodePath("../GameViewportContainer/GameViewport/LightRoom")
 connectionNodes = Array[Resource("res://models/ConnectionNode.gd")]([ExtResource("3_3tav4"), ExtResource("4_na2jj")])
+
+[node name="Wand" parent="." instance=ExtResource("5_ve7nf")]
+unique_name_in_owner = true
 
 [node name="GameViewportContainer" type="SubViewportContainer" parent="."]
 anchors_preset = 15
@@ -38,17 +46,41 @@ render_target_update_mode = 4
 unique_name_in_owner = true
 
 [node name="LightRoom" parent="GameViewportContainer/GameViewport" node_paths=PackedStringArray("northDoor") instance=ExtResource("2_v5tb6")]
-northDoor = NodePath("../LightFireDoor")
+northDoor = NodePath("../LightThermicDoor")
 
-[node name="FireRoom" parent="GameViewportContainer/GameViewport" node_paths=PackedStringArray("southDoor") instance=ExtResource("3_jb4ou")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
-southDoor = NodePath("../LightFireDoor")
+[node name="ThermicRoom" parent="GameViewportContainer/GameViewport" node_paths=PackedStringArray("eastDoor", "southDoor", "westDoor") instance=ExtResource("3_jb4ou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
+eastDoor = NodePath("../ThermicBoilerDoor")
+southDoor = NodePath("../LightThermicDoor")
+westDoor = NodePath("../ThermicBalloonDoor")
 
-[node name="LightFireDoor" parent="GameViewportContainer/GameViewport" node_paths=PackedStringArray("room1", "room2") instance=ExtResource("8_lssns")]
-unique_name_in_owner = true
+[node name="BoilerRoom" parent="GameViewportContainer/GameViewport" node_paths=PackedStringArray("westDoor") instance=ExtResource("8_fi4pw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, -7)
+westDoor = NodePath("../ThermicBoilerDoor")
+
+[node name="BalloonRoom" parent="GameViewportContainer/GameViewport" node_paths=PackedStringArray("eastDoor") instance=ExtResource("9_eudpg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -7)
+eastDoor = NodePath("../ThermicBalloonDoor")
+
+[node name="LightThermicDoor" parent="GameViewportContainer/GameViewport" node_paths=PackedStringArray("room1", "room2") instance=ExtResource("8_lssns")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
 room1 = NodePath("../LightRoom")
-room2 = NodePath("../FireRoom")
+room2 = NodePath("../ThermicRoom")
+
+[node name="ThermicBoilerDoor" parent="GameViewportContainer/GameViewport" node_paths=PackedStringArray("room1", "room2") instance=ExtResource("8_lssns")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6, 0, -7)
+room1 = NodePath("../ThermicRoom")
+room2 = NodePath("../BoilerRoom")
+
+[node name="ThermicBalloonDoor" parent="GameViewportContainer/GameViewport" node_paths=PackedStringArray("room1", "room2") instance=ExtResource("8_lssns")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6, 0, -7)
+room1 = NodePath("../ThermicRoom")
+room2 = NodePath("../BalloonRoom")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="GameViewportContainer/GameViewport"]
+environment = ExtResource("11_00gap")
+
+[node name="Cursor" parent="GameViewportContainer/GameViewport" instance=ExtResource("13_us8qn")]
 
 [node name="TextViewportContainer" type="SubViewportContainer" parent="."]
 anchors_preset = 15

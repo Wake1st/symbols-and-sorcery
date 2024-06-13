@@ -1,36 +1,18 @@
-[gd_scene load_steps=10 format=3 uid="uid://bd2osptl071da"]
+[gd_scene load_steps=7 format=3 uid="uid://bd2osptl071da"]
 
 [ext_resource type="PackedScene" uid="uid://be8eeq80vf17t" path="res://scroll/scroll.tscn" id="1_dr2h3"]
-[ext_resource type="PackedScene" uid="uid://c078fj3h6hphd" path="res://common/cursor.tscn" id="1_lt0wb"]
 [ext_resource type="Script" path="res://rooms/light_room.gd" id="1_mccc8"]
-[ext_resource type="PackedScene" uid="uid://c0ycl65jph6ju" path="res://common/wand.tscn" id="1_pq1el"]
 [ext_resource type="MeshLibrary" uid="uid://bwbsu80ly13cd" path="res://tilesets/dungeon_tileset.tres" id="2_7m75w"]
 [ext_resource type="PackedScene" uid="uid://c8xaptr321o6k" path="res://light/light.tscn" id="2_sek2c"]
 [ext_resource type="PackedScene" uid="uid://ia75mudsvqo4" path="res://common/pickup_item.tscn" id="5_n1bqh"]
 [ext_resource type="PackedScene" uid="uid://b5wl1fbu8w4rm" path="res://common/pillar.tscn" id="7_i670n"]
 
-[sub_resource type="Environment" id="Environment_tr7fj"]
-ambient_light_source = 1
-glow_enabled = true
-glow_intensity = 5.0
-glow_strength = 1.3
-glow_blend_mode = 0
-glow_hdr_threshold = 0.8
-glow_hdr_scale = 1.6
-fog_light_color = Color(0.796078, 0.980392, 0.596078, 1)
-fog_light_energy = 0.2
-
 [node name="LightRoom" type="Node3D"]
 script = ExtResource("1_mccc8")
-
-[node name="Wand" parent="." instance=ExtResource("1_pq1el")]
-unique_name_in_owner = true
 
 [node name="Light" parent="." instance=ExtResource("2_sek2c")]
 unique_name_in_owner = true
 spellTime = 1.2
-
-[node name="Cursor" parent="." instance=ExtResource("1_lt0wb")]
 
 [node name="Pillar" parent="." instance=ExtResource("7_i670n")]
 
@@ -50,6 +32,3 @@ cell_center_y = false
 data = {
 "cells": PackedInt32Array(0, 0, 655361, 0, 65535, 655361, 65535, 65535, 655361, 65535, 0, 655361, 65534, 1, 655361, 65535, 1, 655361, 0, 1, 655361, 1, 1, 655361, 1, 0, 655361, 1, 65535, 655361, 65534, 65535, 655361, 65534, 0, 655361, 65535, 65534, 655361, 0, 65534, 655361, 1, 65534, 655361, 65534, 65534, 655361, 65534, 65533, 655361, 65535, 65533, 655361, 0, 65533, 655361, 1, 65533, 655361, 2, 65534, 655361, 2, 65535, 655361, 2, 0, 655361, 2, 1, 655361, 1, 2, 655361, 0, 2, 655361, 65535, 2, 655361, 65534, 2, 655361, 65533, 1, 655361, 65533, 0, 655361, 65533, 65535, 655361, 65533, 65534, 655361, 65533, 65533, 655361, 2, 65533, 655361, 2, 2, 655361, 65533, 2, 655361, 4, 0, 655364, 3, 2, 1048576, 3, 1, 1048576, 3, 0, 1048576, 3, 65535, 1048576, 3, 65534, 1048576, 3, 65533, 1048576, 2, 3, 0, 1, 3, 0, 0, 3, 0, 65535, 3, 0, 65534, 3, 0, 65533, 3, 0, 65532, 2, 1441792, 65532, 1, 1441792, 65532, 0, 1441792, 65532, 65535, 1441792, 65532, 65534, 1441792, 65532, 65533, 1441792, 65533, 65532, 655360, 65534, 65532, 655360, 0, 65532, 655360, 1, 65532, 655360, 2, 65532, 655360, 65535, 65532, 655360)
 }
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_tr7fj")
