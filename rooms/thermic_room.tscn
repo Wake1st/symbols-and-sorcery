@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dhfax6f0r5sbf"]
+[gd_scene load_steps=8 format=3 uid="uid://dhfax6f0r5sbf"]
 
 [ext_resource type="PackedScene" uid="uid://b5wl1fbu8w4rm" path="res://common/pillar.tscn" id="1_75le4"]
 [ext_resource type="Script" path="res://rooms/thermic_room.gd" id="1_448yj"]
 [ext_resource type="MeshLibrary" uid="uid://bwbsu80ly13cd" path="res://tilesets/dungeon_tileset.tres" id="3_ekc2x"]
 [ext_resource type="PackedScene" uid="uid://boqvuwulwsx17" path="res://shaders/fire.tscn" id="4_cayik"]
+[ext_resource type="PackedScene" uid="uid://dowkdyyao5rfd" path="res://common/navigation_point.tscn" id="5_nhrmg"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_nt7oc"]
 radius = 0.2
@@ -64,6 +65,7 @@ shape = SubResource("SphereShape3D_nt7oc")
 mesh = SubResource("SphereMesh_fskxf")
 
 [node name="GridMap" type="GridMap" parent="."]
+visible = false
 mesh_library = ExtResource("3_ekc2x")
 cell_size = Vector3(1, 1, 1)
 cell_center_y = false
@@ -106,3 +108,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09, 0, 0.44)
 light_energy = 0.4
 omni_range = 42.294
 omni_attenuation = 1.4048
+
+[node name="NavigationPoint" parent="." instance=ExtResource("5_nhrmg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)

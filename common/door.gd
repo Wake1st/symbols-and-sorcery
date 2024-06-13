@@ -1,5 +1,5 @@
 class_name Door
-extends StaticBody3D
+extends Area3D
 
 @export_category("Door")
 @export var room1:RoomBase

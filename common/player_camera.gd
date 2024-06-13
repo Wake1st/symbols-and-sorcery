@@ -22,7 +22,6 @@ func go_to(coord:Vector3) -> void:
 	if !is_traveling:
 		is_traveling = true
 		
-		print("init pos: %s" % global_position)
 		tween = create_tween()
 		tween.tween_property(self, "global_position", coord, travel_time
 		).set_ease(Tween.EASE_IN_OUT
@@ -38,7 +37,7 @@ func _physics_process(_delta):
 			entered_room.emit()
 
 
-func _input(event):
+func _input(_event):
 	is_looking_around = !is_traveling && Input.is_action_pressed("free_look")
 	
 	if !is_traveling && !is_looking_around && Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
