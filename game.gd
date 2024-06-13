@@ -7,11 +7,15 @@ extends Node
 @onready var descriptions = %Descriptions
 @onready var inventory = %Inventory
 @onready var wand = %Wand
+@onready var cursor = %Cursor
 
 
 func _ready() -> void:
 	#navigation.setup()
 	#setup_rooms(rooms)
+	
+	#	setup wand
+	wand.equipped_wand.connect(cursor.display_wand)
 	
 	#	setup current room
 	currentRoom.setup(wand)

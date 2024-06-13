@@ -81,6 +81,7 @@ room2 = NodePath("../BalloonRoom")
 environment = ExtResource("11_00gap")
 
 [node name="Cursor" parent="GameViewportContainer/GameViewport" instance=ExtResource("13_us8qn")]
+unique_name_in_owner = true
 
 [node name="TextViewportContainer" type="SubViewportContainer" parent="."]
 anchors_preset = 15

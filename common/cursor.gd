@@ -5,9 +5,13 @@ const HAND_CURSOR = preload("res://assets/hand_cursor.png")
 
 
 func _process(_delta):
+	#	track the mouse movement
 	global_position = get_global_mouse_position()
-	
-	if Input.is_action_pressed("use_wand"):
+
+
+func display_wand(is_equipped:bool):
+	#	switch iteraction modes
+	if is_equipped:
 		texture = WAND_CURSOR
 	else:
 		texture = HAND_CURSOR
