@@ -5,7 +5,6 @@ signal room_changed(door:Door)
 signal item_pickup(item:Item)
 
 @export_category("Room")
-@export var wand:Wand
 @export var northDoor:Door
 @export var eastDoor:Door
 @export var southDoor:Door
