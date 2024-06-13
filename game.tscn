@@ -83,6 +83,9 @@ environment = ExtResource("11_00gap")
 [node name="Cursor" parent="GameViewportContainer/GameViewport" instance=ExtResource("13_us8qn")]
 unique_name_in_owner = true
 
+[node name="TestCamera" type="Camera3D" parent="GameViewportContainer/GameViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.432946, 1.62158, -7.15125)
+
 [node name="TextViewportContainer" type="SubViewportContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0

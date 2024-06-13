@@ -33,6 +33,7 @@ folder_colors={
 "res://rune_crafter/": "purple",
 "res://runes/": "yellow",
 "res://scroll/": "purple",
+"res://shaders/": "purple",
 "res://tilesets/": "teal",
 "res://ui/": "purple"
 }
