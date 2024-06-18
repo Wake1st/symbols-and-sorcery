@@ -15,7 +15,7 @@ material = SubResource("ShaderMaterial_kvrkp")
 top_radius = 0.8
 bottom_radius = 0.8
 height = 0.8
-radial_segments = 24
+radial_segments = 14
 cap_top = false
 cap_bottom = false
 
