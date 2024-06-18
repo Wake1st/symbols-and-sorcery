@@ -35,7 +35,7 @@ func _setup_current_room(room:RoomBase) -> void:
 	room.item_pickup.connect(inventory.add_item)
 
 
-func handle_location_changed(point:Vector3) -> void:
+func handle_location_changed(point:NavPoint) -> void:
 	playerCamera.go_to(point)
 
 
@@ -53,7 +53,7 @@ func handle_room_change(door:Door) -> void:
 	
 	#	navigation to new room
 	var point:NavPoint = connectingRoom.get_door_point(door)
-	playerCamera.go_to(point.global_position)
+	playerCamera.go_to(point)
 
 
 func handle_entered_room() -> void:

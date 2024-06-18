@@ -2,7 +2,7 @@ class_name RoomBase
 extends Node3D
 
 signal item_pickup(item:Item)
-signal location_changed(point:Vector3)
+signal location_changed(point:NavPoint)
 signal room_changed(door:Door)
 
 @export_category("Room")
@@ -52,7 +52,7 @@ func _check_nav_points(id:int) -> bool:
 		if point_id != currentNavId && point_id == id:
 			navPoints[currentNavId].visible = true
 			navPoints[point_id].visible = false
-			location_changed.emit(navPoints[point_id].global_position)
+			location_changed.emit(navPoints[point_id])
 			currentNavId = point_id
 			return true
 	return false

@@ -11,26 +11,34 @@ const RAY_LENGTH = 1000
 @export var verticle_look_clamp:Vector2 = Vector2(-0.9,0.9)
 @export_range(0.1, 3.0, 0.1, "or_greater") var camera_sensitivity: float = 1
 
-@onready var camera = $Camera
+@onready var camera:Camera3D = $Camera
 
 var is_looking_around:bool = false
 var is_traveling:bool = false
-var tween:Tween
+var translate_tween:Tween
+var rotate_tween:Tween
 
 
-func go_to(coord:Vector3) -> void:
+func go_to(point:NavPoint) -> void:
 	if !is_traveling:
 		is_traveling = true
 		
-		tween = create_tween()
-		tween.tween_property(self, "global_position", coord, travel_time
+		translate_tween = create_tween()
+		translate_tween.tween_property(
+			self,"global_position",point.global_position,travel_time
+		).set_ease(Tween.EASE_IN_OUT
+		).set_trans(Tween.TRANS_QUAD)
+		
+		rotate_tween = create_tween()
+		rotate_tween.tween_property(
+			camera,"global_basis",point.global_basis,travel_time
 		).set_ease(Tween.EASE_IN_OUT
 		).set_trans(Tween.TRANS_QUAD)
 
 
 func _physics_process(_delta):
 	if is_traveling:
-		is_traveling = tween.is_running()
+		is_traveling = translate_tween.is_running()
 		
 		#	single update for finished traveling
 		if !is_traveling:
