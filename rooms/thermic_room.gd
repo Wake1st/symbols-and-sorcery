@@ -1,29 +1,24 @@
 extends RoomBase
 
-@onready var navPointFreeze = %NavPointFreeze
-@onready var navPointBurn = %NavPointBurn
-@onready var navPointDoorS = %NavPointDoorS
-
-var currentNavId:int
-var navPoints:Dictionary = {}
+@onready var navPointFreeze:NavPoint = %NavPointFreeze
+@onready var navPointBurn:NavPoint = %NavPointBurn
+@onready var navPointDoorS:NavPoint = %NavPointDoorS
 
 
 func setup(_wand:Wand):
+	#	setup nav points
 	navPoints[navPointFreeze.get_instance_id()] = navPointFreeze
 	navPoints[navPointBurn.get_instance_id()] = navPointBurn
 	navPoints[navPointDoorS.get_instance_id()] = navPointDoorS
 	currentNavId = navPointDoorS.get_instance_id()
-
-
-func check_selection(result:Dictionary) -> void:
-	var id = result.collider_id
-	if id == null:
-		return
+	navPoints[currentNavId].visible = false
 	
-	for point_id in navPoints.keys():
-		if point_id != currentNavId && point_id == id:
-			navPoints[currentNavId].visible = true
-			navPoints[point_id].visible = false
-			location_changed.emit(navPoints[point_id].global_position)
-			currentNavId = point_id
+	#	setup door points
+	doorPoints[southDoor] = navPointDoorS
+	doorPoints[westDoor] = navPointFreeze
+	doorPoints[eastDoor] = navPointBurn
+
+
+func check_selection(result:Dictionary) -> bool:
+	return super.check_selection(result)
 

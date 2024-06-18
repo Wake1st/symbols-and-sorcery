@@ -29,27 +29,31 @@ func _ready() -> void:
 
 func _setup_current_room(room:RoomBase) -> void:
 	currentRoom = room
-	currentRoom.setup(wand)
-	currentRoom.location_changed.connect(handle_location_changed)
-	currentRoom.room_changed.connect(handle_room_change)
-	currentRoom.item_pickup.connect(inventory.add_item)
+	room.setup(wand)
+	room.location_changed.connect(handle_location_changed)
+	room.room_changed.connect(handle_room_change)
+	room.item_pickup.connect(inventory.add_item)
+
 
 func handle_location_changed(point:Vector3) -> void:
 	playerCamera.go_to(point)
 
 
 func handle_room_change(door:Door) -> void:
-	#	navigate to new room
+	#	get new room
 	var connectingRoom:RoomBase = door.get_connecting_room(currentRoom)
-	var point = navigation.get_navigation_point(door.global_position, connectingRoom.global_position)
-	playerCamera.go_to(point)
-	
+
 	#	deallocate current room data and connections
+	currentRoom.location_changed.disconnect(handle_location_changed)
 	currentRoom.room_changed.disconnect(handle_room_change)
 	currentRoom.item_pickup.disconnect(inventory.add_item)
 	
 	#	connect new room connections
 	_setup_current_room(connectingRoom)
+	
+	#	navigation to new room
+	var point:NavPoint = connectingRoom.get_door_point(door)
+	playerCamera.go_to(point.global_position)
 
 
 func handle_entered_room() -> void:

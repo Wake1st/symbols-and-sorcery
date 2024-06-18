@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://rooms/thermic_room.gd" id="1_448yj"]
 [ext_resource type="MeshLibrary" uid="uid://bwbsu80ly13cd" path="res://tilesets/dungeon_tileset.tres" id="3_ekc2x"]
 [ext_resource type="PackedScene" uid="uid://boqvuwulwsx17" path="res://shaders/fire.tscn" id="4_cayik"]
-[ext_resource type="PackedScene" uid="uid://dowkdyyao5rfd" path="res://common/navigation_point.tscn" id="5_nhrmg"]
+[ext_resource type="PackedScene" uid="uid://dowkdyyao5rfd" path="res://common/nav_point.tscn" id="5_2mlni"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_nt7oc"]
 radius = 0.2
@@ -108,14 +108,14 @@ light_energy = 0.4
 omni_range = 42.294
 omni_attenuation = 1.4048
 
-[node name="NavPointFreeze" parent="." instance=ExtResource("5_nhrmg")]
+[node name="NavPointFreeze" parent="." instance=ExtResource("5_2mlni")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
 
-[node name="NavPointBurn" parent="." instance=ExtResource("5_nhrmg")]
+[node name="NavPointBurn" parent="." instance=ExtResource("5_2mlni")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
 
-[node name="NavPointDoorS" parent="." instance=ExtResource("5_nhrmg")]
+[node name="NavPointDoorS" parent="." instance=ExtResource("5_2mlni")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
