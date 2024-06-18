@@ -44,7 +44,7 @@ render_target_update_mode = 4
 
 [node name="PlayerCamera" parent="GameViewportContainer/GameViewport" instance=ExtResource("2_rda4s")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.2)
 
 [node name="LightRoom" parent="GameViewportContainer/GameViewport" node_paths=PackedStringArray("northDoor") instance=ExtResource("2_v5tb6")]
 northDoor = NodePath("../LightThermicDoor")

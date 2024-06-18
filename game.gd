@@ -2,25 +2,22 @@ extends Node
 
 @onready var navigation = %Navigation
 
-@onready var currentRoom:RoomBase = $GameViewportContainer/GameViewport/LightRoom
+@onready var startRoom:RoomBase = $GameViewportContainer/GameViewport/LightRoom
 @onready var playerCamera = %PlayerCamera
 @onready var descriptions = %Descriptions
 @onready var inventory = %Inventory
 @onready var wand = %Wand
 @onready var cursor = %Cursor
 
+var currentRoom:RoomBase
+
 
 func _ready() -> void:
-	#navigation.setup()
-	#setup_rooms(rooms)
-	
 	#	setup wand
 	wand.equipped_wand.connect(cursor.display_wand)
 	
 	#	setup current room
-	currentRoom.setup(wand)
-	currentRoom.room_changed.connect(handle_room_change)
-	currentRoom.item_pickup.connect(inventory.add_item)
+	_setup_current_room(startRoom)
 	
 	#	setup camera
 	playerCamera.entered_room.connect(handle_entered_room)
@@ -30,10 +27,15 @@ func _ready() -> void:
 	inventory.setup(handle_item_selection)
 
 
-#func setup_rooms(rooms:Dictionary) -> void:
-	#for node:NavigationNode in rooms.values():
-		#add_child(node.connectingRoom)
-		#node.connectingRoom.global_position = currentRoom.global_position + node.door.position + node.connectionPoint
+func _setup_current_room(room:RoomBase) -> void:
+	currentRoom = room
+	currentRoom.setup(wand)
+	currentRoom.location_changed.connect(handle_location_changed)
+	currentRoom.room_changed.connect(handle_room_change)
+	currentRoom.item_pickup.connect(inventory.add_item)
+
+func handle_location_changed(point:Vector3) -> void:
+	playerCamera.go_to(point)
 
 
 func handle_room_change(door:Door) -> void:
@@ -47,14 +49,7 @@ func handle_room_change(door:Door) -> void:
 	currentRoom.item_pickup.disconnect(inventory.add_item)
 	
 	#	connect new room connections
-	currentRoom = connectingRoom
-	currentRoom.setup(wand)
-	currentRoom.room_changed.connect(handle_room_change)
-	currentRoom.item_pickup.connect(inventory.add_item)
-
-	#var room:Node3D = roomNavigator.get_room(door.direction)
-	#roomNavigator.assign_rooms(currentRoom.doors)
-	#currentRoom.room_changed.connect(handle_room_change)
+	_setup_current_room(connectingRoom)
 
 
 func handle_entered_room() -> void:

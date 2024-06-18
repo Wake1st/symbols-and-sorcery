@@ -65,7 +65,6 @@ shape = SubResource("SphereShape3D_nt7oc")
 mesh = SubResource("SphereMesh_fskxf")
 
 [node name="GridMap" type="GridMap" parent="."]
-visible = false
 mesh_library = ExtResource("3_ekc2x")
 cell_size = Vector3(1, 1, 1)
 cell_center_y = false
@@ -109,5 +108,14 @@ light_energy = 0.4
 omni_range = 42.294
 omni_attenuation = 1.4048
 
-[node name="NavigationPoint" parent="." instance=ExtResource("5_nhrmg")]
+[node name="NavPointFreeze" parent="." instance=ExtResource("5_nhrmg")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+
+[node name="NavPointBurn" parent="." instance=ExtResource("5_nhrmg")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="NavPointDoorS" parent="." instance=ExtResource("5_nhrmg")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)

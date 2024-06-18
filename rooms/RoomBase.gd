@@ -1,8 +1,9 @@
 class_name RoomBase
 extends Node3D
 
-signal room_changed(door:Door)
 signal item_pickup(item:Item)
+signal location_changed(point:Vector3)
+signal room_changed(door:Door)
 
 @export_category("Room")
 @export var northDoor:Door
