@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cda7ry0x4wl8r"
-path="res://.godot/imported/simple stone dungeon 64x.glb-9c39c7f8ce7f1bdc4afb9aed48334592.scn"
+uid="uid://fjd5uf50ph5w"
+path="res://.godot/imported/fire token.glb-877be1d897723882aed4592f239f03b4.scn"
 
 [deps]
 
-source_file="res://assets/simple stone dungeon 64x.glb"
-dest_files=["res://.godot/imported/simple stone dungeon 64x.glb-9c39c7f8ce7f1bdc4afb9aed48334592.scn"]
+source_file="res://assets/models/fire token.glb"
+dest_files=["res://.godot/imported/fire token.glb-877be1d897723882aed4592f239f03b4.scn"]
 
 [params]
 

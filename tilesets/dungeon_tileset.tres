@@ -1,7 +1,7 @@
 [gd_resource type="MeshLibrary" load_steps=16 format=3 uid="uid://bwbsu80ly13cd"]
 
-[ext_resource type="Texture2D" uid="uid://d7go2lyth4sk" path="res://assets/simple stone dungeon 64x_stone atlas.png" id="1_q7wgv"]
-[ext_resource type="Texture2D" uid="uid://d0q38pkjgsjup" path="res://assets/simple stone dungeon 64x_stone atlas normal.png" id="2_qmmvb"]
+[ext_resource type="Texture2D" uid="uid://d7go2lyth4sk" path="res://assets/models/simple stone dungeon 64x_stone atlas.png" id="1_q7wgv"]
+[ext_resource type="Texture2D" uid="uid://d0q38pkjgsjup" path="res://assets/models/simple stone dungeon 64x_stone atlas normal.png" id="2_qmmvb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i0wuo"]
 resource_name = "Material.001"

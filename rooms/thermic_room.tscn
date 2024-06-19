@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dhfax6f0r5sbf"]
+[gd_scene load_steps=9 format=3 uid="uid://dhfax6f0r5sbf"]
 
 [ext_resource type="PackedScene" uid="uid://b5wl1fbu8w4rm" path="res://common/pillar.tscn" id="1_75le4"]
 [ext_resource type="Script" path="res://rooms/thermic_room.gd" id="1_448yj"]
 [ext_resource type="MeshLibrary" uid="uid://bwbsu80ly13cd" path="res://tilesets/dungeon_tileset.tres" id="3_ekc2x"]
 [ext_resource type="PackedScene" uid="uid://boqvuwulwsx17" path="res://shaders/fire.tscn" id="4_cayik"]
 [ext_resource type="PackedScene" uid="uid://dowkdyyao5rfd" path="res://common/nav_point.tscn" id="5_2mlni"]
+[ext_resource type="PackedScene" uid="uid://dis025wnr6qxd" path="res://fire_token.tscn" id="6_367as"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_nt7oc"]
 radius = 0.2
@@ -119,3 +120,6 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, 
 [node name="NavPointDoorS" parent="." instance=ExtResource("5_2mlni")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="FireToken" parent="." instance=ExtResource("6_367as")]
+transform = Transform3D(-0.274278, 0, -0.96165, 0, 1, 0, 0.96165, 0, -0.274278, 3.39258, 0.611124, 1.31718)

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dis025wnr6qxd"]
+
+[ext_resource type="PackedScene" uid="uid://fjd5uf50ph5w" path="res://assets/models/fire token.glb" id="1_hio5f"]
+
+[node name="FireToken" instance=ExtResource("1_hio5f")]
+
+[node name="Token" parent="." index="0"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
