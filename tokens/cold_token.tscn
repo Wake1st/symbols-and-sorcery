@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://thyqf8583t8w"]
+
+[ext_resource type="PackedScene" uid="uid://bp0hve3gxo4ei" path="res://assets/models/cold token.glb" id="1_15at6"]
+[ext_resource type="Script" path="res://tokens/TokenBase.gd" id="2_lvn7c"]
+
+[node name="ColdToken" instance=ExtResource("1_15at6")]
+script = ExtResource("2_lvn7c")
+spell = 3
+
+[node name="StaticBody3D" parent="ColdToken" index="0"]
+unique_name_in_owner = true

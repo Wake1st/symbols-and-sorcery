@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3gfhwr4cme8x"
-path.s3tc="res://.godot/imported/fire token_token_face.png-38d1f106a99829c943fbbe5e06ab74f9.s3tc.ctex"
+uid="uid://u7eg5k7aaxsk"
+path.s3tc="res://.godot/imported/cold token_cold_face.png-c60eefca59262d0c00c3a849b1393cf3.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://assets/models/fire token_token_face.png"
-dest_files=["res://.godot/imported/fire token_token_face.png-38d1f106a99829c943fbbe5e06ab74f9.s3tc.ctex"]
+source_file="res://assets/models/cold token_cold_face.png"
+dest_files=["res://.godot/imported/cold token_cold_face.png-c60eefca59262d0c00c3a849b1393cf3.s3tc.ctex"]
 
 [params]
 

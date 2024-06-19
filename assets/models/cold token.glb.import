@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://gcqkj03wp8p"
-path="res://.godot/imported/fire token.glb-877be1d897723882aed4592f239f03b4.scn"
+uid="uid://bp0hve3gxo4ei"
+path="res://.godot/imported/cold token.glb-c0b2ac6f5186940f8ff964d981e0128a.scn"
 
 [deps]
 
-source_file="res://assets/models/fire token.glb"
-dest_files=["res://.godot/imported/fire token.glb-877be1d897723882aed4592f239f03b4.scn"]
+source_file="res://assets/models/cold token.glb"
+dest_files=["res://.godot/imported/cold token.glb-c0b2ac6f5186940f8ff964d981e0128a.scn"]
 
 [params]
 

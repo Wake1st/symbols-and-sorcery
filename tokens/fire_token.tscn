@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dis025wnr6qxd"]
+
+[ext_resource type="PackedScene" uid="uid://gcqkj03wp8p" path="res://assets/models/fire token.glb" id="1_hio5f"]
+[ext_resource type="Script" path="res://tokens/TokenBase.gd" id="2_w70c8"]
+
+[node name="FireToken" instance=ExtResource("1_hio5f")]
+script = ExtResource("2_w70c8")
+spell = 2
+
+[node name="StaticBody3D" parent="FireToken" index="0"]
+unique_name_in_owner = true

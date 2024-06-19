@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ConnectionNode" load_steps=3 format=3 uid="uid://cmi7nk34coih3"]
 
 [ext_resource type="PackedScene" uid="uid://bd2osptl071da" path="res://rooms/light_room.tscn" id="1_6s6sd"]
-[ext_resource type="Script" path="res://models/ConnectionNode.gd" id="1_vk0j3"]
+[ext_resource type="Script" path="res://scripts/ConnectionNode.gd" id="1_vk0j3"]
 
 [resource]
 script = ExtResource("1_vk0j3")

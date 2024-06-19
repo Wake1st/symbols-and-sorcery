@@ -28,13 +28,14 @@ folder_colors={
 "res://connection_nodes/": "yellow",
 "res://items/": "yellow",
 "res://light/": "purple",
-"res://models/": "orange",
 "res://rooms/": "purple",
 "res://rune_crafter/": "purple",
 "res://runes/": "yellow",
+"res://scripts/": "orange",
 "res://scroll/": "purple",
 "res://shaders/": "purple",
 "res://tilesets/": "teal",
+"res://tokens/": "purple",
 "res://ui/": "purple"
 }
 

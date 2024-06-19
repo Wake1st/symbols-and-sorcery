@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="TokenType" load_steps=2 format=3 uid="uid://t4pkirxiof07"]
+
+[ext_resource type="Script" path="res://tokens/TokenType.gd" id="1_h86e8"]
+
+[resource]
+script = ExtResource("1_h86e8")
+name = "cold"

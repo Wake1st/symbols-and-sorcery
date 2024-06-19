@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ConnectionNode" load_steps=4 format=3 uid="uid://dl2cd6qk2flj5"]
 
-[ext_resource type="Script" path="res://models/ConnectionNode.gd" id="1_gt6it"]
+[ext_resource type="Script" path="res://scripts/ConnectionNode.gd" id="1_gt6it"]
 [ext_resource type="PackedScene" uid="uid://bd2osptl071da" path="res://rooms/light_room.tscn" id="1_q5bfw"]
 [ext_resource type="PackedScene" uid="uid://dhfax6f0r5sbf" path="res://rooms/thermic_room.tscn" id="1_ulqj2"]
 

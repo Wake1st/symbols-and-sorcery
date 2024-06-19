@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://i0xl4f7ra83w"]
 
 [ext_resource type="Texture2D" uid="uid://ck6kvcpumhe" path="res://assets/scroll.png" id="1_0tt61"]
-[ext_resource type="Script" path="res://models/Item.gd" id="1_82yoa"]
+[ext_resource type="Script" path="res://scripts/Item.gd" id="1_82yoa"]
 [ext_resource type="PackedScene" uid="uid://be8eeq80vf17t" path="res://scroll/scroll.tscn" id="2_oqng8"]
 
 [resource]
