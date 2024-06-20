@@ -32,14 +32,14 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -232.0
-offset_bottom = -88.0
+offset_bottom = -80.0
 grow_horizontal = 2
 grow_vertical = 2
 stretch = true
 
 [node name="GameViewport" type="SubViewport" parent="GameViewportContainer"]
 handle_input_locally = false
-size = Vector2i(768, 512)
+size = Vector2i(768, 520)
 render_target_update_mode = 4
 
 [node name="Player" parent="GameViewportContainer/GameViewport" instance=ExtResource("2_rda4s")]
@@ -90,14 +90,14 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 768.0
-offset_bottom = -88.0
+offset_bottom = -80.0
 grow_horizontal = 2
 grow_vertical = 2
 stretch = true
 
 [node name="TextViewport" type="SubViewport" parent="TextViewportContainer"]
 handle_input_locally = false
-size = Vector2i(232, 512)
+size = Vector2i(232, 520)
 render_target_update_mode = 4
 
 [node name="Descriptions" parent="TextViewportContainer/TextViewport" instance=ExtResource("3_h4kny")]
@@ -106,17 +106,18 @@ mouse_filter = 2
 mouse_default_cursor_shape = 2
 
 [node name="InvViewportContainer" type="SubViewportContainer" parent="."]
-anchors_preset = 15
+anchors_preset = 12
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 512.0
+offset_top = -80.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 stretch = true
 
 [node name="InvViewport" type="SubViewport" parent="InvViewportContainer"]
 handle_input_locally = false
-size = Vector2i(1000, 88)
+size = Vector2i(1000, 80)
 render_target_update_mode = 4
 
 [node name="Inventory" parent="InvViewportContainer/InvViewport" instance=ExtResource("4_fqnfk")]
