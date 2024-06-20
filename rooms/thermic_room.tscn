@@ -123,9 +123,7 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 
 [node name="FireToken" parent="." instance=ExtResource("6_khm5q")]
-unique_name_in_owner = true
 transform = Transform3D(-0.274278, 0, -0.96165, 0, 1, 0, 0.96165, 0, -0.274278, 3.39258, 0.611124, 1.31718)
 
 [node name="ColdToken" parent="." instance=ExtResource("7_x82kp")]
-unique_name_in_owner = true
 transform = Transform3D(-0.0912061, 0, 0.995832, 0, 1, 0, -0.995832, 0, -0.0912061, -3.30069, 0.610126, 1.1951)

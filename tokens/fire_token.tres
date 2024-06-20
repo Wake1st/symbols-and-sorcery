@@ -1,7 +1,9 @@
-[gd_resource type="Resource" script_class="TokenType" load_steps=2 format=3 uid="uid://bvylmi3semony"]
+[gd_resource type="Resource" script_class="Token" load_steps=3 format=3 uid="uid://bvylmi3semony"]
 
-[ext_resource type="Script" path="res://tokens/TokenType.gd" id="1_flcuq"]
+[ext_resource type="Texture2D" uid="uid://dbfmcs61q7c68" path="res://assets/models/fire token_fire_face.png" id="1_5qv1w"]
+[ext_resource type="Script" path="res://tokens/Token.gd" id="1_flcuq"]
 
 [resource]
 script = ExtResource("1_flcuq")
-name = "fire"
+spell = 2
+image = ExtResource("1_5qv1w")

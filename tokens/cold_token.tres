@@ -1,7 +1,9 @@
-[gd_resource type="Resource" script_class="TokenType" load_steps=2 format=3 uid="uid://t4pkirxiof07"]
+[gd_resource type="Resource" script_class="Token" load_steps=3 format=3 uid="uid://t4pkirxiof07"]
 
-[ext_resource type="Script" path="res://tokens/TokenType.gd" id="1_h86e8"]
+[ext_resource type="Script" path="res://tokens/Token.gd" id="1_bjiq2"]
+[ext_resource type="Texture2D" uid="uid://u7eg5k7aaxsk" path="res://assets/models/cold token_cold_face.png" id="1_j6a8i"]
 
 [resource]
-script = ExtResource("1_h86e8")
-name = "cold"
+script = ExtResource("1_bjiq2")
+spell = 3
+image = ExtResource("1_j6a8i")

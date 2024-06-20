@@ -1,17 +1,18 @@
-class_name PlayerCamera
+class_name Player
 extends Node3D
 
 signal entered_room()
-signal selected_attempted(result:Dictionary)
+signal selection_attempted(result:Dictionary)
 
 const RAY_LENGTH = 1000
 
-@export_category("Player Camera")
+@export_category("Player")
 @export var travel_time:float = 3.2
 @export var verticle_look_clamp:Vector2 = Vector2(-0.9,0.9)
 @export_range(0.1, 3.0, 0.1, "or_greater") var camera_sensitivity: float = 1
 
 @onready var camera:Camera3D = $Camera
+@onready var itemPickup:ItemPickup = %ItemPickup
 
 var is_looking_around:bool = false
 var is_traveling:bool = false
@@ -34,6 +35,10 @@ func go_to(point:NavPoint) -> void:
 			camera,"global_basis",point.global_basis,travel_time
 		).set_ease(Tween.EASE_IN_OUT
 		).set_trans(Tween.TRANS_QUAD)
+
+
+func pick_up(thing:TokenBase) -> void:
+	itemPickup.pick_up(thing)
 
 
 func _physics_process(_delta):
@@ -59,7 +64,7 @@ func _input(_event):
 		
 		var result = space_state.intersect_ray(query)
 		if !result.is_empty():
-			selected_attempted.emit(result)
+			selection_attempted.emit(result)
 
 
 func _unhandled_input(event):

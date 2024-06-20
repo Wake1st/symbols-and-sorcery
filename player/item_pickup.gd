@@ -1,20 +1,25 @@
+@tool
+class_name ItemPickup
 extends Node3D
 
-signal finished()
+signal picked_up_item(item:Token)
 
 @onready var timer = %Timer
 @onready var follower = %Follower
+@onready var path = $Path
 
-@export_category("Pickup Item")
+@export_category("Item Pickup")
 @export var pickup_time:float = 1.8
-@export var item:Node3D
 
+var item:TokenBase
 var picking_up:bool = false
-var picked_up:bool = false
 
 
-func pick_up() -> void:
-	if !picked_up && !picking_up:
+func pick_up(token:TokenBase) -> void:
+	item = token
+	global_position = token.global_position
+	
+	if !picking_up:
 		picking_up = true
 		timer.start()
 
@@ -33,5 +38,7 @@ func _physics_process(_delta):
 
 func _on_timer_timeout():
 	picking_up = false
-	picked_up = true
-	finished.emit()
+	picked_up_item.emit(item.token)
+	
+	item.get_parent().remove_child(item)
+	item.queue_free()

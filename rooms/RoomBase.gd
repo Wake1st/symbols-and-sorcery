@@ -1,7 +1,7 @@
 class_name RoomBase
 extends Node3D
 
-signal item_pickup(item:Item)
+signal item_selected(item:TokenBase)
 signal location_changed(point:NavPoint)
 signal room_changed(door:Door)
 
@@ -11,10 +11,10 @@ signal room_changed(door:Door)
 @export var southDoor:Door
 @export var westDoor:Door
 
-var doorPoints:Dictionary = {}
-
 var currentNavId:int
 var navPoints:Dictionary = {}
+var doorPoints:Dictionary = {}
+var tokens:Array[TokenBase] = []
 
 
 func setup(wand:Wand):
@@ -30,18 +30,19 @@ func get_door_point(door:Door) -> NavPoint:
 	return point
 
 
-func check_selection(result:Dictionary) -> bool:
+func check_selection(result:Dictionary) -> void:
 	var id = result.collider_id
 	if id == null:
-		return false
+		return
 	
 	if _check_nav_points(id):
-		return true
+		return
 	
 	if _check_doors(id):
-		return true
+		return
 	
-	return false
+	if _check_tokens(id):
+		return
 
 
 func _check_nav_points(id:int) -> bool:
@@ -63,5 +64,14 @@ func _check_doors(id:int) -> bool:
 		if id == door.get_instance_id():
 			navPoints[currentNavId].visible = true
 			room_changed.emit(door)
+			return true
+	return false
+
+
+func _check_tokens(id:int) -> bool:
+	for token in tokens:
+		if id == token.get_collider_id():
+			tokens.erase(token)
+			item_selected.emit(token)
 			return true
 	return false

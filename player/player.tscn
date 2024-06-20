@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://43nacr0s5b4"]
+
+[ext_resource type="Script" path="res://player/player.gd" id="1_v5pmm"]
+[ext_resource type="PackedScene" uid="uid://ia75mudsvqo4" path="res://player/item_pickup.tscn" id="2_ufsro"]
+
+[node name="Player" type="Node3D"]
+script = ExtResource("1_v5pmm")
+camera_sensitivity = 0.3
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0)
+current = true
+
+[node name="ItemPickup" parent="." instance=ExtResource("2_ufsro")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)

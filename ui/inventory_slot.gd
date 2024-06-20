@@ -1,12 +1,12 @@
 class_name InventorySlot
 extends ColorRect
 
-signal item_selected(item:Item)
+signal item_selected(item:Token)
 
 @onready var textureRect = $TextureRect
 
 @export_category("Inventory Slot")
-@export var item:Item:
+@export var item:Token:
 	set(value):
 		item = value
 		textureRect.texture = value.image

@@ -1,10 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bd2osptl071da"]
+[gd_scene load_steps=6 format=3 uid="uid://bd2osptl071da"]
 
-[ext_resource type="PackedScene" uid="uid://be8eeq80vf17t" path="res://scroll/scroll.tscn" id="1_dr2h3"]
 [ext_resource type="Script" path="res://rooms/light_room.gd" id="1_mccc8"]
 [ext_resource type="MeshLibrary" uid="uid://bwbsu80ly13cd" path="res://tilesets/dungeon_tileset.tres" id="2_7m75w"]
 [ext_resource type="PackedScene" uid="uid://c8xaptr321o6k" path="res://light/light.tscn" id="2_sek2c"]
-[ext_resource type="PackedScene" uid="uid://ia75mudsvqo4" path="res://common/pickup_item.tscn" id="5_n1bqh"]
 [ext_resource type="PackedScene" uid="uid://dowkdyyao5rfd" path="res://common/nav_point.tscn" id="7_3gx0o"]
 [ext_resource type="PackedScene" uid="uid://b5wl1fbu8w4rm" path="res://common/pillar.tscn" id="7_i670n"]
 
@@ -16,15 +14,6 @@ unique_name_in_owner = true
 spellTime = 1.2
 
 [node name="Pillar" parent="." instance=ExtResource("7_i670n")]
-
-[node name="ScrollPickup" parent="." node_paths=PackedStringArray("item") instance=ExtResource("5_n1bqh")]
-unique_name_in_owner = true
-pickup_time = 2.0
-item = NodePath("Scroll")
-
-[node name="Scroll" parent="ScrollPickup" instance=ExtResource("1_dr2h3")]
-unique_name_in_owner = true
-transform = Transform3D(0.2, 0, 0, 0, 0.0517638, 0.193185, 0, -0.193185, 0.0517638, 0, 0.8, 0)
 
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("2_7m75w")

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://game.gd" id="1_2jxoa"]
 [ext_resource type="PackedScene" uid="uid://ddf52c21k8uf" path="res://navigation.tscn" id="2_fnqxl"]
-[ext_resource type="PackedScene" uid="uid://43nacr0s5b4" path="res://common/player_camera.tscn" id="2_rda4s"]
+[ext_resource type="PackedScene" uid="uid://43nacr0s5b4" path="res://player/player.tscn" id="2_rda4s"]
 [ext_resource type="PackedScene" uid="uid://bd2osptl071da" path="res://rooms/light_room.tscn" id="2_v5tb6"]
 [ext_resource type="Resource" uid="uid://cmi7nk34coih3" path="res://connection_nodes/light.tres" id="3_3tav4"]
 [ext_resource type="PackedScene" uid="uid://bqyqmq468rc8f" path="res://ui/descriptions.tscn" id="3_h4kny"]
@@ -22,7 +22,7 @@ script = ExtResource("1_2jxoa")
 [node name="Navigation" parent="." node_paths=PackedStringArray("startingNode") instance=ExtResource("2_fnqxl")]
 unique_name_in_owner = true
 startingNode = NodePath("../GameViewportContainer/GameViewport/LightRoom")
-connectionNodes = Array[Resource("res://models/ConnectionNode.gd")]([ExtResource("3_3tav4"), ExtResource("4_na2jj")])
+connectionNodes = Array[Resource("res://scripts/ConnectionNode.gd")]([ExtResource("3_3tav4"), ExtResource("4_na2jj")])
 
 [node name="Wand" parent="." instance=ExtResource("5_ve7nf")]
 unique_name_in_owner = true
@@ -42,7 +42,7 @@ handle_input_locally = false
 size = Vector2i(768, 512)
 render_target_update_mode = 4
 
-[node name="PlayerCamera" parent="GameViewportContainer/GameViewport" instance=ExtResource("2_rda4s")]
+[node name="Player" parent="GameViewportContainer/GameViewport" instance=ExtResource("2_rda4s")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 

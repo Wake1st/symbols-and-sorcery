@@ -10,7 +10,7 @@ func setup(selection:Callable) -> void:
 	selectionCallable = selection
 
 
-func add_item(item:Item) -> void:
+func add_item(item:Token) -> void:
 	var slot:InventorySlot = slotScenes.instantiate()
 	
 	itemContainer.add_child(slot)

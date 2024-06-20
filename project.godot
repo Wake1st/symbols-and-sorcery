@@ -28,6 +28,7 @@ folder_colors={
 "res://connection_nodes/": "yellow",
 "res://items/": "yellow",
 "res://light/": "purple",
+"res://player/": "purple",
 "res://rooms/": "purple",
 "res://rune_crafter/": "purple",
 "res://runes/": "yellow",
