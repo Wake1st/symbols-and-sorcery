@@ -11,6 +11,6 @@ camera_sensitivity = 0.3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0)
 current = true
 
-[node name="ItemPickup" parent="." instance=ExtResource("2_ufsro")]
+[node name="ItemPickup" parent="Camera" instance=ExtResource("2_ufsro")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)

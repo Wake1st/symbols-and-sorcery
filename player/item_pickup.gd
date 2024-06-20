@@ -6,18 +6,28 @@ signal picked_up_item(item:Token)
 
 @onready var timer = %Timer
 @onready var follower = %Follower
-@onready var path = $Path
+@onready var path = %Path
 
 @export_category("Item Pickup")
 @export var pickup_time:float = 1.8
 
 var item:TokenBase
 var picking_up:bool = false
+var tween:Tween
 
 
 func pick_up(token:TokenBase) -> void:
 	item = token
-	global_position = token.global_position
+	path.curve.set_point_position(
+		0,
+		get_parent_node_3d().global_basis.inverse() * (
+			token.global_position - global_position)
+	)
+	tween = create_tween()
+	tween.tween_property(
+		item,"global_basis",global_basis,pickup_time
+	).set_ease(Tween.EASE_IN_OUT
+	).set_trans(Tween.TRANS_QUAD)
 	
 	if !picking_up:
 		picking_up = true

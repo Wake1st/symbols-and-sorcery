@@ -58,7 +58,8 @@ func handle_room_change(door:Door) -> void:
 
 
 func handle_entered_room() -> void:
-	print("entered room")
+	pass
+	#	TODO: some description about the room entered
 
 
 func handle_world_selection(result:Dictionary) -> void:

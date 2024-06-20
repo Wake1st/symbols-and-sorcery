@@ -67,6 +67,7 @@ shape = SubResource("SphereShape3D_nt7oc")
 mesh = SubResource("SphereMesh_fskxf")
 
 [node name="GridMap" type="GridMap" parent="."]
+visible = false
 mesh_library = ExtResource("3_ekc2x")
 cell_size = Vector3(1, 1, 1)
 cell_center_y = false
@@ -123,7 +124,7 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 
 [node name="FireToken" parent="." instance=ExtResource("6_khm5q")]
-transform = Transform3D(-0.274278, 0, -0.96165, 0, 1, 0, 0.96165, 0, -0.274278, 3.39258, 0.611124, 1.31718)
+transform = Transform3D(-0.210898, 0.977508, 4.27282e-08, -8.57914e-16, -4.37114e-08, 1, 0.977507, 0.210898, 9.21865e-09, 3.22248, 0.611124, 1.30191)
 
 [node name="ColdToken" parent="." instance=ExtResource("7_x82kp")]
-transform = Transform3D(-0.0912061, 0, 0.995832, 0, 1, 0, -0.995832, 0, -0.0912061, -3.30069, 0.610126, 1.1951)
+transform = Transform3D(-0.237923, -0.971284, -4.24562e-08, -2.11758e-22, -4.37114e-08, 1, -0.971284, 0.237923, 1.04e-08, -3.30069, 0.610126, 1.1951)
