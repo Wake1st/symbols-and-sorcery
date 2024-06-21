@@ -64,7 +64,8 @@ func handle_entered_room() -> void:
 
 
 func handle_world_selection(result:Dictionary) -> void:
-	currentRoom.check_selection(result)
+	if !wand.is_equipped:
+		currentRoom.check_selection(result)
 
 
 func handle_item_pickup(item:TokenBase) -> void:

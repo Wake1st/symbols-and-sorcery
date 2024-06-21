@@ -22,6 +22,7 @@ func cast() -> void:
 	if !is_on:
 		turning_on = true
 		timerOn.start()
+		lightOrb.visible = true
 	else:
 		turning_off = true
 		timerOff.start()
@@ -60,6 +61,7 @@ func _on_timer_off_timeout():
 	turning_off = false
 	is_on = !is_on
 	follower.progress_ratio = 0.0
+	lightOrb.visible = false
 	
 	var location = lightOrb.global_position
 	lightOrb.get_parent().remove_child(lightOrb)
