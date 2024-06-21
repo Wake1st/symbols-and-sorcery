@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Token" load_steps=3 format=3 uid="uid://cxyvchh8pab3u"]
+
+[ext_resource type="Texture2D" uid="uid://d3y3vmnmihdpo" path="res://assets/models/light token_light_face.png" id="1_ai22w"]
+[ext_resource type="Script" path="res://tokens/Token.gd" id="1_lp8ov"]
+
+[resource]
+script = ExtResource("1_lp8ov")
+spell = 0
+image = ExtResource("1_ai22w")

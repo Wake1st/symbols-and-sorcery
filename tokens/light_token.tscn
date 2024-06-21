@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpte4j6sgl372"]
+
+[ext_resource type="PackedScene" uid="uid://d0xvcralcenga" path="res://assets/models/light token.glb" id="1_jjqbx"]
+[ext_resource type="Script" path="res://tokens/TokenBase.gd" id="2_tndsi"]
+[ext_resource type="Resource" uid="uid://cxyvchh8pab3u" path="res://tokens/light_token.tres" id="3_apw4x"]
+
+[node name="LightToken" instance=ExtResource("1_jjqbx")]
+script = ExtResource("2_tndsi")
+token = ExtResource("3_apw4x")
+
+[node name="LightToken" parent="." index="0"]
+transform = Transform3D(0.1, 0, 0, 0, -4.37114e-09, -0.1, 0, 0.1, -4.37114e-09, 0, 0, 0)
+
+[node name="StaticBody3D" parent="LightToken" index="0"]
+unique_name_in_owner = true

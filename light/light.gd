@@ -63,7 +63,6 @@ func _on_timer_off_timeout():
 	follower.progress_ratio = 0.0
 	lightOrb.visible = false
 	
-	var location = lightOrb.global_position
 	lightOrb.get_parent().remove_child(lightOrb)
 	follower.add_child(lightOrb)
 	lightOrb.global_position = follower.global_position

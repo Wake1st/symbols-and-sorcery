@@ -11,4 +11,7 @@ func setup():
 	
 	#	setup door points
 	doorPoints[northDoor] = navigation_point
+	
+	#	setup token
+	tokens.append($LightToken)
 
