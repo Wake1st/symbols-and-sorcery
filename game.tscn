@@ -37,7 +37,7 @@ grow_horizontal = 2
 grow_vertical = 2
 stretch = true
 
-[node name="GameViewport" type="SubViewport" parent="GameViewportContainer"]
+[node name="GameViewport" type="SubViewport" parent="GameViewportContainer" groups=["game-viewport"]]
 handle_input_locally = false
 size = Vector2i(768, 520)
 render_target_update_mode = 4
@@ -45,8 +45,6 @@ render_target_update_mode = 4
 [node name="Player" parent="GameViewportContainer/GameViewport" instance=ExtResource("2_rda4s")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
-travel_time = 3.2
-verticle_look_clamp = Vector2(-0.9, 0.9)
 
 [node name="LightRoom" parent="GameViewportContainer/GameViewport" node_paths=PackedStringArray("northDoor") instance=ExtResource("2_v5tb6")]
 northDoor = NodePath("../LightThermicDoor")
@@ -85,7 +83,7 @@ environment = ExtResource("11_00gap")
 unique_name_in_owner = true
 
 [node name="TestCamera" type="Camera3D" parent="GameViewportContainer/GameViewport"]
-transform = Transform3D(-0.11804, -0.27371, 0.954541, 6.93211e-09, 0.961262, 0.275637, -0.993009, 0.0325362, -0.113467, 0.654911, 1.62158, -5.47597)
+transform = Transform3D(-0.997681, -0.018762, 0.0654308, -0.0397887, 0.940678, -0.336959, -0.0552273, -0.338781, -0.939243, 0.654911, 1.25181, -2.47235)
 
 [node name="TextViewportContainer" type="SubViewportContainer" parent="."]
 anchors_preset = 15

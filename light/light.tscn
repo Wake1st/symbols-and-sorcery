@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c8xaptr321o6k"]
+[gd_scene load_steps=4 format=3 uid="uid://c8xaptr321o6k"]
 
 [ext_resource type="Script" path="res://light/light.gd" id="1_4ff2q"]
+[ext_resource type="PackedScene" uid="uid://fsow1ucof4ir" path="res://light/light_orb.tscn" id="2_cdq7r"]
 
 [sub_resource type="Curve3D" id="Curve3D_85ecw"]
 _data = {
@@ -8,18 +9,6 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0)
 }
 point_count = 3
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ntq66"]
-transparency = 1
-albedo_color = Color(0.796078, 0.980392, 0.596078, 0.152941)
-emission_enabled = true
-emission = Color(0.796078, 0.980392, 0.596078, 1)
-emission_energy_multiplier = 12.0
-
-[sub_resource type="SphereMesh" id="SphereMesh_ijgog"]
-material = SubResource("StandardMaterial3D_ntq66")
-radius = 0.04
-height = 0.08
 
 [node name="Light" type="Node3D"]
 script = ExtResource("1_4ff2q")
@@ -31,16 +20,8 @@ curve = SubResource("Curve3D_85ecw")
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.999995, 0, 0, 0, 0.999995, 0, 0, 0)
 
-[node name="Light" type="OmniLight3D" parent="Path/Follower"]
+[node name="LightOrb" parent="Path/Follower" instance=ExtResource("2_cdq7r")]
 unique_name_in_owner = true
-light_color = Color(0.796078, 0.980392, 0.596078, 1)
-omni_attenuation = 0.138696
-
-[node name="LightOrb" type="MeshInstance3D" parent="Path/Follower"]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1.00001, 0, 0, 0, 1.00001, 0, 0, 0)
-mesh = SubResource("SphereMesh_ijgog")
-skeleton = NodePath("../../..")
 
 [node name="TimerOn" type="Timer" parent="."]
 unique_name_in_owner = true

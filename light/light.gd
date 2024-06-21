@@ -2,11 +2,12 @@ extends Node3D
 
 signal finished
 
+const GAME_WORLD:String = "/root/Game/GameViewportContainer/GameViewport"
+
 @onready var timerOn = %TimerOn
 @onready var timerOff = %TimerOff
 @onready var follower = %Follower
-@onready var light = %Light
-@onready var lightOrb = %LightOrb
+@onready var lightOrb:LightOrb = %LightOrb
 
 @export_category("Light")
 @export var spellTime:float = 1.8
@@ -30,29 +31,39 @@ func _ready():
 	timerOn.wait_time = spellTime
 	
 	follower.progress_ratio = 0
-	light.light_energy = 0
-	lightOrb.mesh.material.emission_energy_multiplier = 0
+	lightOrb.reset(emission_max)
 
 
 func _physics_process(_delta):
 	if turning_on:
 		var progress = 1.0 - timerOn.time_left/spellTime
 		follower.progress_ratio = progress
-		light.light_energy = progress
-		lightOrb.mesh.material.emission_energy_multiplier = emission_max * progress
+		lightOrb.update(progress)
 	if turning_off:
 		var progress = timerOff.time_left/spellTime
-		light.light_energy = progress
-		lightOrb.mesh.material.emission_energy_multiplier = emission_max * progress
+		lightOrb.update(progress)
 
 
 func _on_timer_on_timeout():
 	turning_on = false
 	is_on = !is_on
+	
+	var location = lightOrb.global_position
+	follower.remove_child(lightOrb)
+	get_node(GAME_WORLD).add_child(lightOrb)
+	lightOrb.global_position = location
+	
 	finished.emit()
 
 
 func _on_timer_off_timeout():
 	turning_off = false
 	is_on = !is_on
+	follower.progress_ratio = 0.0
+	
+	var location = lightOrb.global_position
+	lightOrb.get_parent().remove_child(lightOrb)
+	follower.add_child(lightOrb)
+	lightOrb.global_position = follower.global_position
+	
 	finished.emit()
