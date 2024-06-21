@@ -17,8 +17,8 @@ var doorPoints:Dictionary = {}
 var tokens:Array[TokenBase] = []
 
 
-func setup(wand:Wand):
-	print("ERROR: unhandled 'setup()' in class RoomBase\n",wand)
+func setup():
+	print("ERROR: unhandled 'setup()' in class RoomBase")
 
 
 func get_door_point(door:Door) -> NavPoint:

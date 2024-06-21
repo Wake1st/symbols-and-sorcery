@@ -1,17 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://bd2osptl071da"]
+[gd_scene load_steps=5 format=3 uid="uid://bd2osptl071da"]
 
 [ext_resource type="Script" path="res://rooms/light_room.gd" id="1_mccc8"]
 [ext_resource type="MeshLibrary" uid="uid://bwbsu80ly13cd" path="res://tilesets/dungeon_tileset.tres" id="2_7m75w"]
-[ext_resource type="PackedScene" uid="uid://c8xaptr321o6k" path="res://light/light.tscn" id="2_sek2c"]
 [ext_resource type="PackedScene" uid="uid://dowkdyyao5rfd" path="res://common/nav_point.tscn" id="7_3gx0o"]
 [ext_resource type="PackedScene" uid="uid://b5wl1fbu8w4rm" path="res://common/pillar.tscn" id="7_i670n"]
 
 [node name="LightRoom" type="Node3D"]
 script = ExtResource("1_mccc8")
-
-[node name="Light" parent="." instance=ExtResource("2_sek2c")]
-unique_name_in_owner = true
-spellTime = 1.2
 
 [node name="Pillar" parent="." instance=ExtResource("7_i670n")]
 

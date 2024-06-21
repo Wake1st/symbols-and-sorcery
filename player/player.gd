@@ -13,11 +13,21 @@ const RAY_LENGTH = 1000
 
 @onready var camera:Camera3D = $Camera
 @onready var itemPickup:ItemPickup = %ItemPickup
+@onready var light = %Light
 
 var is_looking_around:bool = false
 var is_traveling:bool = false
 var translate_tween:Tween
 var rotate_tween:Tween
+
+var wand:Wand
+
+
+func setup(w:Wand) -> void:
+	#	setup spell casting
+	wand = w
+	wand.cast_light.connect(light.cast)
+	light.finished.connect(wand.spell_finished)
 
 
 func go_to(point:NavPoint) -> void:

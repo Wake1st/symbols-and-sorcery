@@ -9,7 +9,6 @@ var wand_equipped:bool = false
 var is_casting:bool = false
 
 
-
 func spell_finished() -> void:
 	is_casting = false
 

@@ -5,7 +5,7 @@ extends RoomBase
 @onready var navPointDoorS:NavPoint = %NavPointDoorS
 
 
-func setup(_wand:Wand):
+func setup():
 	#	setup nav points
 	navPoints[navPointFreeze.get_instance_id()] = navPointFreeze
 	navPoints[navPointBurn.get_instance_id()] = navPointBurn

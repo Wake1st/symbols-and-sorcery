@@ -67,7 +67,6 @@ shape = SubResource("SphereShape3D_nt7oc")
 mesh = SubResource("SphereMesh_fskxf")
 
 [node name="GridMap" type="GridMap" parent="."]
-visible = false
 mesh_library = ExtResource("3_ekc2x")
 cell_size = Vector3(1, 1, 1)
 cell_center_y = false

@@ -20,6 +20,7 @@ func _ready() -> void:
 	_setup_current_room(startRoom)
 	
 	#	setup camera
+	player.setup(wand)
 	player.entered_room.connect(handle_entered_room)
 	player.selection_attempted.connect(handle_world_selection)
 	player.itemPickup.picked_up_item.connect(inventory.add_item)
@@ -30,7 +31,7 @@ func _ready() -> void:
 
 func _setup_current_room(room:RoomBase) -> void:
 	currentRoom = room
-	room.setup(wand)
+	room.setup()
 	room.location_changed.connect(handle_location_changed)
 	room.room_changed.connect(handle_room_change)
 	room.item_selected.connect(handle_item_pickup)

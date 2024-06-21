@@ -1,10 +1,9 @@
 extends RoomBase
 
-@onready var light = %Light
 @onready var navigation_point:NavPoint = $NavigationPoint
 
 
-func setup(wand:Wand):
+func setup():
 	#	setup nav point
 	currentNavId = navigation_point.get_instance_id()
 	navPoints[currentNavId] = navigation_point
@@ -12,7 +11,4 @@ func setup(wand:Wand):
 	
 	#	setup door points
 	doorPoints[northDoor] = navigation_point
-	
-	#	setup spell casting
-	wand.cast_light.connect(light.cast)
-	light.finished.connect(wand.spell_finished)
+
