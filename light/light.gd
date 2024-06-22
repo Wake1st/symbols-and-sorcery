@@ -1,6 +1,4 @@
-extends Node3D
-
-signal finished
+extends SpellBase
 
 const GAME_WORLD:String = "/root/Game/GameViewportContainer/GameViewport"
 
@@ -15,7 +13,6 @@ const GAME_WORLD:String = "/root/Game/GameViewportContainer/GameViewport"
 
 var turning_on:bool = false
 var turning_off:bool = false
-var is_on:bool = false
 
 
 func cast() -> void:

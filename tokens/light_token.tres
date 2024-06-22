@@ -5,5 +5,5 @@
 
 [resource]
 script = ExtResource("1_lp8ov")
-spell = 0
+spell = 1
 image = ExtResource("1_ai22w")

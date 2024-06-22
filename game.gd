@@ -6,26 +6,22 @@ extends Node
 @onready var player:Player = %Player
 @onready var descriptions = %Descriptions
 @onready var inventory = %Inventory
-@onready var wand:Wand = %Wand
 @onready var cursor = %Cursor
 
 var currentRoom:RoomBase
 
 
 func _ready() -> void:
-	#	setup wand
-	wand.equipped_wand.connect(cursor.display_wand)
-	
 	#	setup current room
 	_setup_current_room(startRoom)
 	
-	#	setup camera
-	player.setup(wand)
+	#	setup player signals
 	player.entered_room.connect(handle_entered_room)
 	player.selection_attempted.connect(handle_world_selection)
 	player.itemPickup.picked_up_item.connect(inventory.add_item)
+	player.wand.equipped_wand.connect(cursor.display_wand)
 	
-	#	setup inventory
+	#	setup inventory signals
 	inventory.setup(handle_item_selection)
 
 
@@ -64,8 +60,7 @@ func handle_entered_room() -> void:
 
 
 func handle_world_selection(result:Dictionary) -> void:
-	if !wand.is_equipped:
-		currentRoom.check_selection(result)
+	currentRoom.check_selection(result)
 
 
 func handle_item_pickup(item:TokenBase) -> void:
@@ -73,7 +68,7 @@ func handle_item_pickup(item:TokenBase) -> void:
 
 
 func handle_item_selection(item:Token) -> void:
-	print("equip: %s" % item)
+	player.arm_spell(item.spell)
 
 
 func _on_game_viewport_container_mouse_entered():

@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" path="res://common/wand.gd" id="1_sjlar"]
 
-[node name="Wand" type="Node"]
+[node name="Wand" type="Node3D"]
 script = ExtResource("1_sjlar")

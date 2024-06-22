@@ -1,10 +1,10 @@
 class_name Wand
-extends Node
+extends Node3D
 
-signal cast_light
+signal has_casted()
 signal equipped_wand(is_equipped:bool)
 
-var active_spell:Spells.TYPE = Spells.TYPE.LIGHT
+var active_spell:Spells.TYPE = Spells.TYPE.NONE
 var is_equipped:bool = false
 var is_casting:bool = false
 
@@ -15,8 +15,7 @@ func spell_finished() -> void:
 
 func _physics_process(_delta):
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT
-	) && active_spell == Spells.TYPE.LIGHT && (
-	is_equipped && !is_casting):
+	) && (is_equipped && !is_casting):
 		_apply_spell()
 
 
@@ -30,4 +29,4 @@ func _input(_event):
 
 func _apply_spell() -> void:
 	is_casting = true
-	cast_light.emit()
+	has_casted.emit()

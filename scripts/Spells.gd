@@ -1,6 +1,7 @@
 class_name Spells
 
 enum TYPE {
+	NONE,
 	LIGHT,
 	VOID,
 	ENDOTHERMIC,
