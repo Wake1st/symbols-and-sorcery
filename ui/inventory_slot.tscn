@@ -16,7 +16,7 @@ offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_default_cursor_shape = 2
-color = Color(0.0899, 0.27666, 0.29, 1)
+color = Color(0.117647, 0.352941, 0.368627, 1)
 script = ExtResource("1_w2k5n")
 
 [node name="TextureRect" type="TextureRect" parent="."]
