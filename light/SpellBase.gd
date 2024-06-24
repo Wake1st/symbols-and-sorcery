@@ -6,5 +6,5 @@ signal finished
 var is_on:bool = false
 
 
-func cast() -> void:
+func cast(_location:Vector3 = Vector3.ZERO) -> void:
 	print("ERROR: unhandled method 'cast()' in class 'SpellBase'")

@@ -19,7 +19,7 @@ script = ExtResource("1_e561f")
 
 [node name="OmniLight" type="OmniLight3D" parent="."]
 unique_name_in_owner = true
-light_color = Color(0.796078, 0.980392, 0.596078, 1)
+light_color = Color(0.117647, 0.352941, 0.368627, 1)
 omni_attenuation = 0.138696
 
 [node name="LightMesh" type="MeshInstance3D" parent="."]

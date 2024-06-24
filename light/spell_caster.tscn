@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c8xaptr321o6k"]
 
-[ext_resource type="Script" path="res://light/light.gd" id="1_4ff2q"]
+[ext_resource type="Script" path="res://light/spell_caster.gd" id="1_4ff2q"]
 [ext_resource type="PackedScene" uid="uid://fsow1ucof4ir" path="res://light/light_orb.tscn" id="2_cdq7r"]
 
 [sub_resource type="Curve3D" id="Curve3D_85ecw"]
@@ -10,7 +10,7 @@ _data = {
 }
 point_count = 3
 
-[node name="Light" type="Node3D"]
+[node name="SpellCaster" type="Node3D"]
 script = ExtResource("1_4ff2q")
 
 [node name="Path" type="Path3D" parent="."]

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://player/player.gd" id="1_v5pmm"]
 [ext_resource type="PackedScene" uid="uid://c0ycl65jph6ju" path="res://common/wand.tscn" id="2_5i146"]
 [ext_resource type="PackedScene" uid="uid://ia75mudsvqo4" path="res://player/item_pickup.tscn" id="2_ufsro"]
-[ext_resource type="PackedScene" uid="uid://c8xaptr321o6k" path="res://light/light.tscn" id="3_075ni"]
+[ext_resource type="PackedScene" uid="uid://c8xaptr321o6k" path="res://light/spell_caster.tscn" id="3_075ni"]
 
 [node name="Player" type="Node3D"]
 script = ExtResource("1_v5pmm")
@@ -21,7 +21,7 @@ current = true
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 
-[node name="Light" parent="Camera" instance=ExtResource("3_075ni")]
+[node name="SpellCaster" parent="Camera" instance=ExtResource("3_075ni")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -0.8)
 spellTime = 1.2

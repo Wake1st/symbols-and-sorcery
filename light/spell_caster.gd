@@ -7,15 +7,20 @@ const GAME_WORLD:String = "/root/Game/GameViewportContainer/GameViewport"
 @onready var follower = %Follower
 @onready var lightOrb:LightOrb = %LightOrb
 
-@export_category("Light")
+@export_category("Spell Caster")
 @export var spellTime:float = 1.8
-@export var emission_max:float = 12.0
+@export var emissionMax:float = 12.0
 
 var turning_on:bool = false
 var turning_off:bool = false
 
+var spellEndpoint:Vector3
 
-func cast() -> void:
+
+func cast(location:Vector3 = Vector3.ZERO) -> void:
+	print("endpoint: %s" % location)
+	spellEndpoint = location
+	
 	if !is_on:
 		turning_on = true
 		timerOn.start()
@@ -29,14 +34,18 @@ func _ready():
 	timerOn.wait_time = spellTime
 	
 	follower.progress_ratio = 0
-	lightOrb.reset(emission_max)
+	lightOrb.reset(emissionMax)
 
 
 func _physics_process(_delta):
 	if turning_on:
 		var progress = 1.0 - timerOn.time_left/spellTime
-		follower.progress_ratio = progress
 		lightOrb.update(progress)
+		
+		#if spellEndpoint != Vector3.ZERO:
+		lightOrb.global_position = lerp(global_position,spellEndpoint,progress)
+		#else:
+			#follower.progress_ratio = progress
 	if turning_off:
 		var progress = timerOff.time_left/spellTime
 		lightOrb.update(progress)

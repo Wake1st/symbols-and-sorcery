@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://bd2osptl071da"]
 
 [ext_resource type="Script" path="res://rooms/light_room.gd" id="1_mccc8"]
-[ext_resource type="MeshLibrary" uid="uid://bwbsu80ly13cd" path="res://tilesets/dungeon_tileset.tres" id="2_7m75w"]
 [ext_resource type="PackedScene" uid="uid://bpte4j6sgl372" path="res://tokens/light_token.tscn" id="3_utben"]
+[ext_resource type="MeshLibrary" uid="uid://kqk2sidjxihg" path="res://tilesets/dungeon_tileset-col.tres" id="4_a7ibo"]
 [ext_resource type="PackedScene" uid="uid://dy2fpl767ftw3" path="res://common/lamp.tscn" id="5_06h7f"]
 [ext_resource type="PackedScene" uid="uid://dowkdyyao5rfd" path="res://common/nav_point.tscn" id="7_3gx0o"]
 [ext_resource type="PackedScene" uid="uid://b5wl1fbu8w4rm" path="res://common/pillar.tscn" id="7_i670n"]
@@ -16,7 +16,7 @@ script = ExtResource("1_mccc8")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.610112, 0)
 
 [node name="GridMap" type="GridMap" parent="."]
-mesh_library = ExtResource("2_7m75w")
+mesh_library = ExtResource("4_a7ibo")
 cell_size = Vector3(1, 1, 1)
 cell_center_y = false
 data = {

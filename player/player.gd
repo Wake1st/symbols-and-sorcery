@@ -3,6 +3,7 @@ extends Node3D
 
 signal entered_room()
 signal selection_attempted(result:Dictionary)
+signal spell_cast(result:Dictionary)
 
 const RAY_LENGTH = 1000
 
@@ -13,7 +14,7 @@ const RAY_LENGTH = 1000
 
 @onready var camera:Camera3D = $Camera
 @onready var itemPickup:ItemPickup = %ItemPickup
-@onready var light:SpellBase = %Light
+@onready var spellCaster:SpellBase = %SpellCaster
 @onready var wand:Wand = %Wand
 
 var is_looking_around:bool = false
@@ -61,7 +62,7 @@ func arm_spell(newSpell:Spells.TYPE) -> void:
 	#	set new spell
 	match newSpell:
 		Spells.TYPE.LIGHT:
-			currentSpell = light
+			currentSpell = spellCaster
 		_:
 			print("ERROR: unknown spell type %s" % newSpell)
 	
@@ -93,8 +94,11 @@ func _input(_event):
 		query.collide_with_areas = true
 		
 		var result = space_state.intersect_ray(query)
-		if !result.is_empty() && !wand.is_equipped:
-			selection_attempted.emit(result)
+		if !result.is_empty():
+			if wand.try_cast():
+				currentSpell.cast(result.position)
+			else:
+				selection_attempted.emit(result)
 
 
 func _unhandled_input(event):

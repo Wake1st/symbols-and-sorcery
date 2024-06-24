@@ -13,10 +13,12 @@ func spell_finished() -> void:
 	is_casting = false
 
 
-func _physics_process(_delta):
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT
-	) && (is_equipped && !is_casting):
+func try_cast() -> bool:
+	if is_equipped && !is_casting:
 		_apply_spell()
+		return true
+	else:
+		return false
 
 
 func _input(_event):
@@ -29,4 +31,4 @@ func _input(_event):
 
 func _apply_spell() -> void:
 	is_casting = true
-	has_casted.emit()
+	#has_casted.emit()
