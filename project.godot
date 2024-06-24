@@ -27,7 +27,6 @@ folder_colors={
 "res://common/": "purple",
 "res://connection_nodes/": "yellow",
 "res://items/": "yellow",
-"res://light/": "purple",
 "res://player/": "purple",
 "res://rooms/": "purple",
 "res://rune_crafter/": "purple",
@@ -35,6 +34,8 @@ folder_colors={
 "res://scripts/": "orange",
 "res://scroll/": "purple",
 "res://shaders/": "purple",
+"res://spell_caster/": "purple",
+"res://spell_orb/": "purple",
 "res://tilesets/": "teal",
 "res://tokens/": "purple",
 "res://ui/": "purple"

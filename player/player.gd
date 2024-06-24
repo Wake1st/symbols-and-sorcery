@@ -22,8 +22,6 @@ var is_traveling:bool = false
 var translate_tween:Tween
 var rotate_tween:Tween
 
-var currentSpell:SpellBase
-
 
 func go_to(point:NavPoint) -> void:
 	if !is_traveling:
@@ -50,26 +48,18 @@ func arm_spell(newSpell:Spells.TYPE) -> void:
 	#	no change or turn off
 	if newSpell == wand.active_spell:
 		return
-	elif currentSpell != null:
-		# 	turn off spell
-		if currentSpell.is_on:
-			currentSpell.cast()
-		
-		#	disconnect spell signals
-		wand.has_casted.disconnect(currentSpell.cast)
-		currentSpell.finished.disconnect(wand.spell_finished)
+	elif spellCaster.is_on:
+		spellCaster.cast()
 	
 	#	set new spell
-	match newSpell:
-		Spells.TYPE.LIGHT:
-			currentSpell = spellCaster
-		_:
-			print("ERROR: unknown spell type %s" % newSpell)
+	spellCaster.change_spell(newSpell)
 	
 	#	setup wand and new spell
 	wand.active_spell = newSpell
-	wand.has_casted.connect(currentSpell.cast)
-	currentSpell.finished.connect(wand.spell_finished)
+
+
+func _ready():
+	spellCaster.finished.connect(wand.spell_finished)
 
 
 func _physics_process(_delta):
@@ -96,7 +86,7 @@ func _input(_event):
 		var result = space_state.intersect_ray(query)
 		if !result.is_empty():
 			if wand.try_cast():
-				currentSpell.cast(result.position)
+				spellCaster.cast(result.position)
 			else:
 				selection_attempted.emit(result)
 

@@ -5,7 +5,7 @@ const GAME_WORLD:String = "/root/Game/GameViewportContainer/GameViewport"
 @onready var timerOn = %TimerOn
 @onready var timerOff = %TimerOff
 @onready var follower = %Follower
-@onready var lightOrb:LightOrb = %LightOrb
+@onready var spellOrb:SpellOrb = %SpellOrb
 
 @export_category("Spell Caster")
 @export var spellTime:float = 1.8
@@ -13,18 +13,22 @@ const GAME_WORLD:String = "/root/Game/GameViewportContainer/GameViewport"
 
 var turning_on:bool = false
 var turning_off:bool = false
-
+var is_stable:bool = false
 var spellEndpoint:Vector3
 
 
+func change_spell(spell:Spells.TYPE) -> void:
+	spellOrb.change_spell(spell)
+	is_stable = spell == Spells.TYPE.LIGHT
+
+
 func cast(location:Vector3 = Vector3.ZERO) -> void:
-	print("endpoint: %s" % location)
 	spellEndpoint = location
 	
 	if !is_on:
 		turning_on = true
 		timerOn.start()
-		lightOrb.visible = true
+		spellOrb.visible = true
 	else:
 		turning_off = true
 		timerOff.start()
@@ -34,43 +38,47 @@ func _ready():
 	timerOn.wait_time = spellTime
 	
 	follower.progress_ratio = 0
-	lightOrb.reset(emissionMax)
+	spellOrb.reset(emissionMax)
 
 
 func _physics_process(_delta):
 	if turning_on:
 		var progress = 1.0 - timerOn.time_left/spellTime
-		lightOrb.update(progress)
+		spellOrb.update(progress)
 		
-		#if spellEndpoint != Vector3.ZERO:
-		lightOrb.global_position = lerp(global_position,spellEndpoint,progress)
-		#else:
+		#if is_stable:
 			#follower.progress_ratio = progress
+		#else:
+		spellOrb.global_position = lerp(global_position,spellEndpoint,progress)
 	if turning_off:
 		var progress = timerOff.time_left/spellTime
-		lightOrb.update(progress)
+		spellOrb.update(progress)
 
 
 func _on_timer_on_timeout():
 	turning_on = false
 	is_on = !is_on
 	
-	var location = lightOrb.global_position
-	follower.remove_child(lightOrb)
-	get_node(GAME_WORLD).add_child(lightOrb)
-	lightOrb.global_position = location
+	var location = spellOrb.global_position
+	follower.remove_child(spellOrb)
+	get_node(GAME_WORLD).add_child(spellOrb)
+	spellOrb.global_position = location
 	
 	finished.emit()
+	
+	if !is_stable:
+		turning_off = true
+		timerOff.start()
 
 
 func _on_timer_off_timeout():
 	turning_off = false
 	is_on = !is_on
 	follower.progress_ratio = 0.0
-	lightOrb.visible = false
+	spellOrb.visible = false
 	
-	lightOrb.get_parent().remove_child(lightOrb)
-	follower.add_child(lightOrb)
-	lightOrb.global_position = follower.global_position
+	spellOrb.get_parent().remove_child(spellOrb)
+	follower.add_child(spellOrb)
+	spellOrb.global_position = follower.global_position
 	
 	finished.emit()

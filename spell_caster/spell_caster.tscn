@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c8xaptr321o6k"]
 
-[ext_resource type="Script" path="res://light/spell_caster.gd" id="1_4ff2q"]
-[ext_resource type="PackedScene" uid="uid://fsow1ucof4ir" path="res://light/light_orb.tscn" id="2_cdq7r"]
+[ext_resource type="Script" path="res://spell_caster/spell_caster.gd" id="1_4ff2q"]
+[ext_resource type="PackedScene" uid="uid://fsow1ucof4ir" path="res://spell_orb/spell_orb.tscn" id="2_khy0s"]
 
 [sub_resource type="Curve3D" id="Curve3D_85ecw"]
 _data = {
@@ -20,7 +20,7 @@ curve = SubResource("Curve3D_85ecw")
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.999995, 0, 0, 0, 0.999995, 0, 0, 0)
 
-[node name="LightOrb" parent="Path/Follower" instance=ExtResource("2_cdq7r")]
+[node name="SpellOrb" parent="Path/Follower" instance=ExtResource("2_khy0s")]
 unique_name_in_owner = true
 
 [node name="TimerOn" type="Timer" parent="."]

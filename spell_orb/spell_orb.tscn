@@ -1,25 +1,25 @@
 [gd_scene load_steps=4 format=3 uid="uid://fsow1ucof4ir"]
 
-[ext_resource type="Script" path="res://light/light_orb.gd" id="1_e561f"]
+[ext_resource type="Script" path="res://spell_orb/spell_orb.gd" id="1_ltdv1"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ntq66"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0djxs"]
 transparency = 1
-albedo_color = Color(0.796078, 0.980392, 0.596078, 0.152941)
+albedo_color = Color(0.952941, 1, 0.0901961, 0.0588235)
 emission_enabled = true
-emission = Color(0.796078, 0.980392, 0.596078, 1)
+emission = Color(0.952941, 1, 0.0901961, 0.0588235)
 emission_energy_multiplier = 12.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_qp15f"]
-material = SubResource("StandardMaterial3D_ntq66")
+material = SubResource("StandardMaterial3D_0djxs")
 radius = 0.04
 height = 0.08
 
-[node name="LightOrb" type="Node3D"]
-script = ExtResource("1_e561f")
+[node name="SpellOrb" type="Node3D"]
+script = ExtResource("1_ltdv1")
 
 [node name="OmniLight" type="OmniLight3D" parent="."]
 unique_name_in_owner = true
-light_color = Color(0.117647, 0.352941, 0.368627, 1)
+light_color = Color(0.952941, 1, 0.0901961, 0.0588235)
 omni_attenuation = 0.138696
 
 [node name="LightMesh" type="MeshInstance3D" parent="."]
