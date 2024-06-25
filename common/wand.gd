@@ -1,7 +1,7 @@
 class_name Wand
 extends Node3D
 
-signal has_casted()
+#signal has_casted()
 signal equipped_wand(is_equipped:bool)
 
 var active_spell:Spells.TYPE = Spells.TYPE.NONE

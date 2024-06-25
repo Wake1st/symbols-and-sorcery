@@ -4,6 +4,9 @@ extends RoomBase
 @onready var navPointBurn:NavPoint = %NavPointBurn
 @onready var navPointDoorS:NavPoint = %NavPointDoorS
 
+@onready var freezeInteractable = %FreezeInteractable
+@onready var burnInteractable = %BurnInteractable
+
 
 func setup():
 	#	setup nav points
@@ -12,12 +15,22 @@ func setup():
 	navPoints[navPointDoorS.get_instance_id()] = navPointDoorS
 	currentNavId = navPointDoorS.get_instance_id()
 	navPoints[currentNavId].visible = false
-	
+
+
+func _ready() -> void:
 	#	setup door points
 	doorPoints[southDoor] = navPointDoorS
 	doorPoints[westDoor] = navPointFreeze
 	doorPoints[eastDoor] = navPointBurn
 	
+	#	setup door looks
+	doorLocks.append(freezeInteractable)
+	doorLocks.append(burnInteractable)
+	
 	#	setup tokens
 	tokens.append($FireToken)
 	tokens.append($ColdToken)
+	
+	#	setup interactables
+	freezeInteractable.activated.connect(westDoor.unlock)
+	burnInteractable.activated.connect(eastDoor.unlock)

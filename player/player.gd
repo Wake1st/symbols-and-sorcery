@@ -3,7 +3,7 @@ extends Node3D
 
 signal entered_room()
 signal selection_attempted(result:Dictionary)
-signal spell_cast(result:Dictionary)
+signal spell_cast(spell:Spells.TYPE,collider_id:int)
 
 const RAY_LENGTH = 1000
 
@@ -21,6 +21,9 @@ var is_looking_around:bool = false
 var is_traveling:bool = false
 var translate_tween:Tween
 var rotate_tween:Tween
+
+var just_hit_interactable:bool = false
+var just_hit_id:int = 0
 
 
 func go_to(point:NavPoint) -> void:
@@ -59,7 +62,7 @@ func arm_spell(newSpell:Spells.TYPE) -> void:
 
 
 func _ready():
-	spellCaster.finished.connect(wand.spell_finished)
+	spellCaster.finished.connect(_handled_spell_finished)
 
 
 func _physics_process(_delta):
@@ -86,7 +89,8 @@ func _input(_event):
 		var result = space_state.intersect_ray(query)
 		if !result.is_empty():
 			if wand.try_cast():
-				spellCaster.cast(result.position)
+				just_hit_id = result.collider_id
+				just_hit_interactable = spellCaster.cast(result.position)
 			else:
 				selection_attempted.emit(result)
 
@@ -100,3 +104,13 @@ func _unhandled_input(event):
 			verticle_look_clamp.x,
 			verticle_look_clamp.y
 		)
+
+
+func _handled_spell_finished() -> void:
+	wand.spell_finished()
+	
+	if just_hit_interactable:
+		spell_cast.emit(wand.active_spell, just_hit_id)
+		
+		just_hit_interactable = false
+		just_hit_id = 0

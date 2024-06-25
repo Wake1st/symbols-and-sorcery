@@ -18,6 +18,7 @@ func _ready() -> void:
 	#	setup player signals
 	player.entered_room.connect(handle_entered_room)
 	player.selection_attempted.connect(handle_world_selection)
+	player.spell_cast.connect(handle_spell_cast)
 	player.itemPickup.picked_up_item.connect(inventory.add_item)
 	player.wand.equipped_wand.connect(cursor.display_wand)
 	
@@ -40,7 +41,7 @@ func handle_location_changed(point:NavPoint) -> void:
 func handle_room_change(door:Door) -> void:
 	#	get new room
 	var connectingRoom:RoomBase = door.get_connecting_room(currentRoom)
-
+	
 	#	deallocate current room data and connections
 	currentRoom.location_changed.disconnect(handle_location_changed)
 	currentRoom.room_changed.disconnect(handle_room_change)
@@ -61,6 +62,10 @@ func handle_entered_room() -> void:
 
 func handle_world_selection(result:Dictionary) -> void:
 	currentRoom.check_selection(result)
+
+
+func handle_spell_cast(spell:Spells.TYPE,collider_id:int) -> void:
+	currentRoom.check_interactables(spell,collider_id)
 
 
 func handle_item_pickup(item:TokenBase) -> void:

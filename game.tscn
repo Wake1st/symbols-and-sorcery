@@ -65,6 +65,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -7)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
 room1 = NodePath("../LightRoom")
 room2 = NodePath("../ThermicRoom")
+startLocked = false
 
 [node name="ThermicBoilerDoor" parent="GameViewportContainer/GameViewport" node_paths=PackedStringArray("room1", "room2") instance=ExtResource("8_lssns")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6, 0, -7)

@@ -12,6 +12,8 @@ point_count = 3
 
 [node name="SpellCaster" type="Node3D"]
 script = ExtResource("1_4ff2q")
+spellTime = null
+emissionMax = null
 
 [node name="Path" type="Path3D" parent="."]
 curve = SubResource("Curve3D_85ecw")

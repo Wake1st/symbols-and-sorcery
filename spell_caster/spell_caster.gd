@@ -22,16 +22,18 @@ func change_spell(spell:Spells.TYPE) -> void:
 	is_stable = spell == Spells.TYPE.LIGHT
 
 
-func cast(location:Vector3 = Vector3.ZERO) -> void:
+func cast(location:Vector3 = Vector3.ZERO) -> bool:
 	spellEndpoint = location
 	
 	if !is_on:
 		turning_on = true
 		timerOn.start()
 		spellOrb.visible = true
+		return true
 	else:
 		turning_off = true
 		timerOff.start()
+		return false
 
 
 func _ready():

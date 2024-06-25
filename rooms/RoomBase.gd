@@ -14,6 +14,7 @@ signal room_changed(door:Door)
 var currentNavId:int
 var navPoints:Dictionary = {}
 var doorPoints:Dictionary = {}
+var doorLocks:Array[Interactable] = []
 var tokens:Array[TokenBase] = []
 
 
@@ -45,6 +46,12 @@ func check_selection(result:Dictionary) -> void:
 		return
 
 
+func check_interactables(spell:Spells.TYPE, collider_id:int) -> void:
+	for lock in doorLocks:
+		if collider_id == lock.get_instance_id():
+			lock.interact(spell)
+
+
 func _check_nav_points(id:int) -> bool:
 	if currentNavId == null:
 		return false
@@ -61,7 +68,7 @@ func _check_nav_points(id:int) -> bool:
 
 func _check_doors(id:int) -> bool:
 	for door in doorPoints.keys():
-		if id == door.get_instance_id():
+		if id == door.get_instance_id() && door.check_unlocked():
 			navPoints[currentNavId].visible = true
 			room_changed.emit(door)
 			return true
