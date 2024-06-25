@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dhfax6f0r5sbf"]
+[gd_scene load_steps=12 format=3 uid="uid://dhfax6f0r5sbf"]
 
 [ext_resource type="PackedScene" uid="uid://b5wl1fbu8w4rm" path="res://common/pillar.tscn" id="1_75le4"]
 [ext_resource type="Script" path="res://rooms/thermic_room.gd" id="1_448yj"]
@@ -13,6 +13,15 @@ radius = 0.2
 [sub_resource type="SphereMesh" id="SphereMesh_fskxf"]
 radius = 0.2
 height = 0.4
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u42tv"]
+size = Vector3(8, 3, 0.01)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hrepr"]
+size = Vector3(2, 3, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kxxp2"]
+size = Vector3(12, 0.01, 8)
 
 [node name="ThermicRoom" type="Node3D"]
 script = ExtResource("1_448yj")
@@ -90,3 +99,44 @@ transform = Transform3D(-0.210898, 0.977508, 4.27282e-08, -8.57914e-16, -4.37114
 
 [node name="ColdToken" parent="." instance=ExtResource("7_x82kp")]
 transform = Transform3D(-0.237923, -0.971284, -4.24562e-08, -2.11758e-22, -4.37114e-08, 1, -0.971284, 0.237923, 1.04e-08, -3.30069, 0.610126, 1.1951)
+
+[node name="RoomBoundry" type="StaticBody3D" parent="."]
+
+[node name="NorthWall" type="CollisionShape3D" parent="RoomBoundry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -4)
+shape = SubResource("BoxShape3D_u42tv")
+
+[node name="SouthWall" type="CollisionShape3D" parent="RoomBoundry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 4)
+shape = SubResource("BoxShape3D_u42tv")
+
+[node name="EastWall" type="CollisionShape3D" parent="RoomBoundry"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6, 1.5, 0)
+shape = SubResource("BoxShape3D_u42tv")
+
+[node name="WestWall" type="CollisionShape3D" parent="RoomBoundry"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6, 1.5, 0)
+shape = SubResource("BoxShape3D_u42tv")
+
+[node name="SECorner" type="CollisionShape3D" parent="RoomBoundry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.5, 3)
+shape = SubResource("BoxShape3D_hrepr")
+
+[node name="NECorner" type="CollisionShape3D" parent="RoomBoundry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.5, -3)
+shape = SubResource("BoxShape3D_hrepr")
+
+[node name="SWCorner" type="CollisionShape3D" parent="RoomBoundry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1.5, 3)
+shape = SubResource("BoxShape3D_hrepr")
+
+[node name="NWCorner" type="CollisionShape3D" parent="RoomBoundry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1.5, -3)
+shape = SubResource("BoxShape3D_hrepr")
+
+[node name="Ceiling" type="CollisionShape3D" parent="RoomBoundry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+shape = SubResource("BoxShape3D_kxxp2")
+
+[node name="Floor" type="CollisionShape3D" parent="RoomBoundry"]
+shape = SubResource("BoxShape3D_kxxp2")
