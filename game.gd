@@ -78,7 +78,9 @@ func handle_item_selection(item:Token) -> void:
 
 func _on_game_viewport_container_mouse_entered():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	player.cursor_in_game = true
 
 
 func _on_game_viewport_container_mouse_exited():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	player.cursor_in_game = false

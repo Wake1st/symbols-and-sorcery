@@ -17,6 +17,7 @@ const RAY_LENGTH = 1000
 @onready var spellCaster:SpellBase = %SpellCaster
 @onready var wand:Wand = %Wand
 
+var cursor_in_game:bool = false
 var is_looking_around:bool = false
 var is_traveling:bool = false
 var translate_tween:Tween
@@ -61,11 +62,11 @@ func arm_spell(newSpell:Spells.TYPE) -> void:
 	wand.active_spell = newSpell
 
 
-func _ready():
+func _ready() -> void:
 	spellCaster.finished.connect(_handled_spell_finished)
 
 
-func _physics_process(_delta):
+func _physics_process(_delta) -> void:
 	if is_traveling:
 		is_traveling = translate_tween.is_running()
 		
@@ -74,7 +75,10 @@ func _physics_process(_delta):
 			entered_room.emit()
 
 
-func _input(_event):
+func _input(_event) -> void:
+	if !cursor_in_game:
+		return
+	
 	is_looking_around = !is_traveling && Input.is_action_pressed("free_look")
 	
 	if !is_traveling && !is_looking_around && Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
@@ -91,11 +95,11 @@ func _input(_event):
 			if wand.try_cast():
 				just_hit_id = result.collider_id
 				just_hit_interactable = spellCaster.cast(result.position)
-			else:
+			elif !wand.is_equipped:
 				selection_attempted.emit(result)
 
 
-func _unhandled_input(event):
+func _unhandled_input(event) -> void:
 	if is_looking_around && event is InputEventMouseMotion:
 		var look_dir = event.relative * 0.04
 		camera.rotation.y -= look_dir.x * camera_sensitivity
