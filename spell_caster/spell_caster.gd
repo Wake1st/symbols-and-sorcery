@@ -4,7 +4,6 @@ const GAME_WORLD:String = "/root/Game/GameViewportContainer/GameViewport"
 
 @onready var timerOn = %TimerOn
 @onready var timerOff = %TimerOff
-@onready var follower = %Follower
 @onready var spellOrb:SpellOrb = %SpellOrb
 
 @export_category("Spell Caster")
@@ -38,8 +37,6 @@ func cast(location:Vector3 = Vector3.ZERO) -> bool:
 
 func _ready():
 	timerOn.wait_time = spellTime
-	
-	follower.progress_ratio = 0
 	spellOrb.reset(emissionMax)
 
 
@@ -47,10 +44,6 @@ func _physics_process(_delta):
 	if turning_on:
 		var progress = 1.0 - timerOn.time_left/spellTime
 		spellOrb.update(progress)
-		
-		#if is_stable:
-			#follower.progress_ratio = progress
-		#else:
 		spellOrb.global_position = lerp(global_position,spellEndpoint,progress)
 	if turning_off:
 		var progress = timerOff.time_left/spellTime
@@ -62,7 +55,7 @@ func _on_timer_on_timeout():
 	is_on = !is_on
 	
 	var location = spellOrb.global_position
-	follower.remove_child(spellOrb)
+	remove_child(spellOrb)
 	get_node(GAME_WORLD).add_child(spellOrb)
 	spellOrb.global_position = location
 	
@@ -76,11 +69,10 @@ func _on_timer_on_timeout():
 func _on_timer_off_timeout():
 	turning_off = false
 	is_on = !is_on
-	follower.progress_ratio = 0.0
 	spellOrb.visible = false
 	
 	spellOrb.get_parent().remove_child(spellOrb)
-	follower.add_child(spellOrb)
-	spellOrb.global_position = follower.global_position
+	add_child(spellOrb)
+	spellOrb.global_position = global_position
 	
 	finished.emit()
