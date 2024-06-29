@@ -24,8 +24,12 @@ func _ready() -> void:
 	doorPoints[eastDoor] = navPointBurn
 	
 	#	setup door looks
-	doorLocks.append(freezeInteractable)
-	doorLocks.append(burnInteractable)
+	interactables.append(freezeInteractable)
+	interactables.append(burnInteractable)
+	interactables.append(%NWLamp)
+	interactables.append(%SWLamp)
+	interactables.append(%NELamp)
+	interactables.append(%SELamp)
 	
 	#	setup tokens
 	tokens.append($FireToken)

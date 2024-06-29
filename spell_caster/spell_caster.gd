@@ -7,7 +7,7 @@ const GAME_WORLD:String = "/root/Game/GameViewportContainer/GameViewport"
 @onready var spellOrb:SpellOrb = %SpellOrb
 
 @export_category("Spell Caster")
-@export var spellTime:float = 1.8
+@export var spellTime:float = 0.6
 @export var emissionMax:float = 12.0
 
 var turning_on:bool = false
@@ -61,9 +61,9 @@ func _on_timer_on_timeout():
 	
 	finished.emit()
 	
-	if !is_stable:
-		turning_off = true
-		timerOff.start()
+	#if !is_stable:
+	turning_off = true
+	timerOff.start()
 
 
 func _on_timer_off_timeout():

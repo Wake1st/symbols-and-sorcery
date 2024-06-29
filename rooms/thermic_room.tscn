@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://dhfax6f0r5sbf"]
+[gd_scene load_steps=14 format=3 uid="uid://dhfax6f0r5sbf"]
 
 [ext_resource type="PackedScene" uid="uid://b5wl1fbu8w4rm" path="res://common/pillar.tscn" id="1_75le4"]
 [ext_resource type="Script" path="res://rooms/thermic_room.gd" id="1_448yj"]
 [ext_resource type="MeshLibrary" uid="uid://bwbsu80ly13cd" path="res://tilesets/dungeon_tileset.tres" id="3_ekc2x"]
+[ext_resource type="PackedScene" uid="uid://dy2fpl767ftw3" path="res://common/lamp.tscn" id="3_jj1oq"]
 [ext_resource type="PackedScene" uid="uid://x62k4vbbjqje" path="res://interactable/interactable.tscn" id="3_yneyn"]
 [ext_resource type="PackedScene" uid="uid://dowkdyyao5rfd" path="res://common/nav_point.tscn" id="5_2mlni"]
 [ext_resource type="PackedScene" uid="uid://dis025wnr6qxd" path="res://tokens/fire_token.tscn" id="6_khm5q"]
@@ -39,6 +40,10 @@ shape = SubResource("SphereShape3D_nt7oc")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="FrozenPillar/FrozenObject"]
 mesh = SubResource("SphereMesh_fskxf")
 
+[node name="NWLamp" parent="FrozenPillar" instance=ExtResource("3_jj1oq")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, 0)
+
 [node name="FreezePillar" parent="." instance=ExtResource("1_75le4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0.3, 1.5)
 
@@ -46,6 +51,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0.3, 1.5)
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 activationSpell = 3
+
+[node name="SWLamp" parent="FreezePillar" instance=ExtResource("3_jj1oq")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, 0)
 
 [node name="BurningPillar" parent="." instance=ExtResource("1_75le4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0.3, -1.5)
@@ -59,6 +68,10 @@ shape = SubResource("SphereShape3D_nt7oc")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BurningPillar/BurningObject"]
 mesh = SubResource("SphereMesh_fskxf")
 
+[node name="NELamp" parent="BurningPillar" instance=ExtResource("3_jj1oq")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, 0)
+
 [node name="BurnPillar" parent="." instance=ExtResource("1_75le4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0.3, 1.5)
 
@@ -66,6 +79,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0.3, 1.5)
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 activationSpell = 4
+
+[node name="SELamp" parent="BurnPillar" instance=ExtResource("3_jj1oq")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, 0)
 
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("3_ekc2x")
