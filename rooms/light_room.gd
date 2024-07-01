@@ -1,6 +1,7 @@
 extends RoomBase
 
 @onready var navigation_point:NavPoint = $NavigationPoint
+@onready var doorLamp = $DoorLamp
 
 
 func setup():
@@ -16,3 +17,9 @@ func _ready() -> void:
 	
 	#	setup token
 	tokens.append($LightToken)
+	
+	#	setup interactables
+	interactables.append(doorLamp)
+	
+	#	setup interactable signals
+	doorLamp.activated.connect(northDoor.unlock)

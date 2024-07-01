@@ -23,7 +23,11 @@ func _ready() -> void:
 	doorPoints[westDoor] = navPointFreeze
 	doorPoints[eastDoor] = navPointBurn
 	
-	#	setup door looks
+	#	setup tokens
+	tokens.append($FireToken)
+	tokens.append($ColdToken)
+	
+	#	setup interactables
 	interactables.append(freezeInteractable)
 	interactables.append(burnInteractable)
 	interactables.append(%NWLamp)
@@ -31,10 +35,6 @@ func _ready() -> void:
 	interactables.append(%NELamp)
 	interactables.append(%SELamp)
 	
-	#	setup tokens
-	tokens.append($FireToken)
-	tokens.append($ColdToken)
-	
-	#	setup interactables
+	#	setup interactable signals
 	freezeInteractable.activated.connect(westDoor.unlock)
 	burnInteractable.activated.connect(eastDoor.unlock)
