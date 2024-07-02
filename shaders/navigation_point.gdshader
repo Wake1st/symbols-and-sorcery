@@ -1,5 +1,5 @@
 shader_type spatial;
-render_mode cull_disabled, unshaded;
+render_mode cull_disabled;
 
 const float RADIUS = 0.8;
 const float rotationalSpeed = 0.2;
@@ -45,5 +45,5 @@ void vertex() {
 
 void fragment() {
 	ALBEDO = vec3(0.0,0.8,0.2);
-	ALPHA = 0.1;
+	ALPHA = 0.4;
 }
