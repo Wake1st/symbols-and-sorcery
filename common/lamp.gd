@@ -2,6 +2,9 @@
 class_name Lamp
 extends Interactable
 
+const NORMAL_COLOR:Color = Color("#cbfa98")
+const HIGHLIGHT_COLOR:Color = Color("#f1fde6")
+
 @onready var onmiLight = $OmniLight3D
 @onready var mesh = $Mesh
 
@@ -15,7 +18,6 @@ var is_on:bool:
 	set(value):
 		is_on = value
 		get_node("OmniLight3D").light_energy = 0.2 if value else 0.0
-		#get_node("Mesh").mesh.emission_energy = 1.01
 
 
 func _init():
@@ -24,3 +26,10 @@ func _init():
 
 func _feedback() -> void:
 	is_on = true
+
+
+func _highlight_mesh(value:bool) -> void:
+	if value:
+		get_node("Mesh").mesh.material.emission = HIGHLIGHT_COLOR
+	else:
+		get_node("Mesh").mesh.material.emission = NORMAL_COLOR

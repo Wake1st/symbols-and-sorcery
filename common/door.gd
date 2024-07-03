@@ -11,6 +11,11 @@ extends Area3D
 
 var locked:bool = true
 
+var highlight:bool = false:
+	set(value):
+		highlight = value
+		get_node("Mesh").mesh.material.emission_enabled = value
+
 
 func unlock() -> void:
 	#	do not replay fx if unlocked

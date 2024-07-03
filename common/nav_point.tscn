@@ -10,6 +10,7 @@ radius = 0.8
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kvrkp"]
 render_priority = 0
 shader = ExtResource("2_vcmtj")
+shader_parameter/highlight = false
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_ivb3c"]
 material = SubResource("ShaderMaterial_kvrkp")
@@ -27,6 +28,6 @@ script = ExtResource("1_bjk0d")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
 shape = SubResource("CylinderShape3D_wnvlg")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
 mesh = SubResource("CylinderMesh_ivb3c")

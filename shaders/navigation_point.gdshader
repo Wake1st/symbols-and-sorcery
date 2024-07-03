@@ -4,6 +4,8 @@ render_mode cull_disabled;
 const float RADIUS = 0.8;
 const float rotationalSpeed = 0.2;
 
+uniform bool highlight = false;
+
 
 float get_closest_dot(float current, float compared) {
 	if (compared > current) { return compared; } 
@@ -44,6 +46,13 @@ void vertex() {
 
 
 void fragment() {
-	ALBEDO = vec3(0.0,0.8,0.2);
+	vec3 color = vec3(0.0,0.8,0.2);
+	ALBEDO = color;
 	ALPHA = 0.4;
+	
+	if (highlight) {
+		EMISSION = color;
+	} else {
+		EMISSION = vec3(0.,0.,0.);
+	}
 }

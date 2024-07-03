@@ -6,6 +6,11 @@ signal activated()
 @export_category("Interactable")
 @export var activationSpell:Spells.TYPE
 
+var highlight:bool = false:
+	set(value):
+		highlight = value
+		_highlight_mesh(value)
+
 
 func interact(spell:Spells.TYPE) -> void:
 	if spell == activationSpell:
@@ -19,3 +24,7 @@ func interact(spell:Spells.TYPE) -> void:
 
 func _feedback() -> void:
 	pass
+
+
+func _highlight_mesh(value:bool) -> void:
+	get_node("Mesh").mesh.material.emission_enabled = value
