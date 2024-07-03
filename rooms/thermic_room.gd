@@ -17,6 +17,10 @@ func setup():
 	navPoints[currentNavId].visible = false
 
 
+func highlight_object(id:int) -> void:
+	print("TODO: highlight object %s in thermic room" % id)
+
+
 func _ready() -> void:
 	#	setup door points
 	doorPoints[southDoor] = navPointDoorS

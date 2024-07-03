@@ -2,6 +2,7 @@ class_name Player
 extends Node3D
 
 signal entered_room()
+signal hovered_over(collider_id:int)
 signal selection_attempted(result:Dictionary)
 signal spell_cast(spell:Spells.TYPE,collider_id:int)
 
@@ -81,7 +82,7 @@ func _input(_event) -> void:
 	
 	is_looking_around = !is_traveling && Input.is_action_pressed("free_look")
 	
-	if !is_traveling && !is_looking_around: #&& Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+	if !is_traveling && !is_looking_around:
 		var space_state = get_world_3d().direct_space_state
 		var mousepos = get_viewport().get_mouse_position()
 		
@@ -92,12 +93,14 @@ func _input(_event) -> void:
 		
 		var result = space_state.intersect_ray(query)
 		if !result.is_empty():
-			print("hit id: %s" % result.collider_id)
-			if wand.try_cast():
-				just_hit_id = result.collider_id
-				just_hit_interactable = spellCaster.cast(result.position)
-			elif !wand.is_equipped:
-				selection_attempted.emit(result)
+			if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+				if wand.try_cast():
+					just_hit_id = result.collider_id
+					just_hit_interactable = spellCaster.cast(result.position)
+				elif !wand.is_equipped:
+					selection_attempted.emit(result)
+			else:
+				hovered_over.emit(result.collider_id)
 
 
 func _unhandled_input(event) -> void:

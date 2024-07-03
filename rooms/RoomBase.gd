@@ -31,6 +31,10 @@ func get_door_point(door:Door) -> NavPoint:
 	return point
 
 
+func highlight_object(_id:int) -> void:
+	print("ERROR: unhandled 'highlight_object()' in class RoomBase")
+
+
 func check_selection(result:Dictionary) -> void:
 	var id = result.collider_id
 	if id == null:

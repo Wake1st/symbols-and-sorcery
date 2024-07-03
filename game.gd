@@ -17,6 +17,7 @@ func _ready() -> void:
 	
 	#	setup player signals
 	player.entered_room.connect(handle_entered_room)
+	player.hovered_over.connect(handle_hover_over)
 	player.selection_attempted.connect(handle_world_selection)
 	player.spell_cast.connect(handle_spell_cast)
 	player.itemPickup.picked_up_item.connect(inventory.add_item)
@@ -60,6 +61,10 @@ func handle_entered_room() -> void:
 	#	TODO: some description about the room entered
 
 
+func handle_hover_over(id:int) -> void:
+	currentRoom.highlight_object(id)
+
+ 
 func handle_world_selection(result:Dictionary) -> void:
 	currentRoom.check_selection(result)
 
