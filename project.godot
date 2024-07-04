@@ -26,6 +26,7 @@ folder_colors={
 "res://assets/": "red",
 "res://common/": "purple",
 "res://connection_nodes/": "yellow",
+"res://door/": "purple",
 "res://interactable/": "purple",
 "res://items/": "yellow",
 "res://player/": "purple",

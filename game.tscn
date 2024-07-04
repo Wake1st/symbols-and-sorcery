@@ -11,7 +11,7 @@
 [ext_resource type="Resource" uid="uid://dl2cd6qk2flj5" path="res://connection_nodes/fire.tres" id="4_na2jj"]
 [ext_resource type="PackedScene" uid="uid://c0ycl65jph6ju" path="res://common/wand.tscn" id="5_ve7nf"]
 [ext_resource type="PackedScene" uid="uid://b0kb3yo5gmhb" path="res://rooms/boiler_room.tscn" id="8_fi4pw"]
-[ext_resource type="PackedScene" uid="uid://b6rkj1tj515u8" path="res://common/door.tscn" id="8_lssns"]
+[ext_resource type="PackedScene" uid="uid://b6rkj1tj515u8" path="res://door/door.tscn" id="8_lssns"]
 [ext_resource type="PackedScene" uid="uid://di5i7x8c65801" path="res://rooms/balloon_room.tscn" id="9_eudpg"]
 [ext_resource type="Environment" uid="uid://dftjun6ak5xh5" path="res://environment.tres" id="11_00gap"]
 [ext_resource type="PackedScene" uid="uid://c078fj3h6hphd" path="res://common/cursor.tscn" id="13_us8qn"]
@@ -39,6 +39,7 @@ stretch = true
 
 [node name="GameViewport" type="SubViewport" parent="GameViewportContainer" groups=["game-viewport"]]
 handle_input_locally = false
+audio_listener_enable_3d = true
 size = Vector2i(768, 520)
 render_target_update_mode = 4
 
