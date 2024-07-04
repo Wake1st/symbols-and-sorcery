@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://d2rat05ksc3bw"]
+
+[ext_resource type="Script" path="res://rooms/piston_room.gd" id="1_0antw"]
+[ext_resource type="PackedScene" uid="uid://b5wl1fbu8w4rm" path="res://common/pillar.tscn" id="2_vnd3t"]
+[ext_resource type="PackedScene" uid="uid://dy2fpl767ftw3" path="res://common/lamp.tscn" id="3_epk2l"]
+[ext_resource type="PackedScene" uid="uid://dowkdyyao5rfd" path="res://common/nav_point.tscn" id="4_n4uj0"]
+[ext_resource type="PackedScene" uid="uid://x62k4vbbjqje" path="res://interactable/interactable.tscn" id="4_n63ov"]
+
+[node name="PistonRoom" type="Node3D"]
+script = ExtResource("1_0antw")
+
+[node name="Pillar" parent="." instance=ExtResource("2_vnd3t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.299813, 2)
+
+[node name="PistonLamp" parent="Pillar" instance=ExtResource("3_epk2l")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, 0)
+
+[node name="PistonInteractable" parent="Pillar" instance=ExtResource("4_n63ov")]
+unique_name_in_owner = true
+
+[node name="NavPointDoorE" parent="." instance=ExtResource("4_n4uj0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)

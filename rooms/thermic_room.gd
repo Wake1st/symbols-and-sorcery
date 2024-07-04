@@ -8,7 +8,7 @@ extends RoomBase
 @onready var burnInteractable = %BurnInteractable
 
 
-func setup():
+func setup() -> void:
 	#	setup nav points
 	navPoints[navPointFreeze.get_instance_id()] = navPointFreeze
 	navPoints[navPointBurn.get_instance_id()] = navPointBurn

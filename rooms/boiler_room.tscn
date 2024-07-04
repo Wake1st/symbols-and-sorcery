@@ -1,9 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://b0kb3yo5gmhb"]
+[gd_scene load_steps=6 format=3 uid="uid://b0kb3yo5gmhb"]
 
 [ext_resource type="PackedScene" uid="uid://b5wl1fbu8w4rm" path="res://common/pillar.tscn" id="1_3mh8b"]
 [ext_resource type="Script" path="res://rooms/boiler_room.gd" id="1_mfjcb"]
+[ext_resource type="PackedScene" uid="uid://dy2fpl767ftw3" path="res://common/lamp.tscn" id="3_mcsj0"]
+[ext_resource type="PackedScene" uid="uid://x62k4vbbjqje" path="res://interactable/interactable.tscn" id="4_hkfea"]
+[ext_resource type="PackedScene" uid="uid://dowkdyyao5rfd" path="res://common/nav_point.tscn" id="5_xis0v"]
 
 [node name="BoilerRoom" type="Node3D"]
 script = ExtResource("1_mfjcb")
 
 [node name="Pillar" parent="." instance=ExtResource("1_3mh8b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.299813, 0)
+
+[node name="BoilerLamp" parent="Pillar" instance=ExtResource("3_mcsj0")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, 0)
+
+[node name="BoilerInteractable" parent="Pillar" instance=ExtResource("4_hkfea")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.700187, 0)
+
+[node name="NavPointDoorW" parent="." instance=ExtResource("5_xis0v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+
+[node name="NavPointDoorN" parent="." instance=ExtResource("5_xis0v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)

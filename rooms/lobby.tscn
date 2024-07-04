@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://gy15nna1u65w"]
+
+[ext_resource type="Script" path="res://rooms/lobby.gd" id="1_eltll"]
+[ext_resource type="PackedScene" uid="uid://dowkdyyao5rfd" path="res://common/nav_point.tscn" id="2_ve2f8"]
+[ext_resource type="PackedScene" uid="uid://dy2fpl767ftw3" path="res://common/lamp.tscn" id="3_ccpmv"]
+
+[node name="Lobby" type="Node3D"]
+script = ExtResource("1_eltll")
+
+[node name="NavPointDoorSE" parent="." instance=ExtResource("2_ve2f8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 8)
+
+[node name="SELamp" parent="NavPointDoorSE" instance=ExtResource("3_ccpmv")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, 0)
+
+[node name="NavPointDoorSW" parent="." instance=ExtResource("2_ve2f8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 8)
+
+[node name="SWLamp" parent="NavPointDoorSW" instance=ExtResource("3_ccpmv")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, 0)
+
+[node name="NavPointDoorNE" parent="." instance=ExtResource("2_ve2f8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -8)
+
+[node name="NELamp" parent="NavPointDoorNE" instance=ExtResource("3_ccpmv")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, 0)
+
+[node name="NavPointDoorNW" parent="." instance=ExtResource("2_ve2f8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -8)
+
+[node name="NWLamp" parent="NavPointDoorNW" instance=ExtResource("3_ccpmv")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, 0)

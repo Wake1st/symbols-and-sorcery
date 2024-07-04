@@ -28,7 +28,6 @@ void fragment() {
 		float delta_time = hit_time_ratio * 2.0; // sin(TIME * speed);
 		ALPHA = (1.0 - polar_uv.x) * delta_time;
 	} else {
-		//ALBEDO = color;
 		ALPHA = 0.0;
 	}
 }

@@ -1,9 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://di5i7x8c65801"]
+[gd_scene load_steps=6 format=3 uid="uid://di5i7x8c65801"]
 
 [ext_resource type="PackedScene" uid="uid://b5wl1fbu8w4rm" path="res://common/pillar.tscn" id="1_73twi"]
 [ext_resource type="Script" path="res://rooms/balloon_room.gd" id="1_wevqs"]
+[ext_resource type="PackedScene" uid="uid://dy2fpl767ftw3" path="res://common/lamp.tscn" id="3_guibf"]
+[ext_resource type="PackedScene" uid="uid://x62k4vbbjqje" path="res://interactable/interactable.tscn" id="4_d2ror"]
+[ext_resource type="PackedScene" uid="uid://dowkdyyao5rfd" path="res://common/nav_point.tscn" id="5_soygk"]
 
 [node name="BalloonRoom" type="Node3D"]
 script = ExtResource("1_wevqs")
 
 [node name="Pillar" parent="." instance=ExtResource("1_73twi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.299813, -1)
+
+[node name="BalloonLamp" parent="Pillar" instance=ExtResource("3_guibf")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, 0)
+
+[node name="BalloonInteractable" parent="Pillar" instance=ExtResource("4_d2ror")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.700187, 0)
+
+[node name="NavPointDoorE" parent="." instance=ExtResource("5_soygk")]
+
+[node name="NavPointDoorN" parent="." instance=ExtResource("5_soygk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
