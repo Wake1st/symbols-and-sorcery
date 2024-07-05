@@ -22,6 +22,7 @@ func _ready() -> void:
 	#	setup interactables
 	interactables.append(balloonInteractable)
 	interactables.append(%BalloonLamp)
+	interactables.append(%NorthLamp)
 	
 	#	setup interactable signals
 	balloonInteractable.activated.connect(northDoor.unlock)

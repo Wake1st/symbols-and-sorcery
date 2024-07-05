@@ -22,6 +22,8 @@ func _ready() -> void:
 	#	setup interactables
 	interactables.append(boilerInteractable)
 	interactables.append(%BoilerLamp)
+	interactables.append(%NorthBoilerLamp)
+	interactables.append(%NorthDoorLamp)
 	
 	#	setup interactable signals
 	boilerInteractable.activated.connect(northDoor.unlock)

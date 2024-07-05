@@ -8,8 +8,8 @@ var emission_max:float
 var colors:Dictionary = {
 	Spells.TYPE.LIGHT: "#cbfa9827",
 	Spells.TYPE.VOID: "#0f0f0fe6",
-	Spells.TYPE.EXOTHERMIC: "#f3ff170f",
-	Spells.TYPE.ENDOTHERMIC: "#bdcaff0f",
+	Spells.TYPE.EXOTHERMIC: "#bdcaff0f",
+	Spells.TYPE.ENDOTHERMIC: "#f3ff170f",
 	Spells.TYPE.EXOROTATION: "#cbfa9827",
 	Spells.TYPE.ENDOROTATION: "#cbfa9827",
 	Spells.TYPE.EXOVIBRATION: "#cbfa9827",
