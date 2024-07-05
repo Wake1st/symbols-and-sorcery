@@ -39,7 +39,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 [node name="DoorLamp" parent="." instance=ExtResource("5_06h7f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, -2.5)
 
-[node name="RoomBoundry" type="StaticBody3D" parent="."]
+[node name="RoomBoundry" type="Area3D" parent="."]
 
 [node name="NorthWall" type="CollisionShape3D" parent="RoomBoundry"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -3)
