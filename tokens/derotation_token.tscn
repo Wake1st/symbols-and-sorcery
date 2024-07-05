@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://cenispnfvmknq"]
+
+[ext_resource type="PackedScene" uid="uid://gbwyiydfhidn" path="res://assets/models/derotation token.glb" id="1_6l5am"]
+[ext_resource type="Script" path="res://tokens/TokenBase.gd" id="1_sumrt"]
+[ext_resource type="Resource" uid="uid://ceq28ssfcapv7" path="res://tokens/derotation_token.tres" id="3_dyf1v"]
+[ext_resource type="Material" uid="uid://cdo1k52m3ls4f" path="res://tokens/token_highlight_material.tres" id="4_sfeev"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_o64sd"]
+material = ExtResource("4_sfeev")
+size = Vector3(0.2, -0.05, 0.2)
+
+[node name="DerotationToken" instance=ExtResource("1_6l5am")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+script = ExtResource("1_sumrt")
+token = ExtResource("3_dyf1v")
+
+[node name="StaticBody3D" parent="DerotationToken" index="0"]
+unique_name_in_owner = true
+
+[node name="HighlightMesh" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0315977, -1.38118e-09)
+visible = false
+mesh = SubResource("BoxMesh_o64sd")

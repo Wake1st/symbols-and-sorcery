@@ -15,34 +15,35 @@ size = Vector3(20, 0.01, 20)
 script = ExtResource("1_eltll")
 
 [node name="NavPointDoorSE" parent="." instance=ExtResource("2_ve2f8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 8)
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 8, 0, 8)
 
 [node name="SELamp" parent="NavPointDoorSE" instance=ExtResource("3_ccpmv")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, 2.4, 1.2)
 
 [node name="NavPointDoorSW" parent="." instance=ExtResource("2_ve2f8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 8)
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -8, 0, 8)
 
 [node name="SWLamp" parent="NavPointDoorSW" instance=ExtResource("3_ccpmv")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 2.4, 1.2)
 
 [node name="NavPointDoorNE" parent="." instance=ExtResource("2_ve2f8")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8, 0, -8)
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, 8, 0, -8)
 
 [node name="NELamp" parent="NavPointDoorNE" instance=ExtResource("3_ccpmv")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, 2.4, 1.2)
 
 [node name="NavPointDoorNW" parent="." instance=ExtResource("2_ve2f8")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8, 0, -8)
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, -8, 0, -8)
 
 [node name="NWLamp" parent="NavPointDoorNW" instance=ExtResource("3_ccpmv")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 2.4, 1.2)
 
 [node name="GridMap" type="GridMap" parent="."]
+visible = false
 mesh_library = ExtResource("4_t31qo")
 cell_size = Vector3(1, 1, 1)
 cell_center_y = false

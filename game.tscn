@@ -60,7 +60,7 @@ southDoor = NodePath("../LightThermicDoor")
 westDoor = NodePath("../ThermicBalloonDoor")
 
 [node name="BoilerRoom" parent="GameViewportContainer/GameViewport" node_paths=PackedStringArray("northDoor", "westDoor") instance=ExtResource("8_fi4pw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -7)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -7)
 northDoor = NodePath("../BoilerLobbyDoor")
 westDoor = NodePath("../ThermicBoilerDoor")
 
@@ -76,11 +76,13 @@ eastDoor = NodePath("../LobbyFlywheelDoor")
 southDoor = NodePath("../BoilerLobbyDoor")
 westDoor = NodePath("../BalloonLobbyDoor")
 
-[node name="FlywheelRoom" parent="GameViewportContainer/GameViewport" instance=ExtResource("12_81f2j")]
+[node name="FlywheelRoom" parent="GameViewportContainer/GameViewport" node_paths=PackedStringArray("westDoor") instance=ExtResource("12_81f2j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, -32)
+westDoor = NodePath("../LobbyFlywheelDoor")
 
-[node name="PistonRoom" parent="GameViewportContainer/GameViewport" instance=ExtResource("13_1lp5s")]
+[node name="PistonRoom" parent="GameViewportContainer/GameViewport" node_paths=PackedStringArray("eastDoor") instance=ExtResource("13_1lp5s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -32)
+eastDoor = NodePath("../LobbyPistonDoor")
 
 [node name="LightThermicDoor" parent="GameViewportContainer/GameViewport" node_paths=PackedStringArray("room1", "room2") instance=ExtResource("8_lssns")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
@@ -111,11 +113,13 @@ room2 = NodePath("../Lobby")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10, 0, -32)
 room1 = NodePath("../Lobby")
 room2 = NodePath("../FlywheelRoom")
+startLocked = false
 
 [node name="LobbyPistonDoor" parent="GameViewportContainer/GameViewport" node_paths=PackedStringArray("room1", "room2") instance=ExtResource("8_lssns")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10, 0, -32)
 room1 = NodePath("../Lobby")
 room2 = NodePath("../PistonRoom")
+startLocked = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="GameViewportContainer/GameViewport"]
 environment = ExtResource("11_00gap")

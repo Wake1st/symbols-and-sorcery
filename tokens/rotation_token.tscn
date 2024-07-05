@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://dsmxpyy1bhsw0"]
+
+[ext_resource type="Script" path="res://tokens/TokenBase.gd" id="1_1mh2a"]
+[ext_resource type="PackedScene" uid="uid://c41copqsgrlt0" path="res://assets/models/rotation token.glb" id="1_4le7w"]
+[ext_resource type="Resource" uid="uid://bcikg7akexlke" path="res://tokens/rotation_token.tres" id="3_slp1v"]
+[ext_resource type="Material" uid="uid://cdo1k52m3ls4f" path="res://tokens/token_highlight_material.tres" id="4_1nafb"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_vfl45"]
+material = ExtResource("4_1nafb")
+size = Vector3(0.2, -0.05, 0.2)
+
+[node name="RotationToken" instance=ExtResource("1_4le7w")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+script = ExtResource("1_1mh2a")
+token = ExtResource("3_slp1v")
+
+[node name="StaticBody3D" parent="Mesh" index="0"]
+unique_name_in_owner = true
+
+[node name="HighlightMesh" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0315977, -1.38118e-09)
+visible = false
+mesh = SubResource("BoxMesh_vfl45")

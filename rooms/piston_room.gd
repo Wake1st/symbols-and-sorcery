@@ -19,7 +19,7 @@ func _ready() -> void:
 	doorPoints[eastDoor] = navPointDoorE
 	
 	#	setup tokens
-	#tokens.append(%DeRotateToken)
+	tokens.append(%DerotationToken)
 	
 	#	setup interactables
 	interactables.append(pistonInteractable)

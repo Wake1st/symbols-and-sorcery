@@ -10,8 +10,8 @@ extends Node3D
 var highlight:bool = false:
 	set(value):
 		highlight = value
-		get_node("HighlightMesh").visible = value
 		get_node("HighlightMesh").mesh.material.emission_enabled = value
+		get_node("HighlightMesh").visible = value
 
 
 func get_collider_id() -> int:

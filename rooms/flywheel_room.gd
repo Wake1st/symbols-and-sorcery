@@ -20,6 +20,9 @@ func _ready() -> void:
 	#	setup door points
 	doorPoints[westDoor] = navPointDoorW
 	
+	#	setup token
+	tokens.append(%RotationToken)
+	
 	#	setup interactables
 	interactables.append(flywheelInteractable)
 	interactables.append(%FlywheelLamp)

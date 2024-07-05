@@ -5,21 +5,19 @@
 [ext_resource type="Resource" uid="uid://cxyvchh8pab3u" path="res://tokens/light_token.tres" id="3_apw4x"]
 [ext_resource type="Material" uid="uid://cdo1k52m3ls4f" path="res://tokens/token_highlight_material.tres" id="4_ic3lq"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_wy15g"]
+[sub_resource type="BoxMesh" id="BoxMesh_wnduh"]
 material = ExtResource("4_ic3lq")
-size = Vector3(0.21, 0.21, 0.05)
+size = Vector3(0.2, -0.05, 0.2)
 
 [node name="LightToken" instance=ExtResource("1_jjqbx")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 script = ExtResource("2_tndsi")
 token = ExtResource("3_apw4x")
 
-[node name="LightToken" parent="." index="0"]
-transform = Transform3D(0.1, 0, 0, 0, -4.37114e-09, -0.1, 0, 0.1, -4.37114e-09, 0, 0, 0)
-
-[node name="StaticBody3D" parent="LightToken" index="0"]
+[node name="StaticBody3D" parent="Mesh" index="0"]
 unique_name_in_owner = true
 
 [node name="HighlightMesh" type="MeshInstance3D" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.031202)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0315977, -1.38118e-09)
 visible = false
-mesh = SubResource("BoxMesh_wy15g")
+mesh = SubResource("BoxMesh_wnduh")

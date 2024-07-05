@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d2rat05ksc3bw"]
+[gd_scene load_steps=11 format=3 uid="uid://d2rat05ksc3bw"]
 
 [ext_resource type="Script" path="res://rooms/piston_room.gd" id="1_0antw"]
 [ext_resource type="PackedScene" uid="uid://b5wl1fbu8w4rm" path="res://common/pillar.tscn" id="2_vnd3t"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dowkdyyao5rfd" path="res://common/nav_point.tscn" id="4_n4uj0"]
 [ext_resource type="PackedScene" uid="uid://x62k4vbbjqje" path="res://interactable/interactable.tscn" id="4_n63ov"]
 [ext_resource type="MeshLibrary" uid="uid://bwbsu80ly13cd" path="res://tilesets/dungeon_tileset.tres" id="6_6rkrk"]
+[ext_resource type="PackedScene" uid="uid://cenispnfvmknq" path="res://tokens/derotation_token.tscn" id="6_574cv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n1leq"]
 size = Vector3(9, 3, 0.01)
@@ -31,10 +32,10 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="NavPointDoorE" parent="." instance=ExtResource("4_n4uj0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, 0, 0)
 
 [node name="NavPointWest" parent="." instance=ExtResource("4_n4uj0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -3, 0, 0)
 
 [node name="TokenPillar" parent="." instance=ExtResource("2_vnd3t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.299813, 2)
@@ -42,6 +43,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.299813, 2)
 [node name="TokenLamp" parent="TokenPillar" instance=ExtResource("3_epk2l")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, 0)
+
+[node name="DerotationToken" parent="TokenPillar" instance=ExtResource("6_574cv")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, -1.06581e-14, 0, 1.06581e-14, 1, 0, 0.310404, 0)
 
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("6_6rkrk")
