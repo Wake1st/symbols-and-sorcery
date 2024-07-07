@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://b6rkj1tj515u8"]
+[gd_scene load_steps=9 format=3 uid="uid://b6rkj1tj515u8"]
 
 [ext_resource type="Script" path="res://door/door.gd" id="1_lihjd"]
 [ext_resource type="Material" uid="uid://lohyakfqnnwj" path="res://door/door_material.tres" id="2_sdmdy"]
 [ext_resource type="Shader" path="res://door/door_lock.gdshader" id="2_vu4me"]
-[ext_resource type="Texture2D" uid="uid://bhnfbfi2ltgw8" path="res://assets/vfx/Flare00.PNG" id="3_lkinq"]
 [ext_resource type="AudioStream" uid="uid://c27ka1ibyjmqa" path="res://assets/audio/door_locked.wav" id="4_34brw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3lipd"]
@@ -16,12 +15,9 @@ size = Vector3(1.5, 2.3, 0.1)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aya1s"]
 render_priority = 0
 shader = ExtResource("2_vu4me")
-shader_parameter/speed = 10.0
-shader_parameter/hit = false
-shader_parameter/hit_point = Vector2(0.5, 0.5)
-shader_parameter/hit_time_ratio = 0.0
+shader_parameter/running = false
+shader_parameter/start_time = null
 shader_parameter/color = Vector3(0, 0.3, 0.9)
-shader_parameter/flare_texture = ExtResource("3_lkinq")
 
 [sub_resource type="QuadMesh" id="QuadMesh_sb2a7"]
 material = SubResource("ShaderMaterial_aya1s")
