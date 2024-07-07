@@ -1,6 +1,7 @@
 class_name Door
 extends Area3D
 
+const MSEC_PER_SEC:float = 1000.0;
 const LOCKED_VFX_TIME:float = 0.8;
 const UNLOCK_VFX_TIME:float = 1.2;
 const LOCKED_VFX_COLOR:Color = Color(0.9,0.0,0.3)
@@ -38,7 +39,8 @@ func unlock() -> void:
 	#	play vfx, sfx
 	print("door %s -> unlocked" % name)
 	lock.mesh.material.set_shader_parameter("color", UNLOCK_VFX_COLOR)
-	lock.mesh.material.set_shader_parameter("start_time", 1000 * Time.get_ticks_usec())
+	lock.mesh.material.set_shader_parameter("start_time", Time.get_ticks_msec() / MSEC_PER_SEC)
+	lock.mesh.material.set_shader_parameter("running", true)
 	lockSFX.stream = UNLOCK_WAV
 	lockTimer.start(UNLOCK_WAV.get_length())
 	lockSFX.play()
@@ -50,7 +52,8 @@ func check_unlocked() -> bool:
 		print("door %s is locked" % name)
 		highlight = false
 		lock.mesh.material.set_shader_parameter("color", LOCKED_VFX_COLOR)
-		lock.mesh.material.set_shader_parameter("start_time", 1000 * Time.get_ticks_usec())
+		lock.mesh.material.set_shader_parameter("start_time", Time.get_ticks_msec() / MSEC_PER_SEC)
+		lock.mesh.material.set_shader_parameter("running", true)
 		lockTimer.start(LOCKED_WAV.get_length())
 		lockSFX.play()
 	
@@ -69,11 +72,8 @@ func get_connecting_room(currentRoom:RoomBase) -> RoomBase:
 func _physics_process(_delta):
 	if !lockTimer.is_stopped():
 		var time_ratio = 1.0 - lockTimer.time_left / lockTimer.wait_time
-		lock.mesh.material.set_shader_parameter("running", true)
-		#lock.mesh.material.set_shader_parameter("hit_time_ratio", time_ratio)
-		#lock.mesh.material.set_shader_parameter("hit", true)
+		lock.mesh.material.set_shader_parameter("delta_T", time_ratio)
 
 
 func _on_lock_timer_timeout():
 	lock.mesh.material.set_shader_parameter("running", false)
-	#lock.mesh.material.set_shader_parameter("hit", false)

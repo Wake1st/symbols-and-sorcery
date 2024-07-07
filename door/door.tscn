@@ -16,7 +16,7 @@ size = Vector3(1.5, 2.3, 0.1)
 render_priority = 0
 shader = ExtResource("2_vu4me")
 shader_parameter/running = false
-shader_parameter/start_time = null
+shader_parameter/delta_T = null
 shader_parameter/color = Vector3(0, 0.3, 0.9)
 
 [sub_resource type="QuadMesh" id="QuadMesh_sb2a7"]
