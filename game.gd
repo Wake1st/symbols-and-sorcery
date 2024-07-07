@@ -4,7 +4,7 @@ extends Node
 
 @onready var startRoom:RoomBase = $GameViewportContainer/GameViewport/LightRoom
 @onready var player:Player = %Player
-@onready var descriptions = %Descriptions
+@onready var naration = %Naration
 @onready var inventory = %Inventory
 @onready var cursor = %Cursor
 
@@ -57,7 +57,7 @@ func handle_room_change(door:Door) -> void:
 
 
 func handle_entered_room() -> void:
-	pass
+	naration.add_text(currentRoom.get_description)
 	#	TODO: some description about the room entered
 
 

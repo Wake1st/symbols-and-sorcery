@@ -1,12 +1,15 @@
-[gd_scene format=3 uid="uid://bqyqmq468rc8f"]
+[gd_scene load_steps=2 format=3 uid="uid://bqyqmq468rc8f"]
 
-[node name="Descriptions" type="Control"]
+[ext_resource type="Script" path="res://ui/naration.gd" id="1_qltca"]
+
+[node name="Naration" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_qltca")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -29,12 +32,11 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="CodeEdit" type="TextEdit" parent="ColorRect/MarginContainer"]
+[node name="TextBox" type="TextEdit" parent="ColorRect/MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 mouse_default_cursor_shape = 2
-placeholder_text = "You wake in a dark room. You pick up a _WAND_ sitting in your lap.
-
-[Hold RIGHT MOUSE BUTTON to switch to the wand and select LEFT MOUSE BUTTON to use the wand]"
+placeholder_text = "You wake in a dark room. You pick up a wand sitting in your lap [scroll MIDDLE MOUSE WHEEL to switch between the hand and the wand]."
 editable = false
 context_menu_enabled = false
 shortcut_keys_enabled = false

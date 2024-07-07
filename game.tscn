@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://43nacr0s5b4" path="res://player/player.tscn" id="2_rda4s"]
 [ext_resource type="PackedScene" uid="uid://bd2osptl071da" path="res://rooms/light_room.tscn" id="2_v5tb6"]
 [ext_resource type="Resource" uid="uid://cmi7nk34coih3" path="res://connection_nodes/light.tres" id="3_3tav4"]
-[ext_resource type="PackedScene" uid="uid://bqyqmq468rc8f" path="res://ui/descriptions.tscn" id="3_h4kny"]
+[ext_resource type="PackedScene" uid="uid://bqyqmq468rc8f" path="res://ui/naration.tscn" id="3_h4kny"]
 [ext_resource type="PackedScene" uid="uid://dhfax6f0r5sbf" path="res://rooms/thermic_room.tscn" id="3_jb4ou"]
 [ext_resource type="PackedScene" uid="uid://bf3fo2nl0sr0k" path="res://ui/inventory.tscn" id="4_fqnfk"]
 [ext_resource type="Resource" uid="uid://dl2cd6qk2flj5" path="res://connection_nodes/fire.tres" id="4_na2jj"]
@@ -142,7 +142,7 @@ handle_input_locally = false
 size = Vector2i(232, 520)
 render_target_update_mode = 4
 
-[node name="Descriptions" parent="TextViewportContainer/TextViewport" instance=ExtResource("3_h4kny")]
+[node name="Naration" parent="TextViewportContainer/TextViewport" instance=ExtResource("3_h4kny")]
 unique_name_in_owner = true
 mouse_filter = 2
 mouse_default_cursor_shape = 2
