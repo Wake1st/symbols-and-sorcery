@@ -12,6 +12,9 @@ var currentRoom:RoomBase
 
 
 func _ready() -> void:
+	#	setup naration
+	Descriptions.load()
+	
 	#	setup current room
 	_setup_current_room(startRoom)
 	
@@ -57,8 +60,7 @@ func handle_room_change(door:Door) -> void:
 
 
 func handle_entered_room() -> void:
-	naration.add_text(currentRoom.get_description)
-	#	TODO: some description about the room entered
+	naration.add_text(Descriptions.get_room_text(currentRoom.name))
 
 
 func handle_hover_over(id:int) -> void:

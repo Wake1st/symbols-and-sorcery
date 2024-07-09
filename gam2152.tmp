@@ -1,0 +1,171 @@
+[gd_scene load_steps=19 format=3 uid="uid://by5yskdawpn07"]
+
+[ext_resource type="Script" path="res://game.gd" id="1_2jxoa"]
+[ext_resource type="PackedScene" uid="uid://ddf52c21k8uf" path="res://navigation.tscn" id="2_fnqxl"]
+[ext_resource type="PackedScene" uid="uid://43nacr0s5b4" path="res://player/player.tscn" id="2_rda4s"]
+[ext_resource type="PackedScene" uid="uid://bd2osptl071da" path="res://rooms/light_room.tscn" id="2_v5tb6"]
+[ext_resource type="Resource" uid="uid://cmi7nk34coih3" path="res://connection_nodes/light.tres" id="3_3tav4"]
+[ext_resource type="PackedScene" uid="uid://bqyqmq468rc8f" path="res://ui/naration.tscn" id="3_h4kny"]
+[ext_resource type="PackedScene" uid="uid://dhfax6f0r5sbf" path="res://rooms/thermic_room.tscn" id="3_jb4ou"]
+[ext_resource type="PackedScene" uid="uid://bf3fo2nl0sr0k" path="res://ui/inventory.tscn" id="4_fqnfk"]
+[ext_resource type="Resource" uid="uid://dl2cd6qk2flj5" path="res://connection_nodes/fire.tres" id="4_na2jj"]
+[ext_resource type="PackedScene" uid="uid://c0ycl65jph6ju" path="res://common/wand.tscn" id="5_ve7nf"]
+[ext_resource type="PackedScene" uid="uid://b0kb3yo5gmhb" path="res://rooms/boiler_room.tscn" id="8_fi4pw"]
+[ext_resource type="PackedScene" uid="uid://b6rkj1tj515u8" path="res://door/door.tscn" id="8_lssns"]
+[ext_resource type="PackedScene" uid="uid://di5i7x8c65801" path="res://rooms/balloon_room.tscn" id="9_eudpg"]
+[ext_resource type="Environment" uid="uid://dftjun6ak5xh5" path="res://environment.tres" id="11_00gap"]
+[ext_resource type="PackedScene" uid="uid://gy15nna1u65w" path="res://rooms/lobby.tscn" id="11_6gwb0"]
+[ext_resource type="PackedScene" uid="uid://yvp2kuau43v5" path="res://rooms/flywheel_room.tscn" id="12_81f2j"]
+[ext_resource type="PackedScene" uid="uid://d2rat05ksc3bw" path="res://rooms/piston_room.tscn" id="13_1lp5s"]
+[ext_resource type="PackedScene" uid="uid://c078fj3h6hphd" path="res://common/cursor.tscn" id="13_us8qn"]
+
+[node name="Game" type="Node"]
+script = ExtResource("1_2jxoa")
+
+[node name="Navigation" parent="." node_paths=PackedStringArray("startingNode") instance=ExtResource("2_fnqxl")]
+unique_name_in_owner = true
+startingNode = NodePath("../GameViewportContainer/GameViewport/LightRoom")
+connectionNodes = Array[Resource("res://scripts/ConnectionNode.gd")]([ExtResource("3_3tav4"), ExtResource("4_na2jj")])
+
+[node name="Wand" parent="." instance=ExtResource("5_ve7nf")]
+unique_name_in_owner = true
+
+[node name="GameViewportContainer" type="SubViewportContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -232.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="GameViewport" type="SubViewport" parent="GameViewportContainer" groups=["game-viewport"]]
+handle_input_locally = false
+audio_listener_enable_3d = true
+size = Vector2i(768, 520)
+render_target_update_mode = 4
+
+[node name="Player" parent="GameViewportContainer/GameViewport" instance=ExtResource("2_rda4s")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="LightRoom" parent="GameViewportContainer/GameViewport" node_paths=PackedStringArray("northDoor") instance=ExtResource("2_v5tb6")]
+northDoor = NodePath("../LightThermicDoor")
+
+[node name="ThermicRoom" parent="GameViewportContainer/GameViewport" node_paths=PackedStringArray("eastDoor", "southDoor", "westDoor") instance=ExtResource("3_jb4ou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
+eastDoor = NodePath("../ThermicBoilerDoor")
+southDoor = NodePath("../LightThermicDoor")
+westDoor = NodePath("../ThermicBalloonDoor")
+
+[node name="BoilerRoom" parent="GameViewportContainer/GameViewport" node_paths=PackedStringArray("northDoor", "westDoor") instance=ExtResource("8_fi4pw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -7)
+northDoor = NodePath("../BoilerLobbyDoor")
+westDoor = NodePath("../ThermicBoilerDoor")
+
+[node name="BalloonRoom" parent="GameViewportContainer/GameViewport" node_paths=PackedStringArray("northDoor", "eastDoor") instance=ExtResource("9_eudpg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -7)
+northDoor = NodePath("../BalloonLobbyDoor")
+eastDoor = NodePath("../ThermicBalloonDoor")
+
+[node name="Lobby" parent="GameViewportContainer/GameViewport" node_paths=PackedStringArray("northDoor", "eastDoor", "southDoor", "westDoor") instance=ExtResource("11_6gwb0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -24)
+northDoor = NodePath("../LobbyPistonDoor")
+eastDoor = NodePath("../LobbyFlywheelDoor")
+southDoor = NodePath("../BoilerLobbyDoor")
+westDoor = NodePath("../BalloonLobbyDoor")
+
+[node name="FlywheelRoom" parent="GameViewportContainer/GameViewport" node_paths=PackedStringArray("westDoor") instance=ExtResource("12_81f2j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, -32)
+westDoor = NodePath("../LobbyFlywheelDoor")
+
+[node name="PistonRoom" parent="GameViewportContainer/GameViewport" node_paths=PackedStringArray("eastDoor") instance=ExtResource("13_1lp5s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -32)
+eastDoor = NodePath("../LobbyPistonDoor")
+
+[node name="LightThermicDoor" parent="GameViewportContainer/GameViewport" node_paths=PackedStringArray("room1", "room2") instance=ExtResource("8_lssns")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+room1 = NodePath("../LightRoom")
+room2 = NodePath("../ThermicRoom")
+
+[node name="ThermicBoilerDoor" parent="GameViewportContainer/GameViewport" node_paths=PackedStringArray("room1", "room2") instance=ExtResource("8_lssns")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6, 0, -7)
+room1 = NodePath("../ThermicRoom")
+room2 = NodePath("../BoilerRoom")
+
+[node name="ThermicBalloonDoor" parent="GameViewportContainer/GameViewport" node_paths=PackedStringArray("room1", "room2") instance=ExtResource("8_lssns")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6, 0, -7)
+room1 = NodePath("../ThermicRoom")
+room2 = NodePath("../BalloonRoom")
+
+[node name="BalloonLobbyDoor" parent="GameViewportContainer/GameViewport" node_paths=PackedStringArray("room1", "room2") instance=ExtResource("8_lssns")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -14)
+room1 = NodePath("../BalloonRoom")
+room2 = NodePath("../Lobby")
+
+[node name="BoilerLobbyDoor" parent="GameViewportContainer/GameViewport" node_paths=PackedStringArray("room1", "room2") instance=ExtResource("8_lssns")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -14)
+room1 = NodePath("../BoilerRoom")
+room2 = NodePath("../Lobby")
+
+[node name="LobbyFlywheelDoor" parent="GameViewportContainer/GameViewport" node_paths=PackedStringArray("room1", "room2") instance=ExtResource("8_lssns")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10, 0, -32)
+room1 = NodePath("../Lobby")
+room2 = NodePath("../FlywheelRoom")
+startLocked = false
+
+[node name="LobbyPistonDoor" parent="GameViewportContainer/GameViewport" node_paths=PackedStringArray("room1", "room2") instance=ExtResource("8_lssns")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10, 0, -32)
+room1 = NodePath("../Lobby")
+room2 = NodePath("../PistonRoom")
+startLocked = false
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="GameViewportContainer/GameViewport"]
+environment = ExtResource("11_00gap")
+
+[node name="Cursor" parent="GameViewportContainer/GameViewport" instance=ExtResource("13_us8qn")]
+unique_name_in_owner = true
+
+[node name="TextViewportContainer" type="SubViewportContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 768.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="TextViewport" type="SubViewport" parent="TextViewportContainer"]
+handle_input_locally = false
+size = Vector2i(232, 520)
+render_target_update_mode = 4
+
+[node name="Naration" parent="TextViewportContainer/TextViewport" instance=ExtResource("3_h4kny")]
+unique_name_in_owner = true
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+
+[node name="InvViewportContainer" type="SubViewportContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -80.0
+grow_horizontal = 2
+grow_vertical = 0
+stretch = true
+
+[node name="InvViewport" type="SubViewport" parent="InvViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1000, 80)
+render_target_update_mode = 4
+
+[node name="Inventory" parent="InvViewportContainer/InvViewport" instance=ExtResource("4_fqnfk")]
+unique_name_in_owner = true
+
+[connection signal="gui_input" from="GameViewportContainer" to="." method="_on_game_viewport_container_gui_input"]
+[connection signal="mouse_entered" from="GameViewportContainer" to="." method="_on_game_viewport_container_mouse_entered"]
+[connection signal="mouse_exited" from="GameViewportContainer" to="." method="_on_game_viewport_container_mouse_exited"]
+[connection signal="gui_focus_changed" from="GameViewportContainer/GameViewport" to="." method="_on_game_viewport_gui_focus_changed"]
