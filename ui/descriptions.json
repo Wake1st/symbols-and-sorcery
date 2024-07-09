@@ -1,50 +1,40 @@
 {
-	"rooms": [
-		{
-			"name": "light",
+	"rooms": {
+		"light": {
 			"text": "  You find yourself in a cold dark room, dimly lit by a small lamp hovering near the middle of the ceiling.\n  A pillar lies beneath the lamp - upon it sits a TOKEN.\n  The only door in the room sits opposite of you, above which hovers a dim, unlit lamp.",
-			"tokens": [
-				{
-					"name": "light",
+			"tokens": {
+				"light": {
 					"text": "A dot in the center, surrounded by two lines. The lines curve outward; the one above sweeping down and to the left, the one below sweeping up and to the right."
 				}
-			],
-			"interactables": [
-				{
-					"name": "north_door",
+			},
+			"interactables": {
+				"north_door": {
 					"text": {
 						"touch": "You try to the door, but some kind of magic shield prevents you from touching it; a low pitched tone rings out." 
 					}
 				},
-				{
-					"name": "door_lamp",
+				"door_lamp": {
 					"text": "The lamp flicters, turning bright like the center lamp. A high-pitched tone rings out, and the magic sheild dissipates."
 				}
-			]
+			}
 		},
-		{
-			"name": "thermic",
-			"text": "this is the termic room",
+		"thermic": {
+			"text": "the termic room",
 		},
-		{
-			"name": "boiler",
-			"text": "",
+		"boiler": {
+			"text": "the boiler room",
 		},
-		{
-			"name": "balloon",
-			"text": "",
+		"balloon": {
+			"text": "the balloon room",
 		},
-		{
-			"name": "lobby",
-			"text": "",
+		"lobby": {
+			"text": "the lobby room",
 		},
-		{
-			"name": "flywheel",
-			"text": "",
+		"flywheel": {
+			"text": "the flywheel room",
 		},
-		{
-			"name": "piston",
-			"text": "",
+		"piston": {
+			"text": "the piston room",
 		}
-	]
+	}
 }
