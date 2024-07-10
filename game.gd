@@ -28,6 +28,9 @@ func _ready() -> void:
 	
 	#	setup inventory signals
 	inventory.setup(handle_item_selection)
+	
+	#	post opening description
+	handle_entered_room()
 
 
 func _setup_current_room(room:RoomBase) -> void:

@@ -1,5 +1,9 @@
 class_name Descriptions
 
+const DOOR_LOCKED:String = "You try to the door, but some kind of magic shield prevents you from touching it; a low pitched tone rings out."
+const LAMP_INACTIVE:String = "The lamp hovers above the door, dimly lit. You can barely make out anything around it, only the lamp."
+const LAMP_ACTIVE:String = "The lamp hovers, brightly lit, like the lamp above the center of the room. You can see the door beneath it clearly."
+
 static var descriptions:Dictionary
 static var rooms:Dictionary
 
@@ -31,3 +35,11 @@ static func get_interactable_text(room_name:String,interactable_name:String) -> 
 	]["interactables"][
 		interactable_name.to_lower().replace("interactable","")
 	]
+
+
+static func get_door_text(room_name:String,door_name:String) -> String:
+	return rooms[
+		room_name.to_lower().replace("room","")
+	]["doors"][
+		door_name.to_lower().replace("door","")
+		]
