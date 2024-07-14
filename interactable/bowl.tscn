@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://c3idphoxnxdlc"]
-
-[ext_resource type="PackedScene" uid="uid://uel0ixckyuss" path="res://assets/models/bowl.glb" id="1_cwvms"]
-
-[node name="Bowl" type="Node3D"]
-
-[node name="bowl" parent="." instance=ExtResource("1_cwvms")]
