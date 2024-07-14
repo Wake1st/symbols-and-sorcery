@@ -25,6 +25,7 @@ func change_spell(spell:Spells.TYPE) -> void:
 
 
 func reset(emission:float) -> void:
+	visible = false
 	emission_max = emission
 	omniLight.light_energy = 0
 	lightMesh.mesh.material.emission_energy_multiplier = 0
