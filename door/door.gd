@@ -37,7 +37,6 @@ func unlock() -> void:
 	locked = false
 	
 	#	play vfx, sfx
-	print("door %s -> unlocked" % name)
 	lock.mesh.material.set_shader_parameter("color", UNLOCK_VFX_COLOR)
 	lock.mesh.material.set_shader_parameter("start_time", Time.get_ticks_msec() / MSEC_PER_SEC)
 	lock.mesh.material.set_shader_parameter("running", true)
@@ -49,7 +48,6 @@ func unlock() -> void:
 func check_unlocked() -> bool:
 	if locked:
 		#	play vfx, sfx
-		print("door %s is locked" % name)
 		highlight = false
 		lock.mesh.material.set_shader_parameter("color", LOCKED_VFX_COLOR)
 		lock.mesh.material.set_shader_parameter("start_time", Time.get_ticks_msec() / MSEC_PER_SEC)

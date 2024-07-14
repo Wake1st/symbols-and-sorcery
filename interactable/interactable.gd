@@ -6,7 +6,12 @@ signal activated()
 @export_category("Interactable")
 @export var activationSpell:Spells.TYPE
 @export var meshName:String
+@export var is_active:bool = false:
+	set(value):
+		is_active = value
+		_toggle_active(value)
 
+var is_activating:bool = false
 var highlight:bool = false:
 	set(value):
 		highlight = value
@@ -16,14 +21,14 @@ var highlight:bool = false:
 func interact(spell:Spells.TYPE) -> void:
 	if spell == activationSpell:
 		#	show a change
-		print("%s activated by %s" % [name, spell])
-		_feedback()
+		is_active = true
+		is_activating = true
 		
 		#	notify the change worked
 		activated.emit()
 
 
-func _feedback() -> void:
+func _toggle_active(_value:bool) -> void:
 	pass
 
 

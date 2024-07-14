@@ -20,7 +20,8 @@ script = ExtResource("1_mccc8")
 
 [node name="Lamp" parent="Pillar" instance=ExtResource("5_06h7f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, 0)
-starts_on = true
+meshName = "Mesh"
+is_active = true
 
 [node name="LightToken" parent="." instance=ExtResource("3_utben")]
 transform = Transform3D(1, 0, 0, 0, 1, -1.06581e-14, 0, 1.06581e-14, 1, 0, 0.612663, 0)

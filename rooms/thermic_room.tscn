@@ -32,14 +32,9 @@ script = ExtResource("1_448yj")
 [node name="FrozenPillar" parent="." instance=ExtResource("1_75le4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0.3, -1.5)
 
-[node name="FrozenObject" type="StaticBody3D" parent="FrozenPillar"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="FrozenPillar/FrozenObject"]
-shape = SubResource("SphereShape3D_nt7oc")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="FrozenPillar/FrozenObject"]
-mesh = SubResource("SphereMesh_fskxf")
+[node name="FrozenInteractable" parent="FrozenPillar" instance=ExtResource("5_s6dho")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.30942, 0)
+is_active = true
 
 [node name="NWLamp" parent="FrozenPillar" instance=ExtResource("3_jj1oq")]
 unique_name_in_owner = true
@@ -50,7 +45,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0.3, 1.5)
 
 [node name="FreezeInteractable" parent="FreezePillar" instance=ExtResource("5_s6dho")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.313866, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.309147, 0)
 
 [node name="SWLamp" parent="FreezePillar" instance=ExtResource("3_jj1oq")]
 unique_name_in_owner = true
