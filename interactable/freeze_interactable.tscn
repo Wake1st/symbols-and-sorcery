@@ -56,6 +56,7 @@ roughness = 0.39
 script = ExtResource("1_5uvuk")
 activationSpell = 4
 meshName = "Water"
+activationTime = 2.8
 
 [node name="WaterSurface" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.169229, 0)

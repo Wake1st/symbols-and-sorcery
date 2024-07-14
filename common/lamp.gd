@@ -13,8 +13,16 @@ func _init():
 	activationSpell = Spells.TYPE.LIGHT
 
 
-func _toggle_active(value:bool) -> void:
-	get_node("OmniLight3D").light_energy = 0.2 if value else 0.0
+func _toggle_active() -> void:
+	if is_active && is_activating:
+		get_tree().create_tween().tween_property(
+			get_node("OmniLight3D"),"light_energy",0.2,activationTime
+		).set_ease(Tween.EASE_OUT
+		).set_trans(Tween.TRANS_QUAD)
+	elif is_active:
+		get_node("OmniLight3D").light_energy = 0.2
+	else:
+		get_node("OmniLight3D").light_energy = 0.0
 
 
 func _highlight_mesh(value:bool) -> void:

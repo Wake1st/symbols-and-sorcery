@@ -16,6 +16,7 @@ height = 0.4
 
 [node name="Interactable" type="StaticBody3D"]
 script = ExtResource("1_de461")
+meshName = "Mesh"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_nt7oc")

@@ -39,6 +39,7 @@ is_active = true
 [node name="NWLamp" parent="FrozenPillar" instance=ExtResource("3_jj1oq")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, 0)
+activationTime = 0.0
 
 [node name="FreezePillar" parent="." instance=ExtResource("1_75le4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0.3, 1.5)
@@ -50,6 +51,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.309147, 0)
 [node name="SWLamp" parent="FreezePillar" instance=ExtResource("3_jj1oq")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, 0)
+activationTime = 0.0
 
 [node name="ColdToken" parent="FreezePillar" instance=ExtResource("7_x82kp")]
 unique_name_in_owner = true
@@ -70,6 +72,7 @@ mesh = SubResource("SphereMesh_fskxf")
 [node name="NELamp" parent="BurningPillar" instance=ExtResource("3_jj1oq")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, 0)
+activationTime = 0.0
 
 [node name="BurnPillar" parent="." instance=ExtResource("1_75le4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0.3, 1.5)
@@ -82,6 +85,7 @@ activationSpell = 3
 [node name="SELamp" parent="BurnPillar" instance=ExtResource("3_jj1oq")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, 0)
+activationTime = 0.0
 
 [node name="FireToken" parent="BurnPillar" instance=ExtResource("6_khm5q")]
 unique_name_in_owner = true
