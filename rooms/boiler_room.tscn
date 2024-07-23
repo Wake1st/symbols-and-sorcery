@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b5wl1fbu8w4rm" path="res://common/pillar.tscn" id="1_3mh8b"]
 [ext_resource type="Script" path="res://rooms/boiler_room.gd" id="1_mfjcb"]
 [ext_resource type="PackedScene" uid="uid://dy2fpl767ftw3" path="res://common/lamp.tscn" id="3_mcsj0"]
-[ext_resource type="PackedScene" uid="uid://x62k4vbbjqje" path="res://interactable/interactable.tscn" id="4_hkfea"]
+[ext_resource type="PackedScene" uid="uid://548bljsxm8x7" path="res://interactable/boiler_interactable.tscn" id="4_edcxg"]
 [ext_resource type="PackedScene" uid="uid://dowkdyyao5rfd" path="res://common/nav_point.tscn" id="5_xis0v"]
 [ext_resource type="MeshLibrary" uid="uid://bwbsu80ly13cd" path="res://tilesets/dungeon_tileset.tres" id="6_3cw8a"]
 
@@ -26,10 +26,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.299813, 0)
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, 0)
 
-[node name="BoilerInteractable" parent="Pillar" instance=ExtResource("4_hkfea")]
+[node name="BoilerInteractable" parent="Pillar" instance=ExtResource("4_edcxg")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.700187, 0)
-activationSpell = 3
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="NavPointDoorW" parent="." instance=ExtResource("5_xis0v")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1, 0, 0)

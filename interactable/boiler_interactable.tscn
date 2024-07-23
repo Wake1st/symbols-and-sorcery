@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://548bljsxm8x7"]
+
+[ext_resource type="Script" path="res://interactable/boiler_interactable.gd" id="1_7s1n1"]
+[ext_resource type="Material" uid="uid://clcbcnpntddtk" path="res://interactable/bronze_material.tres" id="1_dii8k"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r8lot"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_otdgf"]
+material = ExtResource("1_dii8k")
+
+[node name="BoilerInteractable" type="StaticBody3D"]
+script = ExtResource("1_7s1n1")
+activationSpell = 3
+meshName = "Boiler"
+activationTime = 1.8
+
+[node name="BoilerSurface" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_r8lot")
+
+[node name="Boiler" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_otdgf")
