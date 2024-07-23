@@ -62,7 +62,24 @@
 			}
 		},
 		"boiler": {
-			"text": "the boiler room",
+			"text": "You enter a small room with a large, cylindrical tank, made of bronze; there is a metal beam sticks out of one side of the tank; it connects to a small arm, which is connected to a wheel. Around the wheel is coiled part of a chain; the rest of the chain stretches across the room. On opposite end of the room, the chain winds around a few smaller wheels and connects to a barred gate, which blocks the door.",
+			"doors": {
+				"west": {
+					"locked": false,
+					"text": "To your right, in the corner of the room, sits the metal tank. To your left, at the other end of the room, sits the barred door. In front of you, at the opposite corner of the room, the chain winds around the smaller wheels."
+				},
+				"north": {
+					"locked": true,
+					"text": "To your left, in the corner nearest you, the chain winds around the smaller wheels. To your right, in the corner opposite to you, sits the metal tank. Behind you sits the barred door."
+				},
+			},
+			"interactables": {
+				"boiler": {
+					"inactive": "A metal tank, dull and silent.",
+					"activate": "The metal becomes shinier, and you can hear a dull, rumbling sound coming from within. As the sound grows, the metal beam sticking out of the tank begins to move outward, till suddenly, a burst of air screams out from the tank - the metal beam quickly recoiling back into the tank. As this action repeats, the large wheel moves, winding up the chain, which in turns, pulls the gate up until it no longer blocks the door.",
+					"active": "A shiny metal tank; you feel it's warmth."
+				},
+			}
 		},
 		"balloon": {
 			"text": "the balloon room",
