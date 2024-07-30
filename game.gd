@@ -38,6 +38,7 @@ func _setup_current_room(room:RoomBase) -> void:
 	room.setup()
 	room.location_changed.connect(handle_location_changed)
 	room.room_changed.connect(handle_room_change)
+	room.locked_door_selected.connect(handle_locked_door_selection)
 	room.item_selected.connect(handle_item_pickup)
 	room.interactable_selected.connect(handle_iteractable_selection)
 
@@ -53,6 +54,7 @@ func handle_room_change(door:Door) -> void:
 	#	deallocate current room data and connections
 	currentRoom.location_changed.disconnect(handle_location_changed)
 	currentRoom.room_changed.disconnect(handle_room_change)
+	currentRoom.locked_door_selected.disconnect(handle_locked_door_selection)
 	currentRoom.item_selected.disconnect(handle_item_pickup)
 	currentRoom.interactable_selected.disconnect(handle_iteractable_selection)
 	
@@ -74,6 +76,10 @@ func handle_hover_over(id:int) -> void:
  
 func handle_world_selection(result:Dictionary) -> void:
 	currentRoom.check_selection(result)
+
+
+func handle_locked_door_selection(door:Door) -> void:
+	naration.add_text(Descriptions.get_door_text(currentRoom.name,door.name))
 
 
 func handle_spell_cast(spell:Spells.TYPE,collider_id:int) -> void:

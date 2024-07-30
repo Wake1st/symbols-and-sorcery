@@ -3,10 +3,7 @@
 		"light": {
 			"text": "  You find yourself in a cold, dark room, dimly lit by a small lamp hovering near the middle of the ceiling.\n  A pillar lies beneath the lamp - upon it sits a TOKEN.\n  The only DOOR in the room sits opposite of you, above which hovers a dim, unlit LAMP.\n  You pick up a wand sitting in your lap [scroll MIDDLE MOUSE WHEEL to switch between the hand and the wand].",
 			"doors": {
-				"north": {
-					"locked": true,
-					"text": "  You stand in a square room; in the middle, sits a pillar, and above it hovers a lamp.\n  On the opposite end of the room, sits a door - above it, another lamp."
-				}
+				"lightthermic": "  You stand in a square room; in the middle, sits a pillar, and above it hovers a lamp.\n  On the opposite end of the room, sits a door - above it, another lamp."
 			},
 			"tokens": {
 				"light": "  The token sits alone, atop the center of a pillar.",
@@ -22,18 +19,9 @@
 		"thermic": {
 			"text": "  You enter a wide room filled with three doors, four pillars, and four lamps. There is a door at each end of the room, accompanied by two pillars, and over each pillar hovers a lamp. The third door sits to the side of the room.",
 			"doors": {
-				"south": {
-					"locked": false,
-					"text": "  You stand in the middle of the room, a door, with two pillars and lamps each, sits to the left and to the right."
-				},
-				"west": {
-					"locked": true,
-					"text": "  You stand at one end of the wide room; to your right and left, there is a pillar with a lamp overhead. In the middle of the room, to the right of you, sits a door. At the other end of the hall, a door, surrouned by a pillar and a lamp on each side."
-				},
-				"east": {
-					"locked": true,
-					"text": "  You stand at one end of the wide room; to your right and left, there is a pillar with a lamp overhead. In the middle of the room, to the left of you, sits a door. At the other end of the hall, a door, surrouned by a pillar and a lamp on each side."
-				},
+				"south": "  You stand in the middle of the room, a door, with two pillars and lamps each, sits to the left and to the right.",
+				"west": "  You stand at one end of the wide room; to your right and left, there is a pillar with a lamp overhead. In the middle of the room, to the right of you, sits a door. At the other end of the hall, a door, surrouned by a pillar and a lamp on each side.",
+				"east": "  You stand at one end of the wide room; to your right and left, there is a pillar with a lamp overhead. In the middle of the room, to the left of you, sits a door. At the other end of the hall, a door, surrouned by a pillar and a lamp on each side.",
 			},
 			"tokens": {
 				"fire": "  The token sits on a pillar, next to a wooden stump.",

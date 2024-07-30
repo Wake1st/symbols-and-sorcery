@@ -3,6 +3,7 @@ extends Node3D
 
 signal interactable_selected(interactable:Interactable)
 signal item_selected(item:TokenBase)
+signal locked_door_selected(door:Door)
 signal location_changed(point:NavPoint)
 signal room_changed(door:Door)
 
@@ -127,9 +128,12 @@ func _check_nav_points(id:int) -> bool:
 
 func _check_doors(id:int) -> bool:
 	for door in doorPoints.keys():
-		if id == door.get_instance_id() && door.check_unlocked():
-			navPoints[currentNavId].visible = true
-			room_changed.emit(door)
+		if id == door.get_instance_id():
+			if door.check_unlocked():
+				navPoints[currentNavId].visible = true
+				room_changed.emit(door)
+			else:
+				locked_door_selected.emit(door)
 			return true
 	return false
 
