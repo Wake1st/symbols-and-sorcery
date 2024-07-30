@@ -29,12 +29,20 @@ static func get_token_text(room_name:String,token_name:String) -> String:
 	]
 
 
-static func get_interactable_text(room_name:String,interactable_name:String) -> String:
+static func get_interactable_text(room_name:String,interactable:Interactable) -> String:
+	var state:String
+	if interactable.is_activating && interactable.is_active:
+		state = "activate"
+	elif interactable.is_active:
+		state = "active"
+	else:
+		state = "inactive"
+	
 	return rooms[
 		room_name.to_lower().replace("room","")
 	]["interactables"][
-		interactable_name.to_lower().replace("interactable","")
-	]
+		interactable.name.to_lower().replace("interactable","")
+	][state]
 
 
 static func get_door_text(room_name:String,door_name:String) -> String:

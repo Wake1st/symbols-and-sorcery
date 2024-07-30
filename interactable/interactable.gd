@@ -1,8 +1,10 @@
 class_name Interactable
 extends StaticBody3D
 
-signal activated()
+#	TODO: check state usage
+#enum INTERACTIVE_STATE { INACTIVE, ACTIVATE, ACTIVE }
 
+signal activated()
 
 @export_category("Interactable")
 @export var activationSpell:Spells.TYPE

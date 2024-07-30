@@ -11,14 +11,14 @@
 			"tokens": {
 				"light": {
 					"picked_up": false,
-					"text": "The token sits alone, atop the center of a pillar."
+					"text": "  The token sits alone, atop the center of a pillar."
 				}
 			},
 			"interactables": {
-				"door_lamp": {
-					"inactive": "The lamp hovers above the door, dimly lit. You can barely make out anything around it, only the lamp.",
-					"activate": "The lamp flicters, turning bright like the center lamp. A high-pitched tone rings out, and the magic sheild covering the door dissipates.",
-					"active": "The lamp hovers, brightly lit, like the lamp above the center of the room. You can see the door beneath it clearly."
+				"doorlamp": {
+					"inactive": "  The lamp hovers above the door, dimly lit. You can barely see anything around it.",
+					"activate": "  The lamp flicters, turning bright like the center lamp. A high-pitched tone rings out, and the magic sheild covering the door dissipates.",
+					"active": "  The lamp hovers, brightly lit, like the lamp above the center of the room. You can see the door beneath it clearly."
 				}
 			}
 		},
@@ -27,57 +27,57 @@
 			"doors": {
 				"south": {
 					"locked": false,
-					"text": "You stand in the middle of the room, a door, with two pillars and lamps each, sits to the left and to the right."
+					"text": "  You stand in the middle of the room, a door, with two pillars and lamps each, sits to the left and to the right."
 				},
 				"west": {
 					"locked": true,
-					"text": "You stand at one end of the wide room; to your right and left, there is a pillar with a lamp overhead. In the middle of the room, to the right of you, sits a door. At the other end of the hall, a door, surrouned by a pillar and a lamp on each side."
+					"text": "  You stand at one end of the wide room; to your right and left, there is a pillar with a lamp overhead. In the middle of the room, to the right of you, sits a door. At the other end of the hall, a door, surrouned by a pillar and a lamp on each side."
 				},
 				"east": {
 					"locked": true,
-					"text": "You stand at one end of the wide room; to your right and left, there is a pillar with a lamp overhead. In the middle of the room, to the left of you, sits a door. At the other end of the hall, a door, surrouned by a pillar and a lamp on each side."
+					"text": "  You stand at one end of the wide room; to your right and left, there is a pillar with a lamp overhead. In the middle of the room, to the left of you, sits a door. At the other end of the hall, a door, surrouned by a pillar and a lamp on each side."
 				},
 			},
 			"tokens": {
 				"fire": {
 					"picked_up": false,
-					"text": "The token sits on a pillar, next to a wooden stump."
+					"text": "  The token sits on a pillar, next to a wooden stump."
 				},
 				"cold": {
 					"picked_up": false,
-					"text": "The token sits on a pillar, next to a bowl of water."
+					"text": "  The token sits on a pillar, next to a bowl of water."
 				}
 			},
 			"interactables": {
 				"freeze": {
-					"inactive": "A bowl of water sits in the center of a pillar.",
-					"activate": "The water freezes, and the shield on the door near you dissipate.",
-					"active": "A frozen bowl of water sits in the center of a pillar."
+					"inactive": "  A bowl of water sits in the center of a pillar.",
+					"activate": "  The water freezes, and the shield on the door near you dissipate.",
+					"active": "  A frozen bowl of water sits in the center of a pillar."
 				},
 				"burn": {
-					"inactive": "A wooden stump sits in the center of a pillar.",
-					"activate": "The stump turns dark instantly, then slowly starts to glow and radiate heat; the shield on the door near you dissipate.",
-					"active": "A burning, wooden stump sits in the center of a pillar."
+					"inactive": "  A wooden stump sits in the center of a pillar.",
+					"activate": "  The stump turns dark instantly, then slowly starts to glow and radiate heat; the shield on the door near you dissipate.",
+					"active": "  A burning, wooden stump sits in the center of a pillar."
 				},
 			}
 		},
 		"boiler": {
-			"text": "You enter a small room with a large, cylindrical tank, made of bronze; there is a metal beam sticks out of one side of the tank; it connects to a small arm, which is connected to a wheel. Around the wheel is coiled part of a chain; the rest of the chain stretches across the room. On opposite end of the room, the chain winds around a few smaller wheels and connects to a barred gate, which blocks the door.",
+			"text": "  You enter a small room with a large, cylindrical tank, made of bronze; there is a metal beam sticks out of one side of the tank; it connects to a small arm, which is connected to a wheel. Around the wheel is coiled part of a chain; the rest of the chain stretches across the room. On opposite end of the room, the chain winds around a few smaller wheels and connects to a barred gate, which blocks the door.",
 			"doors": {
 				"west": {
 					"locked": false,
-					"text": "To your right, in the corner of the room, sits the metal tank. To your left, at the other end of the room, sits the barred door. In front of you, at the opposite corner of the room, the chain winds around the smaller wheels."
+					"text": "  To your right, in the corner of the room, sits the metal tank. To your left, at the other end of the room, sits the barred door. In front of you, at the opposite corner of the room, the chain winds around the smaller wheels."
 				},
 				"north": {
 					"locked": true,
-					"text": "To your left, in the corner nearest you, the chain winds around the smaller wheels. To your right, in the corner opposite to you, sits the metal tank. Behind you sits the barred door."
+					"text": "  To your left, in the corner nearest you, the chain winds around the smaller wheels. To your right, in the corner opposite to you, sits the metal tank. Behind you sits the barred door."
 				},
 			},
 			"interactables": {
 				"boiler": {
-					"inactive": "A metal tank, dull and silent.",
-					"activate": "The metal becomes shinier, and you can hear a dull, rumbling sound coming from within. As the sound grows, the metal beam sticking out of the tank begins to move outward, till suddenly, a burst of air screams out from the tank - the metal beam quickly recoiling back into the tank. As this action repeats, the large wheel moves, winding up the chain, which in turns, pulls the gate up until it no longer blocks the door.",
-					"active": "A shiny metal tank; you feel it's warmth."
+					"inactive": "  A metal tank, dull and silent.",
+					"activate": "  The metal becomes shinier, and you can hear a dull, rumbling sound coming from within. As the sound grows, the metal beam sticking out of the tank begins to move outward, till suddenly, a burst of air screams out from the tank - the metal beam quickly recoiling back into the tank. As this action repeats, the large wheel moves, winding up the chain, which in turns, pulls the gate up until it no longer blocks the door.",
+					"active": "  A shiny metal tank; you feel it's warmth."
 				},
 			}
 		},
@@ -96,19 +96,19 @@
 	},
 	"tokens": {
 		"light": {
-			"engraving": "A dot in the center, surrounded by two lines. The lines curve outward; the one above sweeping down and to the left, the one below sweeping up and to the right."
+			"engraving": "  A dot in the center, surrounded by two lines. The lines curve outward; the one above sweeping down and to the left, the one below sweeping up and to the right."
 		},
 		"fire": {
-			"engraving": "Two slanted, verticle lines, connected at the bottom, and curving up and away from each other."
+			"engraving": "  Two slanted, verticle lines, connected at the bottom, and curving up and away from each other."
 		},
 		"cold": {
-			"engraving": "A single, curved line, starting at the bottom left, sweeping up, then over to the right, then back down to the bottom."
+			"engraving": "  A single, curved line, starting at the bottom left, sweeping up, then over to the right, then back down to the bottom."
 		},
 		"rotation": {
-			"engraving": "Four curved lines, encircling the middle of the token; they start on the inside, curving outward then sweeping counter-clockwise, pointing tangential to the center, forming a spiral."
+			"engraving": "  Four curved lines, encircling the middle of the token; they start on the inside, curving outward then sweeping counter-clockwise, pointing tangential to the center, forming a spiral."
 		},
 		"derotation": {
-			"engraving": "Four curved lines, encircling the middle of the token; they start on the inside, curving clockwise then outward, pointing away from the center, forming an anti-spiral."
+			"engraving": "  Four curved lines, encircling the middle of the token; they start on the inside, curving clockwise then outward, pointing away from the center, forming an anti-spiral."
 		}
 	}
 }

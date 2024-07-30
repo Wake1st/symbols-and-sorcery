@@ -4,7 +4,7 @@ extends Node
 
 @onready var startRoom:RoomBase = $GameViewportContainer/GameViewport/LightRoom
 @onready var player:Player = %Player
-@onready var naration = %Naration
+@onready var naration:Naration = %Naration
 @onready var inventory = %Inventory
 @onready var cursor = %Cursor
 
@@ -39,6 +39,7 @@ func _setup_current_room(room:RoomBase) -> void:
 	room.location_changed.connect(handle_location_changed)
 	room.room_changed.connect(handle_room_change)
 	room.item_selected.connect(handle_item_pickup)
+	room.interactable_selected.connect(handle_iteractable_selection)
 
 
 func handle_location_changed(point:NavPoint) -> void:
@@ -53,6 +54,7 @@ func handle_room_change(door:Door) -> void:
 	currentRoom.location_changed.disconnect(handle_location_changed)
 	currentRoom.room_changed.disconnect(handle_room_change)
 	currentRoom.item_selected.disconnect(handle_item_pickup)
+	currentRoom.interactable_selected.disconnect(handle_iteractable_selection)
 	
 	#	connect new room connections
 	_setup_current_room(connectingRoom)
@@ -75,11 +77,16 @@ func handle_world_selection(result:Dictionary) -> void:
 
 
 func handle_spell_cast(spell:Spells.TYPE,collider_id:int) -> void:
-	currentRoom.check_interactables(spell,collider_id)
+	currentRoom.check_spell_interactions(spell,collider_id)
 
 
 func handle_item_pickup(item:TokenBase) -> void:
 	player.pick_up(item)
+	naration.add_text(Descriptions.get_token_text(currentRoom.name,item.name))
+
+
+func handle_iteractable_selection(interactable:Interactable) -> void:
+	naration.add_text(Descriptions.get_interactable_text(currentRoom.name,interactable))
 
 
 func handle_item_selection(item:Token) -> void:

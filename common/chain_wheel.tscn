@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://wa4kb08aje7p"]
+
+[ext_resource type="PackedScene" uid="uid://daod0r3ee7jho" path="res://assets/models/gold chain.glb" id="1_pm0hx"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_p4m3d"]
+top_radius = 0.3
+bottom_radius = 0.3
+height = 0.1
+
+[node name="ChainWheel" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000353456, 2.98023e-08, -0.00345016)
+
+[node name="Wheel" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_p4m3d")
+
+[node name="HorizontalChain" parent="." instance=ExtResource("1_pm0hx")]
+transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, -0.00112379, 0.268019, 0.679538)
+
+[node name="VerticalChain" parent="." instance=ExtResource("1_pm0hx")]
+transform = Transform3D(0.04, 0, 0, 0, -1.74846e-09, 0.04, 0, -0.04, -1.74846e-09, 0, -0.00696424, -0.269086)

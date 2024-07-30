@@ -1,6 +1,7 @@
 class_name RoomBase
 extends Node3D
 
+signal interactable_selected(interactable:Interactable)
 signal item_selected(item:TokenBase)
 signal location_changed(point:NavPoint)
 signal room_changed(door:Door)
@@ -55,25 +56,6 @@ func highlight_object(id:int) -> void:
 			return
 	return
 
-	#
-	#
-	#checkedNode = _highlight_doors(id)
-	#if checkedNode != null:
-		#checkedNode.highlight
-		#currentHoverNode = checkedNode
-		#return
-	#
-	#checkedNode = _highlight_interactables(id)
-	#if checkedNode != null:
-		#checkedNode.highlight
-		#currentHoverNode = checkedNode
-		#return
-	#
-	#checkedNode = _highlight_tokens(id)
-	#if checkedNode != null:
-		#checkedNode.highlight
-		#currentHoverNode = checkedNode
-
 
 func _highlight_nav_points(id) -> Node3D:
 	if currentNavId == null:
@@ -106,7 +88,7 @@ func _highlight_interactables(id:int) -> Node3D:
 	return null
 
 
-func check_interactables(spell:Spells.TYPE, collider_id:int) -> void:
+func check_spell_interactions(spell:Spells.TYPE, collider_id:int) -> void:
 	for interactable in interactables:
 		if collider_id == interactable.get_instance_id():
 			interactable.interact(spell)
@@ -123,7 +105,10 @@ func check_selection(result:Dictionary) -> void:
 	if _check_doors(id):
 		return
 	
-	_check_tokens(id)
+	if _check_tokens(id):
+		return
+	
+	_check_interactables(id)
 
 
 func _check_nav_points(id:int) -> bool:
@@ -154,5 +139,13 @@ func _check_tokens(id:int) -> bool:
 		if id == token.get_collider_id():
 			tokens.erase(token)
 			item_selected.emit(token)
+			return true
+	return false
+
+
+func _check_interactables(id:int) -> bool:
+	for interactable in interactables:
+		if id == interactable.get_instance_id():
+			interactable_selected.emit(interactable)
 			return true
 	return false
