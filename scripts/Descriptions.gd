@@ -6,6 +6,7 @@ const LAMP_ACTIVE:String = "The lamp hovers, brightly lit, like the lamp above t
 
 static var descriptions:Dictionary
 static var rooms:Dictionary
+static var tokens:Dictionary
 
 
 static func load():
@@ -15,18 +16,15 @@ static func load():
 	
 	descriptions = JSON.parse_string(json_as_text)
 	rooms = descriptions["rooms"]
+	tokens = descriptions["tokens"]
 
 
 static func get_room_text(room_name:String) -> String:
 	return rooms[room_name.to_lower().replace("room","")]["text"]
 
 
-static func get_token_text(room_name:String,token_name:String) -> String:
-	return rooms[
-		room_name.to_lower().replace("room","")
-	]["tokens"][
-		token_name.to_lower().replace("token","")
-	]
+static func get_token_text(token_name:String) -> String:
+	return tokens[token_name.to_lower().replace("token","")]
 
 
 static func get_interactable_text(room_name:String,interactable:Interactable) -> String:

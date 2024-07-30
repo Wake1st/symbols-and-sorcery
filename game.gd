@@ -82,7 +82,7 @@ func handle_spell_cast(spell:Spells.TYPE,collider_id:int) -> void:
 
 func handle_item_pickup(item:TokenBase) -> void:
 	player.pick_up(item)
-	naration.add_text(Descriptions.get_token_text(currentRoom.name,item.name))
+	naration.add_text(Descriptions.get_token_text(item.name))
 
 
 func handle_iteractable_selection(interactable:Interactable) -> void:

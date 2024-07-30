@@ -9,10 +9,7 @@
 				}
 			},
 			"tokens": {
-				"light": {
-					"picked_up": false,
-					"text": "  The token sits alone, atop the center of a pillar."
-				}
+				"light": "  The token sits alone, atop the center of a pillar.",
 			},
 			"interactables": {
 				"doorlamp": {
@@ -39,14 +36,8 @@
 				},
 			},
 			"tokens": {
-				"fire": {
-					"picked_up": false,
-					"text": "  The token sits on a pillar, next to a wooden stump."
-				},
-				"cold": {
-					"picked_up": false,
-					"text": "  The token sits on a pillar, next to a bowl of water."
-				}
+				"fire": "  The token sits on a pillar, next to a wooden stump.",
+				"cold": "  The token sits on a pillar, next to a bowl of water.",
 			},
 			"interactables": {
 				"freeze": {
@@ -59,6 +50,26 @@
 					"activate": "  The stump turns dark instantly, then slowly starts to glow and radiate heat; the shield on the door near you dissipate.",
 					"active": "  A burning, wooden stump sits in the center of a pillar."
 				},
+				"swlamp": {
+					"inactive": "  The lamp hovers near a jutting corner, dimly lit. You can barely see anything around it.",
+					"activate": "  The lamp flicters, turning bright. You can now see a pillar beneath it, upon which sits a bowl of water.",
+					"active": "  The lamp hovers, brightly lit; beneath it sits a pillar, upon which sits a bowl of water."
+				},
+				"nwlamp": {
+					"inactive": "  The lamp hovers near a jutting corner, dimly lit. You can barely see anything around it.",
+					"activate": "  The lamp flicters, turning bright. You can now see a pillar beneath it, upon which sits a bowl of ice.",
+					"active": "  The lamp hovers, brightly lit; beneath it sits a pillar, upon which sits a bowl of ice."
+				},
+				"nelamp": {
+					"inactive": "  The lamp hovers near a jutting corner, dimly lit. You can barely see anything around it.",
+					"activate": "  The lamp flicters, turning bright. You can now see a pillar beneath it, upon which sits an empty bowl.",
+					"active": "  The lamp hovers, brightly lit; beneath it sits a pillar, upon which sits an empty bowl."
+				},
+				"selamp": {
+					"inactive": "  The lamp hovers near a jutting corner, dimly lit. You can barely see anything around it.",
+					"activate": "  The lamp flicters, turning bright. You can now see a pillar beneath it, upon which sits a bowl of water.",
+					"active": "  The lamp hovers, brightly lit; beneath it sits a pillar, upon which sits a bowl of water."
+				}
 			}
 		},
 		"boiler": {
@@ -95,20 +106,10 @@
 		}
 	},
 	"tokens": {
-		"light": {
-			"engraving": "  A dot in the center, surrounded by two lines. The lines curve outward; the one above sweeping down and to the left, the one below sweeping up and to the right."
-		},
-		"fire": {
-			"engraving": "  Two slanted, verticle lines, connected at the bottom, and curving up and away from each other."
-		},
-		"cold": {
-			"engraving": "  A single, curved line, starting at the bottom left, sweeping up, then over to the right, then back down to the bottom."
-		},
-		"rotation": {
-			"engraving": "  Four curved lines, encircling the middle of the token; they start on the inside, curving outward then sweeping counter-clockwise, pointing tangential to the center, forming a spiral."
-		},
-		"derotation": {
-			"engraving": "  Four curved lines, encircling the middle of the token; they start on the inside, curving clockwise then outward, pointing away from the center, forming an anti-spiral."
-		}
+		"light": "  A dot in the center, surrounded by two lines. The lines curve outward; the one above sweeping down and to the left, the one below sweeping up and to the right.",
+		"fire": "  Two slanted, verticle lines, connected at the bottom, and curving up and away from each other.",
+		"cold": "  A single, curved line, starting at the bottom left, sweeping up, then over to the right, then back down to the bottom.",
+		"rotation": "  Four curved lines, encircling the middle of the token; they start on the inside, curving outward then sweeping counter-clockwise, pointing tangential to the center, forming a spiral.",
+		"derotation": "  Four curved lines, encircling the middle of the token; they start on the inside, curving clockwise then outward, pointing away from the center, forming an anti-spiral."
 	}
 }
